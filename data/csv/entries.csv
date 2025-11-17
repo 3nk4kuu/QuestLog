@@ -1,0 +1,4 @@
+entryId,userId,gameId,status,startedOn,completedOn,tags
+e001,u001,g001,COMPLETED,2025-05-01,2025-05-21,Metroidvania;Indie
+e002,u001,g002,IN_PROGRESS,2025-09-10,,Farming;Relaxing
+e003,u002,g003,NOT_STARTED,,,Action;OpenWorld
