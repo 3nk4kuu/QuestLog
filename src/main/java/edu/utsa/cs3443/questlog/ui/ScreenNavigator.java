@@ -31,9 +31,7 @@ public final class ScreenNavigator {
         }
     }
 
-    public static void showLogin() {
-        show("/view/login/login.fxml");
-    }
+    public static void showLogin() { show("/view/login/login.fxml"); }
 
     public static void showRegister() {
         show("/view/login/register.fxml");

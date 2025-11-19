@@ -1,24 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/21"
+<BorderPane prefHeight="1024" prefWidth="1440"
+            style="-fx-background-color: linear-gradient(to right, #FFFFFF, #E4E4E4);"
+            xmlns="http://javafx.com/javafx/17.0.12"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="edu.utsa.cs3443.questlog.ui.LoginController">
-    <children>
-        <VBox alignment="CENTER" spacing="16.0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
-              AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
-            <Label text="QuestLog" styleClass="logo-title"/>
 
-            <TextField fx:id="emailField" promptText="Email"/>
-            <PasswordField fx:id="passwordField" promptText="Password"/>
+    <center>
+        <VBox alignment="CENTER" spacing="40">
 
-            <Button text="Log In" onAction="#onLoginClicked" maxWidth="200"/>
+            <Label styleClass="title-label" text="QuestLog">
+            <font>
+               <Font name="System Bold" size="100.0" />
+            </font></Label>
 
-            <Hyperlink text="Create Account" onAction="#onCreateAccountClicked"/>
+            <VBox spacing="20">
+                <VBox>
+                    <Label styleClass="input-label" text="Username">
+                  <VBox.margin>
+                     <Insets left="300.0" right="300.0" />
+                  </VBox.margin>
+                  <font>
+                     <Font size="30.0" />
+                  </font></Label>
+                    <TextField fx:id="usernameField" prefWidth="350" styleClass="input-field">
+                  <VBox.margin>
+                     <Insets left="300.0" right="300.0" />
+                  </VBox.margin>
+                  <padding>
+                     <Insets bottom="20.0" top="20.0" />
+                  </padding></TextField>
+                </VBox>
 
-            <Label fx:id="errorLabel" textFill="red" visible="false"/>
+                <VBox>
+                    <Label styleClass="input-label" text="Password">
+                  <font>
+                     <Font size="30.0" />
+                  </font></Label>
+                    <PasswordField fx:id="passwordField" prefWidth="350" styleClass="input-field">
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+                  <padding>
+                     <Insets bottom="20.0" top="20.0" />
+                  </padding></PasswordField>
+               <VBox.margin>
+                  <Insets left="300.0" right="300.0" />
+               </VBox.margin>
+                </VBox>
+            </VBox>
+
+            <Button fx:id="loginButton" prefHeight="50" prefWidth="350" styleClass="login-button" text="Log In">
+            <font>
+               <Font size="30.0" />
+            </font></Button>
+
+            <HBox alignment="CENTER">
+                <Label styleClass="subtext" text="Need an account?">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+                <Hyperlink fx:id="registerLink" styleClass="register-link" text="Register">
+               <font>
+                  <Font size="16.0" />
+               </font></Hyperlink>
+            </HBox>
+
         </VBox>
-    </children>
-</AnchorPane>
+    </center>
+
+</BorderPane>
