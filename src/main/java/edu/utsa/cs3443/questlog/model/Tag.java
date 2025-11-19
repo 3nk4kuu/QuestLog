@@ -1,0 +1,6 @@
+package edu.utsa.cs3443.questlog.model;
+
+public enum Tag {
+    BACKLOG, PLAYING, COMPLETED, ON_HOLD, DROPPED
+}
+
