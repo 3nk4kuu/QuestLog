@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="edu.utsa.cs3443.questlog.ui.GameCardController"
+           styleClass="game-card">
+
+    <VBox alignment="TOP_CENTER" spacing="6" prefWidth="140">
+        <ImageView fx:id="coverImageView" fitWidth="140" fitHeight="180" preserveRatio="true"/>
+
+        <Label fx:id="titleLabel" text="Game Title" wrapText="true" maxWidth="140"/>
+        <Label fx:id="platformLabel" text="Platform" styleClass="platform-label"/>
+
+        <ProgressBar fx:id="progressBar" prefWidth="120"/>
+
+        <Label fx:id="statusLabel" text="Playing" styleClass="status-label"/>
+    </VBox>
+
+</StackPane>

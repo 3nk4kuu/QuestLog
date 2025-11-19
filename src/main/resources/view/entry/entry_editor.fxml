@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.utsa.cs3443.questlog.ui.EntryEditorController"
+            prefWidth="900" prefHeight="550">
+
+    <top>
+        <HBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Button text="Back" onAction="#onBackClicked"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="headerLabel"
+                   text="Create Entry"
+                   styleClass="screen-title"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="10" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <ImageView fx:id="coverImageView"
+                       fitWidth="220" fitHeight="300"
+                       preserveRatio="true"/>
+
+            <Button text="Change Cover…" onAction="#onChangeCoverClicked"/>
+
+            <fx:include source="../components/rating_hearts.fxml"/>
+        </VBox>
+    </left>
+
+    <center>
+        <GridPane hgap="10" vgap="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <columnConstraints>
+                <ColumnConstraints percentWidth="30"/>
+                <ColumnConstraints percentWidth="70"/>
+            </columnConstraints>
+
+            <Label text="Title:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="titleField"
+                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Platform:"
+                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="platformCombo"
+                      GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Status:"
+                   GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="statusCombo"
+                      GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Start Date:"
+                   GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="startDatePicker"
+                        GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Completion Date:"
+                   GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="completionDatePicker"
+                        GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            <Label text="Notes:"
+                   GridPane.rowIndex="5" GridPane.columnIndex="0"
+                   GridPane.valignment="TOP"/>
+
+            <TextArea fx:id="notesArea"
+                      GridPane.rowIndex="5" GridPane.columnIndex="1"
+                      prefRowCount="8"/>
+        </GridPane>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label fx:id="errorLabel" textFill="red" HBox.hgrow="ALWAYS"/>
+            <Button text="Save" onAction="#onSaveClicked"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.utsa.cs3443.questlog.ui.StatsController"
+            prefWidth="900" prefHeight="550">
+
+    <top>
+        <HBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Stats" styleClass="screen-title"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Total Games:"/>
+            <Label text="Completed:"/>
+            <Label text="Playing:"/>
+            <Label text="Backlog:"/>
+            <!-- later: charts, graphs, etc. -->
+        </VBox>
+    </center>
+
+    <bottom>
+        <fx:include source="../components/toolbar.fxml"/>
+    </bottom>
+
+</BorderPane>

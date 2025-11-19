@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.utsa.cs3443.questlog.ui.EntryViewController"
+            prefWidth="900" prefHeight="550">
+
+    <top>
+        <HBox spacing="10" padding="10">
+            <Button text="Back" onAction="#onBackClicked"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Edit" onAction="#onEditClicked"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox alignment="TOP_CENTER" spacing="10" padding="10">
+            <ImageView fx:id="coverImageView" fitWidth="220" fitHeight="300" preserveRatio="true"/>
+            <fx:include source="../components/rating_hearts.fxml"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="8" 
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        >
+            <Label fx:id="titleLabel" text="Game Title" styleClass="screen-title"/>
+            <Label fx:id="metaLabel" text="Platform • 2020" styleClass="subtitle-label"/>
+
+            <Label text="Notes:" styleClass="section-title"/>
+            <TextArea fx:id="notesArea" editable="false" wrapText="true" prefRowCount="15"/>
+        </VBox>
+    </center>
+
+</BorderPane>

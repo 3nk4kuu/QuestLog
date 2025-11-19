@@ -1,16 +1,72 @@
 package edu.utsa.cs3443.questlog.model;
 
+import java.time.LocalDate;
+
 public class GameEntry {
-    private final String id;
-    private final String userId;
+
+    private String id;
     private String title;
-    private LocalDate releaseDate;
+    private Platform platform;
+    private Status status;
     private LocalDate startDate;
     private LocalDate completionDate;
-    private Game platform;
-    private Tag status;        // BACKLOG, PLAYING, COMPLETED, DROPPED, etc.
-    private int rating;           // 0–5 hearts
     private String notes;
-    private String imagePath;     // local file path or URL
-}
 
+    public GameEntry(String id) {
+        this.id = id;
+    }
+
+    // --- Getters ---
+    public String getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Platform getPlatform() {
+        return platform;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public LocalDate getCompletionDate() {
+        return completionDate;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    // --- Setters ---
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setPlatform(Platform platform) {
+        this.platform = platform;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setCompletionDate(LocalDate completionDate) {
+        this.completionDate = completionDate;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+}

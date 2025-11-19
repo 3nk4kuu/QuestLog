@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="edu.utsa.cs3443.questlog.ui.RegisterController"
+      alignment="CENTER" spacing="12.0" prefWidth="600" prefHeight="400">
+    <Label text="Create Account" styleClass="screen-title"/>
+
+    <TextField fx:id="usernameField" promptText="Username"/>
+    <TextField fx:id="emailField" promptText="Email"/>
+    <PasswordField fx:id="passwordField" promptText="Password"/>
+    <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password"/>
+
+    <HBox spacing="10">
+        <Button text="Back" onAction="#onBackClicked"/>
+        <Button text="Register" onAction="#onRegisterClicked"/>
+    </HBox>
+
+    <Label fx:id="errorLabel" textFill="red" visible="false"/>
+</VBox>

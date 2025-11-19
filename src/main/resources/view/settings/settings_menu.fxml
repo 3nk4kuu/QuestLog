@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="edu.utsa.cs3443.questlog.ui.SettingsMenuController"
+      spacing="12">
+
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <HBox spacing="10">
+        <Button text="Back" onAction="#onBackClicked"/>
+        <Label text="Settings" styleClass="screen-title"/>
+    </HBox>
+
+    <Separator/>
+
+    <Button text="Account"
+            onAction="#onAccountClicked"
+            maxWidth="Infinity"/>
+    <Button text="Appearance"
+            onAction="#onAppearanceClicked"
+            maxWidth="Infinity"/>
+    <Button text="Credits"
+            onAction="#onCreditsClicked"
+            maxWidth="Infinity"/>
+
+</VBox>

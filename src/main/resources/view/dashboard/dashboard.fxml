@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.utsa.cs3443.questlog.ui.DashboardController"
+            prefWidth="1024" prefHeight="600">
+
+    <!-- Top: greeting + sort/filter -->
+    <top>
+        <VBox spacing="8">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label fx:id="welcomeLabel"
+                   text="Welcome back, User00"
+                   styleClass="screen-title"/>
+
+            <HBox spacing="8">
+                <Label text="Sort by:"/>
+                <ComboBox fx:id="sortCombo"/>
+
+                <Label text="Status:"/>
+                <ComboBox fx:id="statusFilterCombo"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Add Entry" onAction="#onAddEntryClicked"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Center: grid/list of game cards -->
+    <center>
+        <ScrollPane fitToWidth="true">
+            <content>
+                <FlowPane fx:id="gamesFlowPane" hgap="10" vgap="10">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+                </FlowPane>
+            </content>
+        </ScrollPane>
+    </center>
+
+    <!-- Bottom: toolbar -->
+    <bottom>
+        <fx:include source="../components/toolbar.fxml"/>
+    </bottom>
+
+</BorderPane>

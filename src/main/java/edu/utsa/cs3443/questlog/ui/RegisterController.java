@@ -5,10 +5,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class LoginController {
+public class RegisterController {
 
+    @FXML private TextField usernameField;
     @FXML private TextField emailField;
     @FXML private PasswordField passwordField;
+    @FXML private PasswordField confirmPasswordField;
     @FXML private Label errorLabel;
 
     @FXML
@@ -17,17 +19,15 @@ public class LoginController {
     }
 
     @FXML
-    private void onLoginClicked() {
-        // TODO: use AuthService to validate
-        // If success:
-        ScreenNavigator.showDashboard();
-        // else:
-        // errorLabel.setText("Invalid credentials");
-        // errorLabel.setVisible(true);
+    private void onBackClicked() {
+        ScreenNavigator.showLogin();
     }
 
     @FXML
-    private void onCreateAccountClicked() {
-        ScreenNavigator.showRegister();
+    private void onRegisterClicked() {
+        // TODO: validate + call AuthService.register
+        // If success:
+        ScreenNavigator.showLogin();
+        // else set errorLabel
     }
 }
