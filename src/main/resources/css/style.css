@@ -1,0 +1,54 @@
+/* Global font */
+.root {
+    -fx-font-family: "Jersey";
+    -fx-font-size: 10px;
+}
+
+/* TextFields and PasswordFields */
+.text-field, .password-field {
+    -fx-border-color: grey;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5;
+    -fx-text-fill: #555555; /* grey text */
+    -fx-background-color: white;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #333333;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #00FF00; /* vibrant green */
+    -fx-text-fill: darkgreen;
+    -fx-background-radius: 5;
+    -fx-padding: 5 10 5 10;
+    -fx-font-family: "Jersey";
+    -fx-font-size: 10px;
+}
+
+.button:hover {
+    -fx-background-color: #00CC00;
+}
+
+/* Login bar or special bars */
+.login-bar {
+    -fx-background-color: #00FF00;
+    -fx-text-fill: darkgreen;
+    -fx-font-family: "Jersey";
+    -fx-font-size: 10px;
+    -fx-alignment: center;
+}
+
+/* CheckBoxes and ToggleButtons */
+.check-box, .toggle-button {
+    -fx-text-fill: #333333;
+}
+
+/* ProgressBar styling (optional) */
+.progress-bar {
+    -fx-accent: #00FF00;
+}

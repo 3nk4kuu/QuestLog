@@ -10,6 +10,7 @@ public class GameEntry {
     private Status status;
     private LocalDate startDate;
     private LocalDate completionDate;
+    private LocalDate releaseDate;
     private String notes;
 
     public GameEntry(String id) {
@@ -41,6 +42,9 @@ public class GameEntry {
         return completionDate;
     }
 
+    public LocalDate getReleaseDate() { return releaseDate;
+    }
+
     public String getNotes() {
         return notes;
     }
@@ -66,6 +70,9 @@ public class GameEntry {
         this.completionDate = completionDate;
     }
 
+    public void setReleaseDate(LocalDate releaseDate) {
+        this.releaseDate = releaseDate;
+    }
     public void setNotes(String notes) {
         this.notes = notes;
     }

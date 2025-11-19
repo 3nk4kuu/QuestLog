@@ -1,6 +1,7 @@
 package edu.utsa.cs3443.questlog.ui;
 
 import edu.utsa.cs3443.questlog.model.GameEntry;
+import edu.utsa.cs3443.questlog.model.Platform;
 import edu.utsa.cs3443.questlog.model.Status;
 import edu.utsa.cs3443.questlog.model.Status;
 import javafx.fxml.FXML;
@@ -15,7 +16,7 @@ public class EntryEditorController {
     @FXML private Label headerLabel;
     @FXML private ImageView coverImageView;
     @FXML private TextField titleField;
-    @FXML private ComboBox<Status> platformCombo;
+    @FXML private ComboBox<Platform> platformCombo;
     @FXML private ComboBox<Status> statusCombo;
     @FXML private DatePicker startDatePicker;
     @FXML private DatePicker completionDatePicker;
@@ -27,7 +28,7 @@ public class EntryEditorController {
     @FXML
     private void initialize() {
         errorLabel.setVisible(false);
-        platformCombo.getItems().setAll(Status.values());
+        platformCombo.getItems().setAll(Platform.values());
         statusCombo.getItems().setAll(Status.values());
         headerLabel.setText("Create Entry");
     }
