@@ -5,18 +5,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="1024" prefWidth="1440"
-            style="-fx-background-color: linear-gradient(to right, #FFFFFF, #E4E4E4);"
-            xmlns="http://javafx.com/javafx/17.0.12"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="edu.utsa.cs3443.questlog.ui.LoginController">
+<BorderPane prefHeight="1024" prefWidth="1440" style="-fx-background-color: linear-gradient(to right, #FFFFFF, #E4E4E4);" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.questlog.ui.LoginController">
 
     <center>
         <VBox alignment="CENTER" spacing="40">
 
             <Label styleClass="title-label" text="QuestLog">
             <font>
-               <Font name="System Bold" size="100.0" />
+               <Font name="JetBrains Mono ExtraBold" size="100.0" />
             </font></Label>
 
             <VBox spacing="20">
@@ -26,29 +22,29 @@
                      <Insets left="300.0" right="300.0" />
                   </VBox.margin>
                   <font>
-                     <Font size="30.0" />
+                     <Font name="JetBrains Mono Regular" size="30.0" />
                   </font></Label>
                     <TextField fx:id="usernameField" prefWidth="350" styleClass="input-field">
                   <VBox.margin>
                      <Insets left="300.0" right="300.0" />
                   </VBox.margin>
-                  <padding>
-                     <Insets bottom="20.0" top="20.0" />
-                  </padding></TextField>
+                  <font>
+                     <Font name="JetBrains Mono Regular" size="30.0" />
+                  </font></TextField>
                 </VBox>
 
                 <VBox>
                     <Label styleClass="input-label" text="Password">
                   <font>
-                     <Font size="30.0" />
+                     <Font name="JetBrains Mono Regular" size="30.0" />
                   </font></Label>
                     <PasswordField fx:id="passwordField" prefWidth="350" styleClass="input-field">
                   <VBox.margin>
                      <Insets />
                   </VBox.margin>
-                  <padding>
-                     <Insets bottom="20.0" top="20.0" />
-                  </padding></PasswordField>
+                  <font>
+                     <Font size="30.0" />
+                  </font></PasswordField>
                <VBox.margin>
                   <Insets left="300.0" right="300.0" />
                </VBox.margin>
@@ -57,17 +53,17 @@
 
             <Button fx:id="loginButton" prefHeight="50" prefWidth="350" styleClass="login-button" text="Log In">
             <font>
-               <Font size="30.0" />
+               <Font name="JetBrains Mono Medium" size="30.0" />
             </font></Button>
 
             <HBox alignment="CENTER">
                 <Label styleClass="subtext" text="Need an account?">
                <font>
-                  <Font size="16.0" />
+                  <Font name="JetBrains Mono Regular" size="20.0" />
                </font></Label>
                 <Hyperlink fx:id="registerLink" styleClass="register-link" text="Register">
                <font>
-                  <Font size="16.0" />
+                  <Font name="JetBrains Mono Regular" size="20.0" />
                </font></Hyperlink>
             </HBox>
 
