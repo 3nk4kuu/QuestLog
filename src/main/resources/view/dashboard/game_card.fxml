@@ -18,7 +18,9 @@
         <Label fx:id="titleLabel"
                text="Game Title"
                wrapText="true"
-               maxWidth="140"/>
+               maxWidth="140"
+               alignment="CENTER"
+               textAlignment="CENTER"/>
 
         <Label fx:id="platformLabel"
                text="Platform"
