@@ -30,7 +30,7 @@ public class EntryEditorController {
     @FXML private ToggleButton eHeart4;
     @FXML private ToggleButton eHeart5;
 
-    @FXML private Button deleteButton; // new
+    @FXML private Button deleteButton;
 
     private int currentRating = 0; // 0–5
     private String selectedCoverPath;
