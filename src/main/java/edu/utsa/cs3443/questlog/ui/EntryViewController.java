@@ -1,5 +1,6 @@
 package edu.utsa.cs3443.questlog.ui;
 
+import edu.utsa.cs3443.questlog.ui.ScreenNavigator;
 import edu.utsa.cs3443.questlog.model.GameEntry;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -13,6 +14,7 @@ public class EntryViewController {
     @FXML private Label titleLabel;
     @FXML private Label metaLabel;
     @FXML private TextArea notesArea;
+
 
     // TODO: reference to rating component if needed
 
@@ -34,6 +36,6 @@ public class EntryViewController {
     @FXML
     private void onEditClicked() {
         // For now just go to editor; later pass entry instance
-        ScreenNavigator.showEntryEditor();
+        ScreenNavigator.showEntryEditor(entry);
     }
 }

@@ -12,6 +12,7 @@ public class RatingHeartsController {
     @FXML private ToggleButton heart5;
 
     private int rating = 0;
+    private boolean interactive = true;
 
     @FXML
     private void initialize() {
@@ -20,12 +21,26 @@ public class RatingHeartsController {
 
     @FXML
     private void onHeartClicked() {
-        // Determine which heart was clicked
-        if (heart1.isArmed()) rating = 1;
-        if (heart2.isArmed()) rating = 2;
-        if (heart3.isArmed()) rating = 3;
-        if (heart4.isArmed()) rating = 4;
-        if (heart5.isArmed()) rating = 5;
+        if (!interactive) {
+            return; // ignore clicks when in read-only mode
+        }
+
+        // figure out which heart was clicked
+        ToggleButton source = null;
+        if (heart1.isArmed()) source = heart1;
+        else if (heart2.isArmed()) source = heart2;
+        else if (heart3.isArmed()) source = heart3;
+        else if (heart4.isArmed()) source = heart4;
+        else if (heart5.isArmed()) source = heart5;
+
+        if (source == null) return;
+
+        if (source == heart1) rating = 1;
+        else if (source == heart2) rating = 2;
+        else if (source == heart3) rating = 3;
+        else if (source == heart4) rating = 4;
+        else if (source == heart5) rating = 5;
+
         updateHearts();
     }
 
@@ -44,5 +59,9 @@ public class RatingHeartsController {
     public void setRating(int rating) {
         this.rating = Math.max(0, Math.min(5, rating));
         updateHearts();
+    }
+
+    public void setInteractive(boolean interactive) {
+        this.interactive = interactive;
     }
 }

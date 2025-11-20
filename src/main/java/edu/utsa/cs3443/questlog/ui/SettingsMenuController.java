@@ -11,16 +11,17 @@ public class SettingsMenuController {
 
     @FXML
     private void onAccountClicked() {
-        ScreenNavigator.show("/view/settings/manage_account.fxml");
+        ScreenNavigator.showManageAccount();
     }
 
     @FXML
     private void onAppearanceClicked() {
-        ScreenNavigator.show("/view/settings/appearance.fxml");
+        ScreenNavigator.showAppearance();
     }
 
     @FXML
     private void onCreditsClicked() {
-        ScreenNavigator.show("/view/settings/credits.fxml");
+        ScreenNavigator.showCredits();
     }
+
 }
