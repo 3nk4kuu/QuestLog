@@ -14,22 +14,36 @@
             <padding>
                 <Insets top="10" right="10" bottom="10" left="10"/>
             </padding>
-
             <Label text="Stats" styleClass="screen-title"/>
         </HBox>
     </top>
 
     <center>
-        <VBox spacing="10">
+        <VBox spacing="12">
             <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
+                <Insets top="20" right="10" bottom="10" left="10"/>
             </padding>
 
-            <Label text="Total Games:"/>
-            <Label text="Completed:"/>
-            <Label text="Playing:"/>
-            <Label text="Backlog:"/>
-            <!-- later: charts, graphs, etc. -->
+            <HBox spacing="8">
+                <Label text="Total Games:"/>
+                <Label fx:id="totalGamesLabel" text="0"/>
+            </HBox>
+
+            <HBox spacing="8">
+                <Label text="Completed:"/>
+                <Label fx:id="completedLabel" text="0"/>
+            </HBox>
+
+            <HBox spacing="8">
+                <Label text="Playing:"/>
+                <Label fx:id="playingLabel" text="0"/>
+            </HBox>
+
+            <HBox spacing="8">
+                <Label text="Backlog:"/>
+                <Label fx:id="backlogLabel" text="0"/>
+            </HBox>
+
         </VBox>
     </center>
 

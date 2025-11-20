@@ -7,27 +7,26 @@ import javafx.scene.control.TextField;
 
 public class LoginController {
 
-    @FXML private TextField emailField;
+    @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
     @FXML private Label errorLabel;
 
     @FXML
     private void initialize() {
-        errorLabel.setVisible(false);
+        // Guard against FXML issues; but if everything is wired, this will be non-null
+        if (errorLabel != null) {
+            errorLabel.setVisible(false);
+        }
     }
 
     @FXML
     private void onLoginClicked() {
-        // TODO: use AuthService to validate
-        // If success:
+        // TODO: real auth later; for now always go to dashboard
         ScreenNavigator.showDashboard();
-        // else:
-        // errorLabel.setText("Invalid credentials");
-        // errorLabel.setVisible(true);
     }
 
     @FXML
-    private void onCreateAccountClicked() {
+    private void onRegisterClicked() {
         ScreenNavigator.showRegister();
     }
 }

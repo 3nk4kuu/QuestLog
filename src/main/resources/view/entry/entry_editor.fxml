@@ -2,98 +2,181 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21"
+<BorderPane prefHeight="1024.0" prefWidth="1440.0"
+            xmlns="http://javafx.com/javafx/24.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="edu.utsa.cs3443.questlog.ui.EntryEditorController"
-            prefWidth="900" prefHeight="550">
+            fx:controller="edu.utsa.cs3443.questlog.ui.EntryEditorController">
 
+    <!-- Top: Back / Title / Save -->
     <top>
-        <HBox spacing="10">
+        <HBox alignment="CENTER" spacing="400.0" BorderPane.alignment="CENTER">
             <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
+                <Insets bottom="30.0" left="20.0" right="20.0" top="30.0"/>
             </padding>
 
-            <Button text="Back" onAction="#onBackClicked"/>
-            <Region HBox.hgrow="ALWAYS"/>
+            <Button onAction="#onBackClicked"
+                    prefHeight="65.0" prefWidth="140.0"
+                    styleClass="login-button"
+                    text="Back">
+                <font>
+                    <Font name="JetBrains Mono Medium" size="30"/>
+                </font>
+            </Button>
+
             <Label fx:id="headerLabel"
-                   text="Create Entry"
-                   styleClass="screen-title"/>
+                   styleClass="title-label"
+                   text="Create Entry">
+                <font>
+                    <Font name="JetBrains Mono ExtraBold" size="30.0"/>
+                </font>
+            </Label>
+
+            <Button onAction="#onSaveClicked"
+                    prefHeight="65.0" prefWidth="140.0"
+                    styleClass="login-button"
+                    text="Save">
+                <font>
+                    <Font name="JetBrains Mono Medium" size="30"/>
+                </font>
+            </Button>
         </HBox>
     </top>
 
+    <!-- Left: cover + change button + rating hearts -->
     <left>
-        <VBox spacing="10" alignment="TOP_CENTER">
+        <VBox alignment="TOP_CENTER"
+              prefHeight="919.0" prefWidth="563.0"
+              spacing="25">
             <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
+                <Insets bottom="30.0" left="50.0" right="50.0" top="30.0"/>
             </padding>
 
             <ImageView fx:id="coverImageView"
-                       fitWidth="220" fitHeight="300"
+                       fitHeight="585.0" fitWidth="407.0"
                        preserveRatio="true"/>
 
-            <Button text="Change Cover…" onAction="#onChangeCoverClicked"/>
+            <Button onAction="#onChangeCoverClicked"
+                    prefHeight="45" prefWidth="250"
+                    styleClass="login-button"
+                    text="Change Cover…">
+                <font>
+                    <Font name="JetBrains Mono Medium" size="30.0"/>
+                </font>
+            </Button>
 
-            <fx:include source="../components/rating_hearts.fxml"/>
+            <!-- Hearts directly declared here, hooked to onHeartClicked -->
+            <HBox alignment="CENTER" spacing="4">
+                <ToggleButton fx:id="eHeart1" text="♡" onAction="#onHeartClicked"/>
+                <ToggleButton fx:id="eHeart2" text="♡" onAction="#onHeartClicked"/>
+                <ToggleButton fx:id="eHeart3" text="♡" onAction="#onHeartClicked"/>
+                <ToggleButton fx:id="eHeart4" text="♡" onAction="#onHeartClicked"/>
+                <ToggleButton fx:id="eHeart5" text="♡" onAction="#onHeartClicked"/>
+            </HBox>
         </VBox>
     </left>
 
+    <!-- Center: form fields + error label -->
     <center>
-        <GridPane hgap="10" vgap="10">
+        <GridPane hgap="25.0" vgap="30.0" prefWidth="967.0">
             <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
+                <Insets bottom="30.0" right="40.0" top="60.0"/>
             </padding>
 
             <columnConstraints>
-                <ColumnConstraints percentWidth="30"/>
-                <ColumnConstraints percentWidth="70"/>
+                <ColumnConstraints percentWidth="25.0"/>
+                <ColumnConstraints percentWidth="70.0"/>
             </columnConstraints>
 
-            <Label text="Title:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <!-- Title -->
+            <Label styleClass="input-label"
+                   text="Title:"
+                   GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <font>
+                    <Font name="JetBrains Mono Regular" size="30.0"/>
+                </font>
+            </Label>
             <TextField fx:id="titleField"
-                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                       prefHeight="40" prefWidth="300.0"
+                       styleClass="input-field"
+                       GridPane.columnIndex="1" GridPane.rowIndex="0"/>
 
-            <Label text="Platform:"
-                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <!-- Platform -->
+            <Label styleClass="input-label"
+                   text="Platform:"
+                   GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <font>
+                    <Font name="JetBrains Mono Regular" size="30.0"/>
+                </font>
+            </Label>
             <ComboBox fx:id="platformCombo"
-                      GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                      prefHeight="40" prefWidth="600"
+                      styleClass="input-field"
+                      GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
-            <Label text="Status:"
-                   GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <!-- Status -->
+            <Label styleClass="input-label"
+                   text="Status:"
+                   GridPane.columnIndex="0" GridPane.rowIndex="2">
+                <font>
+                    <Font name="JetBrains Mono Regular" size="30.0"/>
+                </font>
+            </Label>
             <ComboBox fx:id="statusCombo"
-                      GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                      prefHeight="40" prefWidth="600"
+                      styleClass="input-field"
+                      GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
-            <Label text="Start Date:"
-                   GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <!-- Started -->
+            <Label styleClass="input-label"
+                   text="Started:"
+                   GridPane.columnIndex="0" GridPane.rowIndex="3">
+                <font>
+                    <Font name="JetBrains Mono Regular" size="30.0"/>
+                </font>
+            </Label>
             <DatePicker fx:id="startDatePicker"
-                        GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                        prefHeight="40" prefWidth="600.0"
+                        styleClass="input-field"
+                        GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
-            <Label text="Completion Date:"
-                   GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <!-- Completed -->
+            <Label styleClass="input-label"
+                   text="Completed:"
+                   GridPane.columnIndex="0" GridPane.rowIndex="4">
+                <font>
+                    <Font name="JetBrains Mono Regular" size="30.0"/>
+                </font>
+            </Label>
             <DatePicker fx:id="completionDatePicker"
-                        GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                        prefHeight="40" prefWidth="600.0"
+                        styleClass="input-field"
+                        GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
-            <Label text="Notes:"
-                   GridPane.rowIndex="5" GridPane.columnIndex="0"
-                   GridPane.valignment="TOP"/>
-
+            <!-- Notes -->
+            <Label styleClass="input-label"
+                   text="Notes:"
+                   GridPane.columnIndex="0" GridPane.rowIndex="5"
+                   GridPane.valignment="TOP">
+                <font>
+                    <Font name="JetBrains Mono Regular" size="30.0"/>
+                </font>
+            </Label>
             <TextArea fx:id="notesArea"
-                      GridPane.rowIndex="5" GridPane.columnIndex="1"
-                      prefRowCount="8"/>
+                      prefHeight="250" prefWidth="600"
+                      styleClass="input-field"
+                      GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+            <!-- Error label -->
+            <Label fx:id="errorLabel"
+                   text="Error message"
+                   textFill="red"
+                   visible="false"
+                   GridPane.columnIndex="1" GridPane.rowIndex="6"/>
         </GridPane>
     </center>
-
-    <bottom>
-        <HBox spacing="10" alignment="CENTER_RIGHT">
-            <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
-            </padding>
-
-            <Label fx:id="errorLabel" textFill="red" HBox.hgrow="ALWAYS"/>
-            <Button text="Save" onAction="#onSaveClicked"/>
-        </HBox>
-    </bottom>
 
 </BorderPane>
