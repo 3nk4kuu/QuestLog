@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+
 import java.io.File;
 import java.time.LocalDate;
 
@@ -22,6 +23,7 @@ public class EntryEditorController {
     @FXML private DatePicker completionDatePicker;
     @FXML private TextArea notesArea;
     @FXML private Label errorLabel;
+
     @FXML private ToggleButton eHeart1;
     @FXML private ToggleButton eHeart2;
     @FXML private ToggleButton eHeart3;
@@ -36,11 +38,15 @@ public class EntryEditorController {
 
     @FXML
     private void initialize() {
-        errorLabel.setVisible(false);
+        if (errorLabel != null) {
+            errorLabel.setVisible(false);
+        }
+
         headerLabel.setText("Create Entry");
 
         platformCombo.getItems().setAll(Platform.values());
         statusCombo.getItems().setAll(Status.values());
+        updateEditorHearts();
     }
 
     public void setEditingEntry(GameEntry entry) {
@@ -55,8 +61,10 @@ public class EntryEditorController {
             startDatePicker.setValue(entry.getStartDate());
             completionDatePicker.setValue(entry.getCompletionDate());
             notesArea.setText(entry.getNotes());
+
             currentRating = entry.getRating();
             updateEditorHearts();
+
             selectedCoverPath = entry.getCoverImagePath();
             loadCoverImage();
 
@@ -66,6 +74,10 @@ public class EntryEditorController {
             updateEditorHearts();
             selectedCoverPath = null;
             loadCoverImage();
+        }
+
+        if (errorLabel != null) {
+            errorLabel.setVisible(false);
         }
     }
 
@@ -79,11 +91,11 @@ public class EntryEditorController {
         FileChooser chooser = new FileChooser();
         chooser.setTitle("Select Cover Image");
         chooser.getExtensionFilters().addAll(
-            new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif")
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif")
         );
 
         File file = chooser.showOpenDialog(coverImageView.getScene().getWindow());
-            if (file != null) {
+        if (file != null) {
             selectedCoverPath = file.getAbsolutePath();
             loadCoverImage();
         }
@@ -91,7 +103,9 @@ public class EntryEditorController {
 
     @FXML
     private void onSaveClicked() {
-        errorLabel.setVisible(false);
+        if (errorLabel != null) {
+            errorLabel.setVisible(false);
+        }
 
         String title = titleField.getText();
         Platform platform = platformCombo.getValue();
@@ -136,16 +150,18 @@ public class EntryEditorController {
     }
 
     private void showError(String msg) {
-        errorLabel.setText(msg);
-        errorLabel.setVisible(true);
+        if (errorLabel != null) {
+            errorLabel.setText(msg);
+            errorLabel.setVisible(true);
+        }
     }
 
     private void updateEditorHearts() {
-    ToggleButton[] hearts = { eHeart1, eHeart2, eHeart3, eHeart4, eHeart5 };
-    for (int i = 0; i < hearts.length; i++) {
-        boolean filled = i < currentRating;
-        hearts[i].setSelected(filled);
-        hearts[i].setText(filled ? "♥" : "♡");
+        ToggleButton[] hearts = { eHeart1, eHeart2, eHeart3, eHeart4, eHeart5 };
+        for (int i = 0; i < hearts.length; i++) {
+            boolean filled = i < currentRating;
+            hearts[i].setSelected(filled);
+            hearts[i].setText(filled ? "♥" : "♡");
         }
     }
 
@@ -171,5 +187,4 @@ public class EntryEditorController {
             coverImageView.setImage(null);
         }
     }
-
 }
