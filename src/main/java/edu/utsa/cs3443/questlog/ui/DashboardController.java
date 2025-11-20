@@ -28,6 +28,7 @@ public class DashboardController {
 
     @FXML
     private void initialize() {
+        // Later you can plug in actual username instead of "User00"
         welcomeLabel.setText("Welcome back, User00");
 
         // SORT OPTIONS
@@ -42,17 +43,17 @@ public class DashboardController {
         sortCombo.setPromptText("Sort By");
         sortCombo.valueProperty().addListener((obs, oldV, newV) -> refreshLibrary());
 
-        // PLATFORM FILTER
-        platformFilterCombo.getItems().add(null); // null = show all
+        // PLATFORM FILTER (null = show all)
+        platformFilterCombo.getItems().add(null);
         platformFilterCombo.getItems().addAll(Platform.values());
         platformFilterCombo.setPromptText("All Platforms");
-        platformFilterCombo.valueProperty().addListener((o, ov, nv) -> refreshLibrary());
+        platformFilterCombo.valueProperty().addListener((obs, ov, nv) -> refreshLibrary());
 
-        // STATUS FILTER
-        statusFilterCombo.getItems().add(null); // null = show all
+        // STATUS FILTER (null = show all)
+        statusFilterCombo.getItems().add(null);
         statusFilterCombo.getItems().addAll(Status.values());
         statusFilterCombo.setPromptText("All Statuses");
-        statusFilterCombo.valueProperty().addListener((o, ov, nv) -> refreshLibrary());
+        statusFilterCombo.valueProperty().addListener((obs, ov, nv) -> refreshLibrary());
 
         refreshLibrary();
     }
@@ -75,12 +76,29 @@ public class DashboardController {
         String sort = sortCombo.getValue();
         if (sort != null) {
             switch (sort) {
-                case "Title (A–Z)" -> entries.sort(Comparator.comparing(GameEntry::getTitle, String.CASE_INSENSITIVE_ORDER));
-                case "Title (Z–A)" -> entries.sort(Comparator.comparing(GameEntry::getTitle, String.CASE_INSENSITIVE_ORDER).reversed());
-                case "Rating (High→Low)" -> entries.sort(Comparator.comparingInt(GameEntry::getRating).reversed());
-                case "Rating (Low→High)" -> entries.sort(Comparator.comparingInt(GameEntry::getRating));
-                case "Platform" -> entries.sort(Comparator.comparing(e -> e.getPlatform() != null ? e.getPlatform().name() : ""));
-                case "Status" -> entries.sort(Comparator.comparing(e -> e.getStatus() != null ? e.getStatus().name() : ""));
+                case "Title (A–Z)" ->
+                        entries.sort(Comparator.comparing(
+                                GameEntry::getTitle,
+                                String.CASE_INSENSITIVE_ORDER));
+
+                case "Title (Z–A)" ->
+                        entries.sort(Comparator.comparing(
+                                GameEntry::getTitle,
+                                String.CASE_INSENSITIVE_ORDER).reversed());
+
+                case "Rating (High→Low)" ->
+                        entries.sort(Comparator.comparingInt(GameEntry::getRating).reversed());
+
+                case "Rating (Low→High)" ->
+                        entries.sort(Comparator.comparingInt(GameEntry::getRating));
+
+                case "Platform" ->
+                        entries.sort(Comparator.comparing(
+                                e -> e.getPlatform() != null ? e.getPlatform().name() : ""));
+
+                case "Status" ->
+                        entries.sort(Comparator.comparing(
+                                e -> e.getStatus() != null ? e.getStatus().name() : ""));
             }
         }
 
@@ -102,6 +120,11 @@ public class DashboardController {
 
     @FXML
     private void onAddEntryClicked() {
-        ScreenNavigator.showEntryEditor(null);
+        ScreenNavigator.showEntryEditor(null); // null → create mode
+    }
+
+    @FXML
+    private void onLogoutClicked() {
+        ScreenNavigator.showLogin();
     }
 }

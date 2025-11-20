@@ -10,6 +10,9 @@ import javafx.stage.Stage;
 
 public final class ScreenNavigator {
 
+    private static final double WINDOW_WIDTH = 1024;
+    private static final double WINDOW_HEIGHT = 768;
+
     private static Stage primaryStage;
 
     private ScreenNavigator() { }
@@ -17,19 +20,29 @@ public final class ScreenNavigator {
     public static void init(Stage stage) {
         primaryStage = stage;
         primaryStage.setTitle("QuestLog");
+        primaryStage.setWidth(WINDOW_WIDTH);
+        primaryStage.setHeight(WINDOW_HEIGHT);
+        primaryStage.setResizable(false);
     }
 
     private static void show(String fxmlPath) {
-        try {
-            FXMLLoader loader = new FXMLLoader(ScreenNavigator.class.getResource(fxmlPath));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException e) {
+    try {
+        FXMLLoader loader = new FXMLLoader(ScreenNavigator.class.getResource(fxmlPath));
+        Parent root = loader.load();
+
+        if (primaryStage.getScene() == null) {
+            primaryStage.setScene(new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT));
+        } else {
+            primaryStage.getScene().setRoot(root);
+        }
+
+        primaryStage.show();
+
+        }  catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
     public static void showLogin() { show("/view/login/login.fxml"); }
 
@@ -64,8 +77,11 @@ public static void showCredits() {
             EntryEditorController controller = loader.getController();
             controller.setEditingEntry(entry); // null = create, non-null = edit
 
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
+            if (primaryStage.getScene() == null) {
+                primaryStage.setScene(new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT));
+            } else {
+                primaryStage.getScene().setRoot(root);
+            }
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
