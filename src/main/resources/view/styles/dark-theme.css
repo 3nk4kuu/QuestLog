@@ -1,0 +1,49 @@
+.root {
+    -fx-background-color: #1A1B1E;
+    -fx-text-fill: #EEEEEE;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #EEEEEE;
+}
+
+/* Inputs */
+.text-field,
+.combo-box,
+.date-picker,
+.text-area {
+    -fx-background-color: #2A2C31;
+    -fx-border-color: #3A3C41;
+    -fx-border-radius: 8;
+    -fx-text-fill: #FFFFFF;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #2E3036, #25262B);
+    -fx-border-color: #3A3C41;
+    -fx-border-radius: 8;
+    -fx-text-fill: #FFFFFF;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #35373D, #2C2E33);
+}
+
+/* Toggle Buttons (hearts) */
+.toggle-button {
+    -fx-text-fill: #ff7597;
+}
+.toggle-button:selected {
+    -fx-text-fill: #ff4d79;
+}
+
+/* ScrollPane */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.flow-pane {
+    -fx-background-color: transparent;
+}

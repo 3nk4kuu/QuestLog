@@ -1,0 +1,51 @@
+.root {
+    -fx-font-family: "JetBrains Mono";
+    -fx-font-size: 16px;
+}
+
+/* Title labels (screen headers) */
+.title-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+}
+
+/* Input label (e.g., Title:, Platform:, Status:) */
+.input-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: 600;
+}
+
+/* Standard buttons */
+.button {
+    -fx-padding: 8 18;
+    -fx-background-radius: 8;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+}
+
+/* Text fields, combo boxes, date pickers */
+.text-field,
+.text-area,
+.combo-box,
+.date-picker {
+    -fx-background-radius: 8;
+    -fx-padding: 6;
+    -fx-font-size: 16px;
+}
+
+/* Hearts (rating) */
+.toggle-button {
+    -fx-background-color: transparent;
+    -fx-font-size: 28px;
+    -fx-padding: 0 4;
+}
+
+/* ScrollPane */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}

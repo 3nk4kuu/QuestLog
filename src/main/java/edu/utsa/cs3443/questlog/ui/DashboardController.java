@@ -29,7 +29,7 @@ public class DashboardController {
     @FXML
     private void initialize() {
         // Later you can plug in actual username instead of "User00"
-        welcomeLabel.setText("Welcome back, User00");
+        welcomeLabel.setText("Welcome back, admin");
 
         // SORT OPTIONS
         sortCombo.getItems().addAll(

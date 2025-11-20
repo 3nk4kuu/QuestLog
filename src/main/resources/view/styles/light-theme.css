@@ -1,0 +1,51 @@
+.root {
+    -fx-background-color: #F8F9FB;
+    -fx-text-fill: #1A1A1A;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #1A1A1A;
+}
+
+/* Inputs */
+.text-field,
+.combo-box,
+.date-picker,
+.text-area {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #D7D7D7;
+    -fx-border-radius: 8;
+    -fx-text-fill: #1A1A1A;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #FFFFFF, #E7E7E7);
+    -fx-border-color: #C8C8C8;
+    -fx-border-radius: 8;
+    -fx-text-fill: #1A1A1A;
+}
+
+/* Buttons when hovered */
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #FFFFFF, #DCDCDC);
+}
+
+/* Toggle Buttons (hearts) */
+.toggle-button {
+    -fx-text-fill: #cc3366;
+}
+.toggle-button:selected {
+    -fx-text-fill: #e60073;
+}
+
+/* ScrollPane background */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+/* FlowPane background (game grid) */
+.flow-pane {
+    -fx-background-color: transparent;
+}
