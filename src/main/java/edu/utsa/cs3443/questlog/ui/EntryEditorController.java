@@ -7,7 +7,8 @@ import edu.utsa.cs3443.questlog.service.EntryService;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-
+import javafx.stage.FileChooser;
+import java.io.File;
 import java.time.LocalDate;
 
 public class EntryEditorController {
@@ -28,7 +29,7 @@ public class EntryEditorController {
     @FXML private ToggleButton eHeart5;
 
     private int currentRating = 0; // 0–5
-
+    private String selectedCoverPath;
 
     private final EntryService entryService = EntryService.getInstance();
     private GameEntry editingEntry; // null = create
@@ -56,11 +57,15 @@ public class EntryEditorController {
             notesArea.setText(entry.getNotes());
             currentRating = entry.getRating();
             updateEditorHearts();
-            // TODO: cover image
+            selectedCoverPath = entry.getCoverImagePath();
+            loadCoverImage();
+
         } else {
             headerLabel.setText("Create Entry");
             currentRating = 0;
             updateEditorHearts();
+            selectedCoverPath = null;
+            loadCoverImage();
         }
     }
 
@@ -71,7 +76,17 @@ public class EntryEditorController {
 
     @FXML
     private void onChangeCoverClicked() {
-        // TODO: FileChooser to select image, set path on entry
+        FileChooser chooser = new FileChooser();
+        chooser.setTitle("Select Cover Image");
+        chooser.getExtensionFilters().addAll(
+            new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+
+        File file = chooser.showOpenDialog(coverImageView.getScene().getWindow());
+            if (file != null) {
+            selectedCoverPath = file.getAbsolutePath();
+            loadCoverImage();
+        }
     }
 
     @FXML
@@ -100,6 +115,7 @@ public class EntryEditorController {
             newEntry.setCompletionDate(end);
             newEntry.setNotes(notes);
             newEntry.setRating(currentRating);
+            newEntry.setCoverImagePath(selectedCoverPath);
 
             entryService.save(newEntry);
         } else {
@@ -111,6 +127,7 @@ public class EntryEditorController {
             editingEntry.setCompletionDate(end);
             editingEntry.setNotes(notes);
             editingEntry.setRating(currentRating);
+            editingEntry.setCoverImagePath(selectedCoverPath);
 
             entryService.save(editingEntry);
         }
@@ -142,5 +159,17 @@ public class EntryEditorController {
         updateEditorHearts();
     }
 
+    private void loadCoverImage() {
+        if (selectedCoverPath != null && !selectedCoverPath.isBlank()) {
+            File file = new File(selectedCoverPath);
+            if (file.exists()) {
+                coverImageView.setImage(new javafx.scene.image.Image(file.toURI().toString()));
+            } else {
+                coverImageView.setImage(null);
+            }
+        } else {
+            coverImageView.setImage(null);
+        }
+    }
 
 }

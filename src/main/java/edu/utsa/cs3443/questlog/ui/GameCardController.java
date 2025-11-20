@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.scene.image.Image;
+import java.io.File;
 
 public class GameCardController {
 
@@ -28,6 +30,18 @@ public class GameCardController {
         titleLabel.setText(entry.getTitle());
         platformLabel.setText(entry.getPlatform() != null ? entry.getPlatform().name() : "");
         statusLabel.setText(entry.getStatus() != null ? entry.getStatus().name() : "");
+
+        String path = entry.getCoverImagePath();
+        if (path != null && !path.isBlank()) {
+            File imgFile = new File(path);
+            if (imgFile.exists()) {
+                coverImageView.setImage(new Image(imgFile.toURI().toString()));
+            } else {
+                coverImageView.setImage(null);
+            }
+        } else {
+            coverImageView.setImage(null);
+        }
 
         updateHearts(entry.getRating());
 

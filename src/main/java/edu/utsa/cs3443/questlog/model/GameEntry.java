@@ -13,6 +13,7 @@ public class GameEntry {
     private LocalDate releaseDate;
     private String notes;
     private int rating;
+    private String coverImagePath;
 
     public GameEntry(String id) {
         this.id = id;
@@ -53,6 +54,10 @@ public class GameEntry {
     public int getRating() {
         return rating;
     }
+    
+    public String getCoverImagePath() {
+        return coverImagePath;
+    }
 
     // --- Setters ---\\
      public void setId(String id) {
@@ -89,5 +94,9 @@ public class GameEntry {
 
     public void setRating(int rating) {
         this.rating = Math.max(0, Math.min(5, rating));
+    }
+
+    public void setCoverImagePath(String coverImagePath) {
+        this.coverImagePath = coverImagePath;
     }
 }

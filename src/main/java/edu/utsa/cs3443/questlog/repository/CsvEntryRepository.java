@@ -1,4 +1,3 @@
-// src/main/java/edu/utsa/cs3443/questlog/repository/CsvEntryRepository.java
 package edu.utsa.cs3443.questlog.repository;
 
 import edu.utsa.cs3443.questlog.model.GameEntry;
@@ -32,7 +31,7 @@ public class CsvEntryRepository implements EntryRepository {
             // create parent dirs + empty file with header
             Files.createDirectories(file.getParent());
             try (BufferedWriter w = Files.newBufferedWriter(file, StandardCharsets.UTF_8)) {
-                w.write("id,title,platform,status,startDate,completionDate,notes");
+                w.write("id,title,platform,status,startDate,completionDate,notes,rating,coverImage");
                 w.newLine();
             }
             return entries;
@@ -51,7 +50,25 @@ public class CsvEntryRepository implements EntryRepository {
                 e.setStartDate(parseDate(parts[4]));
                 e.setCompletionDate(parseDate(parts[5]));
                 e.setNotes(unescape(parts[6]));
-                entries.add(e);
+
+                // rating is optional (for backward compatibility)
+                int rating = 0;
+                if (parts.length >= 8 && !parts[7].isBlank()) {
+                    try {
+                        rating = Integer.parseInt(parts[7].trim());
+                    } catch (NumberFormatException ex) {
+                        rating = 0;
+                    }
+                }
+                e.setRating(rating);
+                
+                String coverImagePath = null;
+                    if (parts.length >= 9) {
+                        coverImagePath = unescape(parts[8]);
+                    }
+                    e.setCoverImagePath(coverImagePath);
+
+                    entries.add(e);
             }
         }
 
@@ -62,7 +79,7 @@ public class CsvEntryRepository implements EntryRepository {
     public void saveAll(List<GameEntry> entries) throws IOException {
         Files.createDirectories(file.getParent());
         try (BufferedWriter w = Files.newBufferedWriter(file, StandardCharsets.UTF_8)) {
-            w.write("id,title,platform,status,startDate,completionDate,notes");
+            w.write("id,title,platform,status,startDate,completionDate,notes,rating,coverImage");
             w.newLine();
             for (GameEntry e : entries) {
                 w.write(String.join(",",
@@ -72,7 +89,9 @@ public class CsvEntryRepository implements EntryRepository {
                         e.getStatus() != null ? e.getStatus().name() : "",
                         formatDate(e.getStartDate()),
                         formatDate(e.getCompletionDate()),
-                        escape(e.getNotes())
+                        escape(e.getNotes()),
+                        String.valueOf(e.getRating()),
+                        escape(e.getCoverImagePath())
                 ));
                 w.newLine();
             }
@@ -81,12 +100,20 @@ public class CsvEntryRepository implements EntryRepository {
 
     private Platform parsePlatform(String s) {
         if (s == null || s.isBlank()) return null;
-        try { return Platform.valueOf(s); } catch (IllegalArgumentException ex) { return Platform.OTHER; }
+        try {
+            return Platform.valueOf(s);
+        } catch (IllegalArgumentException ex) {
+            return Platform.OTHER;
+        }
     }
 
     private Status parseStatus(String s) {
         if (s == null || s.isBlank()) return null;
-        try { return Status.valueOf(s); } catch (IllegalArgumentException ex) { return null; }
+        try {
+            return Status.valueOf(s);
+        } catch (IllegalArgumentException ex) {
+            return null;
+        }
     }
 
     private LocalDate parseDate(String s) {
@@ -98,16 +125,22 @@ public class CsvEntryRepository implements EntryRepository {
         return d == null ? "" : fmt.format(d);
     }
 
-    private String safe(String s) { return s == null ? "" : s; }
+    private String safe(String s) {
+        return s == null ? "" : s;
+    }
 
     // super-basic escaping so commas/newlines don’t break CSV
     private String escape(String s) {
         if (s == null) return "";
-        return s.replace("\\", "\\\\").replace("\n", "\\n").replace(",", "\\,");
+        return s.replace("\\", "\\\\")
+                .replace("\n", "\\n")
+                .replace(",", "\\,");
     }
 
     private String unescape(String s) {
         if (s == null) return "";
-        return s.replace("\\n", "\n").replace("\\,", ",").replace("\\\\", "\\");
+        return s.replace("\\n", "\n")
+                .replace("\\,", ",")
+                .replace("\\\\", "\\");
     }
 }
