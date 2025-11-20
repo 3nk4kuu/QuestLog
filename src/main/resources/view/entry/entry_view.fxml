@@ -1,41 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="edu.utsa.cs3443.questlog.ui.EntryViewController"
-            prefWidth="900" prefHeight="550">
+<BorderPane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.questlog.ui.EntryViewController">
 
     <top>
-        <HBox spacing="10" padding="10">
-            <Button text="Back" onAction="#onBackClicked"/>
-            <Region HBox.hgrow="ALWAYS"/>
-            <Button text="Edit" onAction="#onEditClicked"/>
+        <HBox alignment="CENTER">
+            <padding><Insets bottom="30" left="20" right="20" top="30" /></padding>
+
+            <Button alignment="CENTER" onAction="#onBackClicked" prefHeight="65" prefWidth="140" styleClass="login-button" text="Back">
+                <font><Font name="JetBrains Mono Medium" size="30" /></font>
+            </Button>
+
+            <Region prefWidth="1000" />
+
+            <Button onAction="#onEditClicked" prefHeight="65" prefWidth="140" styleClass="login-button" text="Edit">
+                <font><Font name="JetBrains Mono Medium" size="30" /></font>
+            </Button>
         </HBox>
     </top>
 
     <left>
-        <VBox alignment="TOP_CENTER" spacing="10" padding="10">
-            <ImageView fx:id="coverImageView" fitWidth="220" fitHeight="300" preserveRatio="true"/>
-            <fx:include source="../components/rating_hearts.fxml"/>
+        <VBox alignment="TOP_CENTER" prefHeight="919" prefWidth="563" spacing="25">
+            <padding><Insets bottom="30" left="50" right="50" top="30" /></padding>
+
+            <ImageView fx:id="coverImageView" fitHeight="585" fitWidth="407" preserveRatio="true" />
+
+            <fx:include source="../components/rating_hearts.fxml" />
         </VBox>
     </left>
 
     <center>
-        <VBox spacing="8" 
-        <padding>
-            <Insets top="10" right="10" bottom="10" left="10"/>
-        </padding>
-        >
-            <Label fx:id="titleLabel" text="Game Title" styleClass="screen-title"/>
-            <Label fx:id="metaLabel" text="Platform • 2020" styleClass="subtitle-label"/>
+        <VBox spacing="25">
+            <padding><Insets bottom="50" right="40" top="15" /></padding>
 
-            <Label text="Notes:" styleClass="section-title"/>
-            <TextArea fx:id="notesArea" editable="false" wrapText="true" prefRowCount="15"/>
+            <HBox alignment="BASELINE_LEFT" spacing="20.0">
+                <Label fx:id="titleLabel" styleClass="title-label" text="Game Title">
+                    <font><Font name="JetBrains Mono ExtraBold" size="60.0" /></font>
+                </Label>
+                <Label alignment="CENTER" text="Release Date" textFill="#808080">
+                    <font><Font name="JetBrains Mono Medium" size="40.0" /></font>
+                </Label>
+            </HBox>
+
+            <!-- FIRST ROW -->
+            <HBox alignment="CENTER_LEFT" prefWidth="1200" spacing="40">
+                <VBox spacing="10.0">
+                    <Label text="Status">
+                        <font><Font name="JetBrains Mono Medium" size="30.0" /></font>
+                    </Label>
+                    <TextField editable="false" prefHeight="45.0" prefWidth="837.0" HBox.hgrow="ALWAYS">
+                  <VBox.margin>
+                     <Insets right="50.0" />
+                  </VBox.margin>
+                  <font>
+                     <Font name="JetBrains Mono Regular" size="30.0" />
+                  </font></TextField>
+                </VBox>
+
+                <VBox spacing="10.0">
+                    <Label text="Platform">
+                        <font><Font name="JetBrains Mono Medium" size="30.0" /></font>
+                    </Label>
+                    <TextField editable="false" prefHeight="45" prefWidth="837" HBox.hgrow="ALWAYS">
+                  <VBox.margin>
+                     <Insets right="50.0" />
+                  </VBox.margin>
+                  <font>
+                     <Font name="JetBrains Mono Regular" size="30.0" />
+                  </font></TextField>
+                </VBox>
+            </HBox>
+
+            <!-- SECOND ROW -->
+            <HBox alignment="CENTER_LEFT" prefWidth="1200" spacing="40">
+                <VBox spacing="10.0">
+                    <Label text="Started">
+                        <font><Font name="JetBrains Mono Medium" size="30.0" /></font>
+                    </Label>
+                    <TextField editable="false" prefHeight="45" prefWidth="837" HBox.hgrow="ALWAYS">
+                  <VBox.margin>
+                     <Insets right="50.0" />
+                  </VBox.margin>
+                  <font>
+                     <Font name="JetBrains Mono Regular" size="30.0" />
+                  </font></TextField>
+                </VBox>
+
+                <VBox spacing="10.0">
+                    <Label text="Completed">
+                        <font><Font name="JetBrains Mono Medium" size="30.0" /></font>
+                    </Label>
+                    <TextField editable="false" prefHeight="45" prefWidth="837" HBox.hgrow="ALWAYS">
+                  <VBox.margin>
+                     <Insets right="50.0" />
+                  </VBox.margin>
+                  <font>
+                     <Font name="JetBrains Mono Regular" size="30.0" />
+                  </font></TextField>
+                </VBox>
+            </HBox>
+
+            <!-- NOTES -->
+            <VBox spacing="10.0">
+                <Label styleClass="input-label" text="Notes:">
+                    <font><Font name="JetBrains Mono Regular" size="30" /></font>
+                </Label>
+
+                <TextArea fx:id="notesArea" editable="false" prefHeight="550" prefWidth="900" promptText="Nothing here..." styleClass="input-field" wrapText="true">
+               <VBox.margin>
+                  <Insets bottom="30.0" right="50.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="JetBrains Mono Regular" size="25.0" />
+               </font></TextArea>
+            </VBox>
+
         </VBox>
     </center>
 
