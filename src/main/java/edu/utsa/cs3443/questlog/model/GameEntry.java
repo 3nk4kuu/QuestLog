@@ -12,6 +12,7 @@ public class GameEntry {
     private LocalDate completionDate;
     private LocalDate releaseDate;
     private String notes;
+    private int rating;
 
     public GameEntry(String id) {
         this.id = id;
@@ -49,7 +50,15 @@ public class GameEntry {
         return notes;
     }
 
-    // --- Setters ---
+    public int getRating() {
+        return rating;
+    }
+
+    // --- Setters ---\\
+     public void setId(String id) {
+        this.id = id; 
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -73,7 +82,12 @@ public class GameEntry {
     public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
+
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public void setRating(int rating) {
+        this.rating = Math.max(0, Math.min(5, rating));
     }
 }

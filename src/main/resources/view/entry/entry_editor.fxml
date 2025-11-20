@@ -36,7 +36,13 @@
 
             <Button text="Change Cover…" onAction="#onChangeCoverClicked"/>
 
-            <fx:include source="../components/rating_hearts.fxml"/>
+            <HBox alignment="CENTER" spacing="4">
+                <ToggleButton fx:id="eHeart1" text="♡" onAction="#onHeartClicked"/>
+                <ToggleButton fx:id="eHeart2" text="♡" onAction="#onHeartClicked"/>
+                <ToggleButton fx:id="eHeart3" text="♡" onAction="#onHeartClicked"/>
+                <ToggleButton fx:id="eHeart4" text="♡" onAction="#onHeartClicked"/>
+                <ToggleButton fx:id="eHeart5" text="♡" onAction="#onHeartClicked"/>
+            </HBox>
         </VBox>
     </left>
 

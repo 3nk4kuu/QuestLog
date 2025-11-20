@@ -1,0 +1,113 @@
+// src/main/java/edu/utsa/cs3443/questlog/repository/CsvEntryRepository.java
+package edu.utsa.cs3443.questlog.repository;
+
+import edu.utsa.cs3443.questlog.model.GameEntry;
+import edu.utsa.cs3443.questlog.model.Platform;
+import edu.utsa.cs3443.questlog.model.Status;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CsvEntryRepository implements EntryRepository {
+
+    private final Path file;
+    private final DateTimeFormatter fmt = DateTimeFormatter.ISO_LOCAL_DATE;
+
+    public CsvEntryRepository(Path file) {
+        this.file = file;
+    }
+
+    @Override
+    public List<GameEntry> loadAll() throws IOException {
+        List<GameEntry> entries = new ArrayList<>();
+
+        if (!Files.exists(file)) {
+            // create parent dirs + empty file with header
+            Files.createDirectories(file.getParent());
+            try (BufferedWriter w = Files.newBufferedWriter(file, StandardCharsets.UTF_8)) {
+                w.write("id,title,platform,status,startDate,completionDate,notes");
+                w.newLine();
+            }
+            return entries;
+        }
+
+        try (BufferedReader reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
+            String line = reader.readLine(); // header
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",", -1); // keep empty fields
+                if (parts.length < 7) continue;
+
+                GameEntry e = new GameEntry(parts[0]);
+                e.setTitle(unescape(parts[1]));
+                e.setPlatform(parsePlatform(parts[2]));
+                e.setStatus(parseStatus(parts[3]));
+                e.setStartDate(parseDate(parts[4]));
+                e.setCompletionDate(parseDate(parts[5]));
+                e.setNotes(unescape(parts[6]));
+                entries.add(e);
+            }
+        }
+
+        return entries;
+    }
+
+    @Override
+    public void saveAll(List<GameEntry> entries) throws IOException {
+        Files.createDirectories(file.getParent());
+        try (BufferedWriter w = Files.newBufferedWriter(file, StandardCharsets.UTF_8)) {
+            w.write("id,title,platform,status,startDate,completionDate,notes");
+            w.newLine();
+            for (GameEntry e : entries) {
+                w.write(String.join(",",
+                        safe(e.getId()),
+                        escape(e.getTitle()),
+                        e.getPlatform() != null ? e.getPlatform().name() : "",
+                        e.getStatus() != null ? e.getStatus().name() : "",
+                        formatDate(e.getStartDate()),
+                        formatDate(e.getCompletionDate()),
+                        escape(e.getNotes())
+                ));
+                w.newLine();
+            }
+        }
+    }
+
+    private Platform parsePlatform(String s) {
+        if (s == null || s.isBlank()) return null;
+        try { return Platform.valueOf(s); } catch (IllegalArgumentException ex) { return Platform.OTHER; }
+    }
+
+    private Status parseStatus(String s) {
+        if (s == null || s.isBlank()) return null;
+        try { return Status.valueOf(s); } catch (IllegalArgumentException ex) { return null; }
+    }
+
+    private LocalDate parseDate(String s) {
+        if (s == null || s.isBlank()) return null;
+        return LocalDate.parse(s, fmt);
+    }
+
+    private String formatDate(LocalDate d) {
+        return d == null ? "" : fmt.format(d);
+    }
+
+    private String safe(String s) { return s == null ? "" : s; }
+
+    // super-basic escaping so commas/newlines don’t break CSV
+    private String escape(String s) {
+        if (s == null) return "";
+        return s.replace("\\", "\\\\").replace("\n", "\\n").replace(",", "\\,");
+    }
+
+    private String unescape(String s) {
+        if (s == null) return "";
+        return s.replace("\\n", "\n").replace("\\,", ",").replace("\\\\", "\\");
+    }
+}
