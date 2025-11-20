@@ -1,8 +1,26 @@
 /* Global font */
 .root {
-    -fx-font-family: "Jersey";
+    -fx-font-family: "Jersey10";
     -fx-font-size: 10px;
 }
+
+/* Theme Colors */
+:root {
+    --dark-green: #108E10;
+    --green: #55EB55;
+    --grey: #505050;
+    --light-grey: #EAEAEA;
+    --lightish-grey: #E4E4E4;
+}
+
+/* DARK THEME - colors will be picked/fixed later*/
+/*.dark-theme {
+    --dark-green: #0A5C0A;
+    --green: #108E10;
+    --grey: #EAEAEA;
+    --light-grey: #303030;
+    --lightish-grey: #202020;
+}*/
 
 /* TextFields and PasswordFields */
 .text-field, .password-field {
