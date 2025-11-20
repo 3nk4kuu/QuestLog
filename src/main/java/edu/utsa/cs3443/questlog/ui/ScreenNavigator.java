@@ -10,6 +10,9 @@ import javafx.stage.Stage;
 
 public final class ScreenNavigator {
 
+    private static final double WINDOW_WIDTH = 1024;
+    private static final double WINDOW_HEIGHT = 768;
+
     private static Stage primaryStage;
 
     private ScreenNavigator() { }
@@ -17,6 +20,9 @@ public final class ScreenNavigator {
     public static void init(Stage stage) {
         primaryStage = stage;
         primaryStage.setTitle("QuestLog");
+        primaryStage.setWidth(WINDOW_WIDTH);
+        primaryStage.setHeight(WINDOW_HEIGHT);
+        primaryStage.setResizable(false);
     }
 
     private static void show(String fxmlPath) {
@@ -24,6 +30,7 @@ public final class ScreenNavigator {
             FXMLLoader loader = new FXMLLoader(ScreenNavigator.class.getResource(fxmlPath));
             Parent root = loader.load();
             Scene scene = new Scene(root);
+
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
