@@ -1,54 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="edu.utsa.cs3443.questlog.ui.StatsController"
-            prefWidth="900" prefHeight="550">
+<BorderPane prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.questlog.ui.StatsController">
 
     <top>
-        <HBox spacing="10">
+        <HBox spacing="8.0">
             <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
+                <Insets bottom="10" left="10" right="10" top="10" />
             </padding>
-            <Label text="Stats" styleClass="screen-title"/>
+            <Label styleClass="screen-title" text="User00's Stats">
+            <font>
+               <Font size="30.0" />
+            </font></Label>
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" top="10.0" />
+         </BorderPane.margin>
         </HBox>
     </top>
 
     <center>
-        <VBox spacing="12">
-            <padding>
-                <Insets top="20" right="10" bottom="10" left="10"/>
-            </padding>
+        <VBox spacing="10.0">
 
             <HBox spacing="8">
-                <Label text="Total Games:"/>
-                <Label fx:id="totalGamesLabel" text="0"/>
+                <Label text="Total Games:">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+                <Label fx:id="totalGamesLabel" text="0">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
             </HBox>
 
             <HBox spacing="8">
-                <Label text="Completed:"/>
-                <Label fx:id="completedLabel" text="0"/>
+                <Label text="Completed:">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+                <Label fx:id="completedLabel" text="0">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
             </HBox>
 
             <HBox spacing="8">
-                <Label text="Playing:"/>
-                <Label fx:id="playingLabel" text="0"/>
+                <Label text="Playing:">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+                <Label fx:id="playingLabel" text="0">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
             </HBox>
 
             <HBox spacing="8">
-                <Label text="Backlog:"/>
-                <Label fx:id="backlogLabel" text="0"/>
+                <Label text="Backlog:">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+                <Label fx:id="backlogLabel" text="0">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
             </HBox>
+         <BarChart alternativeRowFillVisible="false" animated="false" barGap="5.0" horizontalGridLinesVisible="false" prefWidth="906.0" titleSide="LEFT">
+           <xAxis>
+             <CategoryAxis side="BOTTOM" />
+           </xAxis>
+           <yAxis>
+             <NumberAxis prefWidth="37.0" side="LEFT" />
+           </yAxis>
+            <VBox.margin>
+               <Insets left="50.0" right="50.0" />
+            </VBox.margin>
+         </BarChart>
+         <BorderPane.margin>
+            <Insets left="50.0" right="50.0" />
+         </BorderPane.margin>
 
         </VBox>
     </center>
 
     <bottom>
-        <fx:include source="../components/toolbar.fxml"/>
+        <fx:include source="../components/toolbar.fxml" />
     </bottom>
 
 </BorderPane>

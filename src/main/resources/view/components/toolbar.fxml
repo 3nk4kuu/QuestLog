@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<HBox xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="edu.utsa.cs3443.questlog.ui.ToolbarController"
-      spacing="20"
-      alignment="CENTER"
-      prefHeight="50"
-      styleClass="bottom-toolbar">
+<HBox alignment="CENTER" prefHeight="50" spacing="20" styleClass="bottom-toolbar" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.questlog.ui.ToolbarController">
 
     <padding>
-        <Insets top="5" right="5" bottom="5" left="5"/>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
     </padding>
 
-    <ToggleButton fx:id="libraryButton"
-                  text="Library"
-                  onAction="#onLibraryClicked"/>
-    <ToggleButton fx:id="statsButton"
-                  text="Stats"
-                  onAction="#onStatsClicked"/>
-    <ToggleButton fx:id="settingsButton"
-                  text="Settings"
-                  onAction="#onSettingsClicked"/>
+    <ToggleButton fx:id="libraryButton" onAction="#onLibraryClicked" text="Library">
+      <font>
+         <Font size="16.0" />
+      </font></ToggleButton>
+    <ToggleButton fx:id="statsButton" onAction="#onStatsClicked" text="Stats">
+      <font>
+         <Font size="16.0" />
+      </font></ToggleButton>
+    <ToggleButton fx:id="settingsButton" onAction="#onSettingsClicked" text="Settings">
+      <font>
+         <Font size="16.0" />
+      </font></ToggleButton>
 
 </HBox>

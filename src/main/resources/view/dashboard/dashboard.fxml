@@ -1,39 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="edu.utsa.cs3443.questlog.ui.DashboardController"
-            prefWidth="1024" prefHeight="600">
+<BorderPane prefHeight="600" prefWidth="1024" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.questlog.ui.DashboardController">
 
     <!-- Top: greeting + sort/filter -->
     <top>
         <VBox spacing="8">
             <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
+                <Insets bottom="10" left="10" right="10" top="10" />
             </padding>
 
-            <Label fx:id="welcomeLabel"
-               text="Welcome back, User00"
-               styleClass="screen-title"/>
+            <Label fx:id="welcomeLabel" styleClass="screen-title" text="Welcome back, User00">
+            <font>
+               <Font size="30.0" />
+            </font></Label>
 
-            <HBox spacing="12" alignment="CENTER_LEFT">
+            <HBox alignment="CENTER_LEFT" spacing="12">
 
-                <Label text="Sort:"/>
-                <ComboBox fx:id="sortCombo" prefWidth="150"/>
+                <Label text="Sort:">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+                <ComboBox fx:id="sortCombo" prefWidth="150" />
 
-                <Label text="Platform:"/>
-                <ComboBox fx:id="platformFilterCombo" prefWidth="150"/>
+                <Label text="Platform:">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+                <ComboBox fx:id="platformFilterCombo" prefWidth="150" />
 
-                <Label text="Status:"/>
-                <ComboBox fx:id="statusFilterCombo" prefWidth="150"/>
+                <Label text="Status:">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+                <ComboBox fx:id="statusFilterCombo" prefWidth="150" />
 
-                <Region HBox.hgrow="ALWAYS"/>
-                <Button text="Add Entry" onAction="#onAddEntryClicked"/>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button onAction="#onAddEntryClicked" text="Add Entry">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
             </HBox>
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" top="10.0" />
+         </BorderPane.margin>
         </VBox>
     </top>
 
@@ -44,7 +65,7 @@
             <content>
                 <FlowPane fx:id="gamesFlowPane" hgap="10" vgap="10">
                     <padding>
-                        <Insets top="10" right="10" bottom="10" left="10"/>
+                        <Insets bottom="10" left="10" right="10" top="10" />
                     </padding>
                 </FlowPane>
             </content>
@@ -53,7 +74,7 @@
 
     <!-- Bottom: toolbar -->
     <bottom>
-        <fx:include source="../components/toolbar.fxml"/>
+        <fx:include source="../components/toolbar.fxml" />
     </bottom>
 
 </BorderPane>
