@@ -104,4 +104,10 @@ public class DashboardController {
     private void onAddEntryClicked() {
         ScreenNavigator.showEntryEditor(null);
     }
+
+    @FXML
+    private void onLogoutClicked() {
+        ScreenNavigator.showLogin();
+    }
+
 }

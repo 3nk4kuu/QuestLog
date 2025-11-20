@@ -12,41 +12,63 @@
             fx:controller="edu.utsa.cs3443.questlog.ui.EntryEditorController">
 
     <!-- Top: Back / Title / Save -->
-    <top>
-        <HBox alignment="CENTER" spacing="400.0" BorderPane.alignment="CENTER">
+        <top>
+        <HBox alignment="CENTER" spacing="300.0" BorderPane.alignment="CENTER">
             <padding>
                 <Insets bottom="30.0" left="20.0" right="20.0" top="30.0"/>
             </padding>
 
-            <Button onAction="#onBackClicked"
-                    prefHeight="65.0" prefWidth="140.0"
-                    styleClass="login-button"
-                    text="Back">
-                <font>
-                    <Font name="JetBrains Mono Medium" size="30"/>
-                </font>
-            </Button>
+            <HBox spacing="10">
+                <Button onAction="#onBackClicked"
+                        prefHeight="65.0" prefWidth="140.0"
+                        styleClass="login-button"
+                        text="Back">
+                    <font>
+                        <Font name="JetBrains Mono Medium" size="30"/>
+                    </font>
+                </Button>
+
+                <Button fx:id="deleteButton"
+                        onAction="#onDeleteClicked"
+                        prefHeight="65.0" prefWidth="160.0"
+                        styleClass="login-button"
+                        text="Delete">
+                    <font>
+                        <Font name="JetBrains Mono Medium" size="30"/>
+                    </font>
+                </Button>
+            </HBox>
 
             <Label fx:id="headerLabel"
-                   styleClass="title-label"
-                   text="Create Entry">
+                    styleClass="title-label"
+                    text="Create Entry">
                 <font>
                     <Font name="JetBrains Mono ExtraBold" size="30.0"/>
                 </font>
             </Label>
 
-            <Button onAction="#onSaveClicked"
-                    prefHeight="65.0" prefWidth="140.0"
-                    styleClass="login-button"
-                    text="Save">
-                <font>
-                    <Font name="JetBrains Mono Medium" size="30"/>
-                </font>
-            </Button>
+            <HBox spacing="10">
+                <Button onAction="#onSaveClicked"
+                        prefHeight="65.0" prefWidth="140.0"
+                        styleClass="login-button"
+                        text="Save">
+                    <font>
+                        <Font name="JetBrains Mono Medium" size="30"/>
+                    </font>
+                </Button>
+
+                <Button onAction="#onLogoutClicked"
+                        prefHeight="65.0" prefWidth="160.0"
+                        styleClass="login-button"
+                        text="Logout">
+                    <font>
+                        <Font name="JetBrains Mono Medium" size="30"/>
+                    </font>
+                </Button>
+            </HBox>
         </HBox>
     </top>
 
-    <!-- Left: cover + change button + rating hearts -->
     <left>
         <VBox alignment="TOP_CENTER"
               prefHeight="919.0" prefWidth="563.0"
@@ -68,7 +90,6 @@
                 </font>
             </Button>
 
-            <!-- Hearts directly declared here, hooked to onHeartClicked -->
             <HBox alignment="CENTER" spacing="4">
                 <ToggleButton fx:id="eHeart1" text="♡" onAction="#onHeartClicked"/>
                 <ToggleButton fx:id="eHeart2" text="♡" onAction="#onHeartClicked"/>

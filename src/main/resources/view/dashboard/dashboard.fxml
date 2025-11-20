@@ -17,26 +17,27 @@
             </padding>
 
             <Label fx:id="welcomeLabel"
-               text="Welcome back, User00"
-               styleClass="screen-title"/>
+                text="Welcome back, User00"
+                styleClass="screen-title"/>
 
-            <HBox spacing="12" alignment="CENTER_LEFT">
-
-                <Label text="Sort:"/>
-                <ComboBox fx:id="sortCombo" prefWidth="150"/>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Sort by:"/>
+                <ComboBox fx:id="sortCombo"/>
 
                 <Label text="Platform:"/>
-                <ComboBox fx:id="platformFilterCombo" prefWidth="150"/>
+                <ComboBox fx:id="platformFilterCombo"/>
 
                 <Label text="Status:"/>
-                <ComboBox fx:id="statusFilterCombo" prefWidth="150"/>
+                <ComboBox fx:id="statusFilterCombo"/>
 
                 <Region HBox.hgrow="ALWAYS"/>
+
+                <Button text="Logout" onAction="#onLogoutClicked"/>
+
                 <Button text="Add Entry" onAction="#onAddEntryClicked"/>
             </HBox>
         </VBox>
     </top>
-
 
     <!-- Center: grid/list of game cards -->
     <center>

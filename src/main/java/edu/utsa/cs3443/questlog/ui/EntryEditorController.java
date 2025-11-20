@@ -30,6 +30,8 @@ public class EntryEditorController {
     @FXML private ToggleButton eHeart4;
     @FXML private ToggleButton eHeart5;
 
+    @FXML private Button deleteButton; // new
+
     private int currentRating = 0; // 0–5
     private String selectedCoverPath;
 
@@ -47,6 +49,11 @@ public class EntryEditorController {
         platformCombo.getItems().setAll(Platform.values());
         statusCombo.getItems().setAll(Status.values());
         updateEditorHearts();
+
+        // In create mode by default → hide Delete
+        if (deleteButton != null) {
+            deleteButton.setVisible(false);
+        }
     }
 
     public void setEditingEntry(GameEntry entry) {
@@ -68,12 +75,19 @@ public class EntryEditorController {
             selectedCoverPath = entry.getCoverImagePath();
             loadCoverImage();
 
+            if (deleteButton != null) {
+                deleteButton.setVisible(true);
+            }
         } else {
             headerLabel.setText("Create Entry");
             currentRating = 0;
             updateEditorHearts();
             selectedCoverPath = null;
             loadCoverImage();
+
+            if (deleteButton != null) {
+                deleteButton.setVisible(false);
+            }
         }
 
         if (errorLabel != null) {
@@ -84,6 +98,12 @@ public class EntryEditorController {
     @FXML
     private void onBackClicked() {
         ScreenNavigator.showDashboard();
+    }
+
+    @FXML
+    private void onLogoutClicked() {
+        // Go back to start/login screen
+        ScreenNavigator.showLogin();
     }
 
     @FXML
@@ -146,6 +166,15 @@ public class EntryEditorController {
             entryService.save(editingEntry);
         }
 
+        ScreenNavigator.showDashboard();
+    }
+
+    @FXML
+    private void onDeleteClicked() {
+        if (editingEntry != null) {
+            // optional: confirm dialog later
+            entryService.delete(editingEntry);
+        }
         ScreenNavigator.showDashboard();
     }
 
