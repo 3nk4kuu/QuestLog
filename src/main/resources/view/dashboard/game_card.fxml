@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<StackPane fx:id="root" styleClass="game-card" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.questlog.ui.GameCardController">
+<StackPane fx:id="root" styleClass="game-card" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.questlog.ui.GameCardController">
 
     <VBox alignment="TOP_CENTER" spacing="6">
-        <ImageView fx:id="coverImageView" fitHeight="200.0" fitWidth="150.0" preserveRatio="true" />
+        <ImageView fx:id="coverImageView" fitHeight="200.0" fitWidth="150.0" />
       <VBox alignment="CENTER" prefHeight="66.0" prefWidth="150.0">
          <children>
       
