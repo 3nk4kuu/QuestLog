@@ -23,6 +23,7 @@ public final class ScreenNavigator {
             FXMLLoader loader = new FXMLLoader(ScreenNavigator.class.getResource(fxmlPath));
             Parent root = loader.load();
             Scene scene = new Scene(root);
+
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
