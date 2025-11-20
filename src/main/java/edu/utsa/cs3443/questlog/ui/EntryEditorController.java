@@ -40,19 +40,22 @@ public class EntryEditorController {
 
     @FXML
     private void initialize() {
+
         if (errorLabel != null) {
             errorLabel.setVisible(false);
         }
 
-        headerLabel.setText("Create Entry");
+        // Only set if label exists in FXML
+        if (headerLabel != null) {
+            headerLabel.setText("Create Entry");
+        }
 
         platformCombo.getItems().setAll(Platform.values());
         statusCombo.getItems().setAll(Status.values());
         updateEditorHearts();
 
-        // In create mode by default → hide Delete
         if (deleteButton != null) {
-            deleteButton.setVisible(false);
+            deleteButton.setVisible(false); // hidden in create mode
         }
     }
 
@@ -60,7 +63,10 @@ public class EntryEditorController {
         this.editingEntry = entry;
 
         if (entry != null) {
-            headerLabel.setText("Edit Entry");
+
+            if (headerLabel != null) {
+                headerLabel.setText("Edit Entry");
+            }
 
             titleField.setText(entry.getTitle());
             platformCombo.setValue(entry.getPlatform());
@@ -78,8 +84,12 @@ public class EntryEditorController {
             if (deleteButton != null) {
                 deleteButton.setVisible(true);
             }
+
         } else {
-            headerLabel.setText("Create Entry");
+            if (headerLabel != null) {
+                headerLabel.setText("Create Entry");
+            }
+
             currentRating = 0;
             updateEditorHearts();
             selectedCoverPath = null;
@@ -102,7 +112,6 @@ public class EntryEditorController {
 
     @FXML
     private void onLogoutClicked() {
-        // Go back to start/login screen
         ScreenNavigator.showLogin();
     }
 
@@ -123,6 +132,7 @@ public class EntryEditorController {
 
     @FXML
     private void onSaveClicked() {
+
         if (errorLabel != null) {
             errorLabel.setVisible(false);
         }
@@ -140,8 +150,7 @@ public class EntryEditorController {
         }
 
         if (editingEntry == null) {
-            // Create mode
-            GameEntry newEntry = new GameEntry(null); // id assigned in service
+            GameEntry newEntry = new GameEntry(null);
             newEntry.setTitle(title);
             newEntry.setPlatform(platform);
             newEntry.setStatus(status);
@@ -152,8 +161,8 @@ public class EntryEditorController {
             newEntry.setCoverImagePath(selectedCoverPath);
 
             entryService.save(newEntry);
+
         } else {
-            // Edit mode: update fields
             editingEntry.setTitle(title);
             editingEntry.setPlatform(platform);
             editingEntry.setStatus(status);
@@ -172,7 +181,6 @@ public class EntryEditorController {
     @FXML
     private void onDeleteClicked() {
         if (editingEntry != null) {
-            // optional: confirm dialog later
             entryService.delete(editingEntry);
         }
         ScreenNavigator.showDashboard();
