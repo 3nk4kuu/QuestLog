@@ -63,5 +63,11 @@ public class RatingHeartsController {
 
     public void setInteractive(boolean interactive) {
         this.interactive = interactive;
+
+        ToggleButton[] hearts = {heart1, heart2, heart3, heart4, heart5};
+        for (ToggleButton heart : hearts) {
+            heart.setMouseTransparent(!interactive);
+            heart.setFocusTraversable(false);
+        }
     }
 }

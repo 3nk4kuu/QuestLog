@@ -39,7 +39,7 @@
 
             <!-- Rating Hearts Component -->
             <VBox alignment="CENTER">
-                <fx:include source="../components/rating_hearts.fxml" />
+                <fx:include fx:id="ratingHearts" source="../components/rating_hearts.fxml"/>
             </VBox>
          <padding>
             <Insets bottom="20.0" top="20.0" />
@@ -56,7 +56,7 @@
                 <Label fx:id="titleLabel" styleClass="title-label" text="Game Title">
                     <font><Font size="40.0" /></font>
                 </Label>
-                <Label fx:id="metaLabel" styleClass="year-Label" alignment="CENTER" text="Release Date" textFill="#808080">
+                <Label fx:id="metaLabel" alignment="CENTER" styleClass="year-Label" text="Release Date" textFill="#808080">
                     <font><Font size="25.0" /></font>
                 </Label>
             </HBox>
@@ -67,7 +67,7 @@
                     <Label text="Status">
                         <font><Font size="16.0" /></font>
                     </Label>
-                    <TextField editable="false" HBox.hgrow="ALWAYS">
+                    <TextField fx:id="statusField" editable="false" HBox.hgrow="ALWAYS">
                   <VBox.margin>
                      <Insets right="50.0" />
                   </VBox.margin>
@@ -80,7 +80,7 @@
                     <Label fx:id="platform" text="Platform">
                         <font><Font size="16.0" /></font>
                     </Label>
-                    <TextField editable="false" HBox.hgrow="ALWAYS">
+                    <TextField fx:id="platformField" editable="false" HBox.hgrow="ALWAYS">
                   <VBox.margin>
                      <Insets right="50.0" />
                   </VBox.margin>
@@ -96,7 +96,7 @@
                     <Label text="Started">
                         <font><Font size="16.0" /></font>
                     </Label>
-                    <TextField editable="false" HBox.hgrow="ALWAYS">
+                    <TextField fx:id="startField" editable="false" HBox.hgrow="ALWAYS">
                   <VBox.margin>
                      <Insets right="50.0" />
                   </VBox.margin>
@@ -109,7 +109,7 @@
                     <Label text="Completed">
                         <font><Font size="16.0" /></font>
                     </Label>
-                    <TextField editable="false" HBox.hgrow="ALWAYS">
+                    <TextField fx:id="completedField" editable="false" HBox.hgrow="ALWAYS">
                   <VBox.margin>
                      <Insets right="50.0" />
                   </VBox.margin>
