@@ -28,7 +28,7 @@ public class GameCardController {
         this.entry = entry;
 
         titleLabel.setText(entry.getTitle());
-        platformLabel.setText(entry.getPlatform() != null ? entry.getPlatform().name() : "");
+        platformLabel.setText(shortenPlatform(entry.getPlatform() != null ? entry.getPlatform().name() : ""));
         statusLabel.setText(entry.getStatus() != null ? entry.getStatus().name() : "");
 
         String path = entry.getCoverImagePath();
@@ -45,7 +45,7 @@ public class GameCardController {
 
         updateHearts(entry.getRating());
 
-        // clicking the card opens the editor
+        // clicking the card opens the editor -> changed to open entry view
         root.setOnMouseClicked(e -> ScreenNavigator.showEntryView(this.entry));
     }
 
@@ -54,5 +54,14 @@ public class GameCardController {
         for (int i = 0; i < hearts.length; i++) {
             hearts[i].setText(i < rating ? "♥" : "♡");
         }
+    }
+
+    private String shortenPlatform(String platform) {
+        return switch (platform.toUpperCase()) {
+            case "PLAYSTATION" -> "PS";
+            case "SWITCH" -> "NS";
+            case "XBOX" -> "XB";
+            default -> platform;
+        };
     }
 }
