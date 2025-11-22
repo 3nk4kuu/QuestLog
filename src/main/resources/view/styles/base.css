@@ -4,9 +4,17 @@
 }
 
 /* Title labels (screen headers) */
-.title-label {
-    -fx-font-size: 30px;
-    -fx-font-weight: 800;
+.screen-title {
+    -fx-text-fill: #00FF00; /* Vibrant green */
+    -fx-font-size: 50px;
+    -fx-font-weight: 700;
+}
+
+/* Optional: smaller subtitle labels */
+.subtitle-label {
+    -fx-text-fill: #00FF00;
+    -fx-font-size: 20px;
+    -fx-font-weight: 600;
 }
 
 /* Year Label (entry view) */

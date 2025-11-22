@@ -19,12 +19,10 @@
                 <Insets bottom="40" left="40" right="40" top="40" />
             </padding>
 
-            <Label styleClass="screen-title" text="QuestLog">
-            <font>
-               <Font size="80.0" />
-            </font></Label>
+            <Label fx:id="loginTitle" text="QuestLog"/>
 
-                  <Label fx:id="errorLabel" alignment="CENTER" prefHeight="15.0" prefWidth="250.0" text="Invalid username or password" textAlignment="CENTER" textFill="red" visible="false" />
+
+            <Label fx:id="errorLabel" alignment="CENTER" prefHeight="15.0" prefWidth="250.0" text="Invalid username or password" textAlignment="CENTER" textFill="red" visible="false" />
          <VBox alignment="CENTER" prefHeight="101.0" prefWidth="944.0" spacing="25.0">
             <children>
       
