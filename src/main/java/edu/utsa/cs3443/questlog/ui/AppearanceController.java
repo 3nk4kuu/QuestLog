@@ -1,6 +1,7 @@
 package edu.utsa.cs3443.questlog.ui;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 
 public class AppearanceController {
@@ -9,7 +10,11 @@ public class AppearanceController {
     private ToggleButton darkModeToggle;
 
     @FXML
+    private Label themeDescription;
+
+    @FXML
     private void initialize() {
+        // Initialize toggle based on current app setting
         boolean enabled = ScreenNavigator.isDarkMode();
         darkModeToggle.setSelected(enabled);
         updateToggleText();
@@ -30,6 +35,7 @@ public class AppearanceController {
 
     @FXML
     private void onBackClicked() {
+        // Return to settings menu
         ScreenNavigator.showSettingsMenu();
     }
 }
