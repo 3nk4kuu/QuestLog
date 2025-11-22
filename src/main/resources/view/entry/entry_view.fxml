@@ -32,14 +32,14 @@
     <left>
         <VBox alignment="TOP_CENTER" prefHeight="505.0" prefWidth="340.0" spacing="20.0">
 
-            <ImageView fx:id="coverImageView" fitHeight="320.0" fitWidth="240.0" preserveRatio="true">
+            <ImageView fx:id="coverImageView" fitHeight="320.0" fitWidth="240.0">
             <VBox.margin>
                <Insets left="50.0" right="50.0" />
             </VBox.margin></ImageView>
 
             <!-- Rating Hearts Component -->
             <VBox alignment="CENTER">
-                <fx:include fx:id="ratingHearts" source="../components/rating_hearts.fxml"/>
+                <fx:include fx:id="ratingHearts" source="../components/rating_hearts.fxml" />
             </VBox>
          <padding>
             <Insets bottom="20.0" top="20.0" />

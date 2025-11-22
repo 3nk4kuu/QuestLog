@@ -31,7 +31,7 @@ public class CsvEntryRepository implements EntryRepository {
             // create parent dirs + empty file with header
             Files.createDirectories(file.getParent());
             try (BufferedWriter w = Files.newBufferedWriter(file, StandardCharsets.UTF_8)) {
-                w.write("id,title,platform,status,startDate,completionDate,notes,rating,coverImage");
+                w.write("id,title,platform,status,releaseDate,startDate,completionDate,notes,rating,coverImage");
                 w.newLine();
             }
             return entries;
@@ -47,15 +47,16 @@ public class CsvEntryRepository implements EntryRepository {
                 e.setTitle(unescape(parts[1]));
                 e.setPlatform(parsePlatform(parts[2]));
                 e.setStatus(parseStatus(parts[3]));
-                e.setStartDate(parseDate(parts[4]));
-                e.setCompletionDate(parseDate(parts[5]));
-                e.setNotes(unescape(parts[6]));
+                e.setReleaseDate(parseDate(parts[4]));
+                e.setStartDate(parseDate(parts[5]));
+                e.setCompletionDate(parseDate(parts[6]));
+                e.setNotes(unescape(parts[7]));
 
                 // rating is optional (for backward compatibility)
                 int rating = 0;
-                if (parts.length >= 8 && !parts[7].isBlank()) {
+                if (parts.length >= 9 && !parts[8].isBlank()) {
                     try {
-                        rating = Integer.parseInt(parts[7].trim());
+                        rating = Integer.parseInt(parts[8].trim());
                     } catch (NumberFormatException ex) {
                         rating = 0;
                     }
@@ -63,8 +64,8 @@ public class CsvEntryRepository implements EntryRepository {
                 e.setRating(rating);
                 
                 String coverImagePath = null;
-                    if (parts.length >= 9) {
-                        coverImagePath = unescape(parts[8]);
+                    if (parts.length >= 10) {
+                        coverImagePath = unescape(parts[9]);
                     }
                     e.setCoverImagePath(coverImagePath);
 
@@ -79,7 +80,7 @@ public class CsvEntryRepository implements EntryRepository {
     public void saveAll(List<GameEntry> entries) throws IOException {
         Files.createDirectories(file.getParent());
         try (BufferedWriter w = Files.newBufferedWriter(file, StandardCharsets.UTF_8)) {
-            w.write("id,title,platform,status,startDate,completionDate,notes,rating,coverImage");
+            w.write("id,title,platform,status,releaseDate,startDate,completionDate,notes,rating,coverImage");
             w.newLine();
             for (GameEntry e : entries) {
                 w.write(String.join(",",
@@ -87,6 +88,7 @@ public class CsvEntryRepository implements EntryRepository {
                         escape(e.getTitle()),
                         e.getPlatform() != null ? e.getPlatform().name() : "",
                         e.getStatus() != null ? e.getStatus().name() : "",
+                        formatDate(e.getReleaseDate()),
                         formatDate(e.getStartDate()),
                         formatDate(e.getCompletionDate()),
                         escape(e.getNotes()),

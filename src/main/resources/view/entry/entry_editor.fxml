@@ -74,7 +74,7 @@
                 <ColumnConstraints percentWidth="75.0" />
             </columnConstraints>
 
-            <Label styleClass="input-label" text="Title*:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <Label styleClass="input-label" text="Title:" GridPane.columnIndex="0" GridPane.rowIndex="0">
             <font>
                <Font size="16.0" />
             </font></Label>
