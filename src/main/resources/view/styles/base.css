@@ -55,3 +55,16 @@
 .scroll-pane .viewport {
     -fx-background-color: transparent;
 }
+
+/* Bar Chart */
+.chart {
+    -fx-background-color: transparent;
+}
+
+.chart-plot-background {
+    -fx-background-radius: 8;
+}
+
+.default-color0.chart-bar { -fx-bar-fill: #108E10; }
+.default-color1.chart-bar { -fx-bar-fill: #759bff; }
+.default-color2.chart-bar { -fx-bar-fill: #ffaa2b; }

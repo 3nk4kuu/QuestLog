@@ -19,6 +19,44 @@
     -fx-text-fill: #FFFFFF;
 }
 
+/* Combo Box */
+.combo-box .list-cell {
+    -fx-text-fill: #EEEEEE;
+    -fx-font-family: "JetBrains Mono";
+}
+
+.combo-box .cell {
+    -fx-text-fill: #EEEEEE;
+}
+
+.combo-box .arrow-button .arrow {
+    -fx-background-color: #EEEEEE;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #2A2C31;
+    -fx-control-inner-background: #2A2C31;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #3A3C41;
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #EEEEEE;
+    -fx-font-family: "JetBrains Mono";
+    -fx-font-size: 14px;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #35373D;
+}
+
+.combo-box-popup .list-cell:selected {
+    -fx-background-color: #108E10;
+    -fx-text-fill: #FFFFFF;
+}
+
 /* Buttons */
 .button {
     -fx-background-color: linear-gradient(to bottom, #2E3036, #25262B);
@@ -46,4 +84,70 @@
 
 .flow-pane {
     -fx-background-color: transparent;
+}
+
+/* TextArea (notes box) */
+.text-area {
+    -fx-background-color: #2A2C31;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #3A3C41;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+.text-area .content {
+    -fx-background-color: #2A2C31;
+    -fx-background-radius: 8;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: #2A2C31;
+    -fx-background-radius: 0 8 8 0;
+    -fx-border-color: #3A3C41;
+}
+
+.date-picker .arrow-button:hover {
+    -fx-background-color: #35373D;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: #EEEEEE;
+}
+
+.date-picker-popup {
+    -fx-background-color: #2A2C31;
+    -fx-border-color: #3A3C41;
+}
+
+.date-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #EEEEEE;
+}
+
+.date-cell:hover {
+    -fx-background-color: #35373D;
+}
+
+.date-cell:selected {
+    -fx-background-color: #108E10;
+    -fx-text-fill: #FFFFFF;
+}
+
+/* Bar Chart */
+.chart-plot-background {
+    -fx-background-color: #1A1B1E;
+}
+
+.chart-horizontal-grid-lines,
+.chart-vertical-grid-lines {
+    -fx-stroke: #3A3C41;
+}
+
+.axis {
+    -fx-tick-label-fill: #EEEEEE;
+    -fx-text-fill: #EEEEEE;
+}
+
+.axis-label {
+    -fx-text-fill: #EEEEEE;
 }
