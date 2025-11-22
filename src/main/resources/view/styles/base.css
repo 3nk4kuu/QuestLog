@@ -9,10 +9,15 @@
     -fx-font-weight: 800;
 }
 
+/* Year Label (entry view) */
 .year-Label {
     -fx-font-size: 18px;
     -fx-font-weight: 700;
     -fx-opacity: 0.5;
+}
+
+.label.error-label {
+    -fx-font-weight: 700;
 }
 
 /* Input label (e.g., Title:, Platform:, Status:) */

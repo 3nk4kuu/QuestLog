@@ -8,6 +8,11 @@
     -fx-text-fill: #1A1A1A;
 }
 
+/* Error message label */
+.label.error-label {
+    -fx-text-fill: #e60073;
+}
+
 /* Inputs */
 .text-field,
 .combo-box,

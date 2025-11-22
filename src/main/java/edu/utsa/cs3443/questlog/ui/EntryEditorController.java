@@ -109,7 +109,11 @@ public class EntryEditorController {
 
     @FXML
     private void onBackClicked() {
-        ScreenNavigator.showEntryView(editingEntry);
+        if (editingEntry == null) {
+            ScreenNavigator.showDashboard();
+        } else {
+            ScreenNavigator.showEntryView(editingEntry);
+        }
     }
 
     @FXML
@@ -148,7 +152,7 @@ public class EntryEditorController {
         String notes = notesArea.getText();
 
         if (title == null || title.isBlank()) {
-            showError("Title is required.");
+            showError("Game title is required.");
             return;
         }
 
@@ -165,6 +169,7 @@ public class EntryEditorController {
             newEntry.setCoverImagePath(selectedCoverPath);
 
             entryService.save(newEntry);
+            ScreenNavigator.showEntryView(newEntry);
 
         } else {
             editingEntry.setTitle(title);
@@ -178,9 +183,8 @@ public class EntryEditorController {
             editingEntry.setCoverImagePath(selectedCoverPath);
 
             entryService.save(editingEntry);
+            ScreenNavigator.showEntryView(editingEntry);
         }
-
-        ScreenNavigator.showDashboard();
     }
 
     @FXML
