@@ -45,11 +45,14 @@ public class RatingHeartsController {
     }
 
     private void updateHearts() {
-        heart1.setSelected(rating >= 1);
-        heart2.setSelected(rating >= 2);
-        heart3.setSelected(rating >= 3);
-        heart4.setSelected(rating >= 4);
-        heart5.setSelected(rating >= 5);
+        ToggleButton[] hearts = {heart1, heart2, heart3, heart4, heart5};
+
+        for (int i = 0; i < hearts.length; i++) {
+            boolean filled = i < rating;
+
+            hearts[i].setSelected(filled);
+            hearts[i].setText(filled ? "♥" : "♡");
+        }
     }
 
     public int getRating() {
