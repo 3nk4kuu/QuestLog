@@ -28,6 +28,7 @@ public class EntryViewController {
 
     public void setEntry(GameEntry entry) {
         this.entry = entry;
+        titleLabel.setText(entry.getTitle());
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
