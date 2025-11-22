@@ -1,28 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="edu.utsa.cs3443.questlog.ui.CreditsController"
-      spacing="8">
+<VBox spacing="12" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.questlog.ui.CreditsController">
 
     <padding>
-        <Insets top="10" right="10" bottom="10" left="10"/>
+        <Insets bottom="10" left="10" right="10" top="10" />
     </padding>
 
-    <HBox spacing="10">
-        <Button text="Back" onAction="#onBackClicked"/>
-        <Label text="Credits" styleClass="screen-title"/>
+    <!-- Header with centered title and balanced spacing -->
+    <HBox alignment="CENTER" spacing="10">
+        <Button onAction="#onBackClicked" text="Back" />
+
+        <Region HBox.hgrow="ALWAYS" />
+
+        <Label alignment="CENTER" styleClass="screen-title" text="Credits">
+            <font><Font size="30" /></font>
+        </Label>
+
+        <Region HBox.hgrow="ALWAYS" />
+
+        <!-- Spacer to balance Back button width -->
+        <HBox prefWidth="75" />
     </HBox>
 
-    <Separator/>
+    <Separator />
 
-    <Label text="Designers: ..."/>
-    <Label text="Developers: ..."/>
-    <Label text="Project Manager: ..."/>
-    <Label text="Tester: ..."/>
+    <!-- Content -->
+    <VBox alignment="TOP_CENTER" spacing="10">
+        <Label text="Designers: ..." />
+        <Label text="Developers: ..." />
+        <Label text="Project Manager: ..." />
+        <Label text="Tester: ..." />
+    </VBox>
 
 </VBox>
