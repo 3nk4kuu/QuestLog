@@ -74,6 +74,34 @@
     -fx-background-color: linear-gradient(to bottom, #35373D, #2C2E33);
 }
 
+.button:focused,
+.toggle-button:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.toggle-button {
+    -fx-background-color: linear-gradient(to bottom, #2E3036, #25262B);
+    -fx-border-color: #3A3C41;
+    -fx-border-radius: 8;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 8 18;
+    -fx-background-radius: 8;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+}
+
+.toggle-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #35373D, #2C2E33);
+}
+
+.toggle-button:selected {
+    -fx-text-fill: #FFFFFF;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+
 /* Toggle Buttons (hearts) */
 .heart-toggle {
     -fx-text-fill: #ff7597;

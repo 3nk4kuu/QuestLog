@@ -32,6 +32,16 @@
     -fx-text-fill: #1A1A1A;
 }
 
+.button:focused,
+.toggle-button:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.toggle-button:selected {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
 /* Buttons when hovered */
 .button:hover {
     -fx-background-color: linear-gradient(to bottom, #FFFFFF, #DCDCDC);
