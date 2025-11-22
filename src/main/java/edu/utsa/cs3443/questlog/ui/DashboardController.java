@@ -7,9 +7,12 @@ import edu.utsa.cs3443.questlog.service.EntryService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Region;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 import java.io.IOException;
 import java.util.Comparator;
@@ -18,7 +21,8 @@ import java.util.stream.Collectors;
 
 public class DashboardController {
 
-    @FXML private Label welcomeLabel;
+    // ---------------- FXML ----------------
+    @FXML private TextFlow welcomeFlow;          // Replaces welcomeLabel
     @FXML private ComboBox<String> sortCombo;
     @FXML private ComboBox<Platform> platformFilterCombo;
     @FXML private ComboBox<Status> statusFilterCombo;
@@ -26,12 +30,16 @@ public class DashboardController {
 
     private final EntryService entryService = EntryService.getInstance();
 
+    // Example username; replace with actual logged-in username dynamically
+    private String username = "admin";
+
+    // ---------------- Initialization ----------------
     @FXML
     private void initialize() {
-        // Later you can plug in actual username instead of "admin"
-        welcomeLabel.setText("Welcome back, admin");
+        // Set welcome message with green username
+        updateWelcomeMessage(username);
 
-        // SORT OPTIONS
+        // --- SORT OPTIONS ---
         sortCombo.getItems().addAll(
                 "Title (A–Z)",
                 "Title (Z–A)",
@@ -43,27 +51,42 @@ public class DashboardController {
         sortCombo.setPromptText("Sort By");
         sortCombo.valueProperty().addListener((obs, oldV, newV) -> refreshLibrary());
 
-        // PLATFORM FILTER (null = show all)
+        // --- PLATFORM FILTER ---
         platformFilterCombo.getItems().add(null);
         platformFilterCombo.getItems().addAll(Platform.values());
         platformFilterCombo.setPromptText("All Platforms");
         platformFilterCombo.valueProperty().addListener((obs, ov, nv) -> refreshLibrary());
 
-        // STATUS FILTER (null = show all)
+        // --- STATUS FILTER ---
         statusFilterCombo.getItems().add(null);
         statusFilterCombo.getItems().addAll(Status.values());
         statusFilterCombo.setPromptText("All Statuses");
         statusFilterCombo.valueProperty().addListener((obs, ov, nv) -> refreshLibrary());
 
+        // Load game entries
         refreshLibrary();
     }
 
+    // ---------------- Welcome Message ----------------
+    private void updateWelcomeMessage(String username) {
+        welcomeFlow.getChildren().clear();
+
+        Text t1 = new Text("Welcome back, ");
+        t1.setStyle("-fx-font-size: 30px;");
+
+        Text t2 = new Text(username);
+        t2.setStyle("-fx-fill: #00FF00; -fx-font-weight: bold; -fx-font-size: 30px;");
+
+        welcomeFlow.getChildren().addAll(t1, t2);
+    }
+
+    // ---------------- Library Display ----------------
     private void refreshLibrary() {
         gamesFlowPane.getChildren().clear();
 
         List<GameEntry> entries = entryService.getAllEntries();
 
-        // FILTERING
+        // --- FILTERING ---
         Platform pFilter = platformFilterCombo.getValue();
         Status sFilter = statusFilterCombo.getValue();
 
@@ -72,37 +95,24 @@ public class DashboardController {
                 .filter(e -> sFilter == null || e.getStatus() == sFilter)
                 .collect(Collectors.toList());
 
-        // SORTING
+        // --- SORTING ---
         String sort = sortCombo.getValue();
         if (sort != null) {
             switch (sort) {
-                case "Title (A–Z)" ->
-                        entries.sort(Comparator.comparing(
-                                GameEntry::getTitle,
-                                String.CASE_INSENSITIVE_ORDER));
-
-                case "Title (Z–A)" ->
-                        entries.sort(Comparator.comparing(
-                                GameEntry::getTitle,
-                                String.CASE_INSENSITIVE_ORDER).reversed());
-
-                case "Rating (High→Low)" ->
-                        entries.sort(Comparator.comparingInt(GameEntry::getRating).reversed());
-
-                case "Rating (Low→High)" ->
-                        entries.sort(Comparator.comparingInt(GameEntry::getRating));
-
-                case "Platform" ->
-                        entries.sort(Comparator.comparing(
-                                e -> e.getPlatform() != null ? e.getPlatform().name() : ""));
-
-                case "Status" ->
-                        entries.sort(Comparator.comparing(
-                                e -> e.getStatus() != null ? e.getStatus().name() : ""));
+                case "Title (A–Z)" -> entries.sort(Comparator.comparing(
+                        GameEntry::getTitle, String.CASE_INSENSITIVE_ORDER));
+                case "Title (Z–A)" -> entries.sort(Comparator.comparing(
+                        GameEntry::getTitle, String.CASE_INSENSITIVE_ORDER).reversed());
+                case "Rating (High→Low)" -> entries.sort(Comparator.comparingInt(GameEntry::getRating).reversed());
+                case "Rating (Low→High)" -> entries.sort(Comparator.comparingInt(GameEntry::getRating));
+                case "Platform" -> entries.sort(Comparator.comparing(
+                        e -> e.getPlatform() != null ? e.getPlatform().name() : ""));
+                case "Status" -> entries.sort(Comparator.comparing(
+                        e -> e.getStatus() != null ? e.getStatus().name() : ""));
             }
         }
 
-        // RENDER GAME CARDS
+        // --- RENDER GAME CARDS ---
         for (GameEntry entry : entries) {
             try {
                 FXMLLoader loader = new FXMLLoader(
@@ -118,6 +128,7 @@ public class DashboardController {
         }
     }
 
+    // ---------------- Event Handlers ----------------
     @FXML
     private void onAddEntryClicked() {
         ScreenNavigator.showEntryEditor(null); // null → create mode

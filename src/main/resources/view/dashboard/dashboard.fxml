@@ -5,7 +5,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="600" prefWidth="1024" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.questlog.ui.DashboardController">
+<BorderPane prefHeight="600" prefWidth="1024"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.utsa.cs3443.questlog.ui.DashboardController">
 
     <!-- ================= TOP: greeting + sort/filter + add + logout ================= -->
     <top>
@@ -17,20 +20,18 @@
 
             <!-- greeting + logout -->
             <HBox alignment="CENTER_LEFT" spacing="10">
-                <Label fx:id="welcomeLabel" styleClass="screen-title" text="Welcome back, admin">
-                    <font><Font size="30" /></font>
-                </Label>
+                <!-- TextFlow allows styling part of the text -->
+                <TextFlow fx:id="welcomeFlow">
+                    <!-- Text nodes inserted in controller -->
+                </TextFlow>
 
                 <!-- Flexible spacer pushes logout button to far right -->
                 <Region HBox.hgrow="ALWAYS" />
 
                 <Button alignment="TOP_RIGHT" onAction="#onLogoutClicked" styleClass="login-button" text="Logout">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-               <font>
-                  <Font size="14.0" />
-               </font>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
                 </Button>
             </HBox>
 
@@ -48,9 +49,9 @@
                 <Region HBox.hgrow="ALWAYS" />
 
                 <Button alignment="CENTER" onAction="#onAddEntryClicked" prefHeight="25.0" text="Add Entry">
-               <font>
-                  <Font size="14.0" />
-               </font>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
                 </Button>
             </HBox>
         </VBox>
