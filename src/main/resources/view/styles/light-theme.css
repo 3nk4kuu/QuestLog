@@ -38,10 +38,10 @@
 }
 
 /* Toggle Buttons (hearts) */
-.toggle-button {
+.heart-toggle {
     -fx-text-fill: #cc3366;
 }
-.toggle-button:selected {
+.heart-toggle:selected {
     -fx-text-fill: #e60073;
 }
 

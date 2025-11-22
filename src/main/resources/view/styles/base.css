@@ -5,7 +5,7 @@
 
 /* Title labels (screen headers) */
 .title-label {
-    -fx-font-size: 28px;
+    -fx-font-size: 30px;
     -fx-font-weight: 800;
 }
 
@@ -34,6 +34,13 @@
     -fx-font-weight: 600;
 }
 
+.toggle-button {
+    -fx-padding: 8 18;
+    -fx-background-radius: 8;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+}
+
 /* Text fields, combo boxes, date pickers */
 .text-field,
 .text-area,
@@ -45,7 +52,7 @@
 }
 
 /* Hearts (rating) */
-.toggle-button {
+.heart-toggle {
     -fx-background-color: transparent;
     -fx-font-size: 28px;
     -fx-padding: 0 4;

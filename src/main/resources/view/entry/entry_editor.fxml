@@ -40,23 +40,23 @@
             </Button>
 
             <HBox alignment="CENTER" spacing="5.0">
-                <ToggleButton fx:id="eHeart1" onAction="#onHeartClicked" text="♡">
+                <ToggleButton fx:id="eHeart1" styleClass="heart-toggle" onAction="#onHeartClicked" text="♡">
                <font>
                   <Font size="16.0" />
                </font></ToggleButton>
-                <ToggleButton fx:id="eHeart2" onAction="#onHeartClicked" text="♡">
+                <ToggleButton fx:id="eHeart2" styleClass="heart-toggle" onAction="#onHeartClicked" text="♡">
                <font>
                   <Font size="16.0" />
                </font></ToggleButton>
-                <ToggleButton fx:id="eHeart3" onAction="#onHeartClicked" text="♡">
+                <ToggleButton fx:id="eHeart3" styleClass="heart-toggle" onAction="#onHeartClicked" text="♡">
                <font>
                   <Font size="16.0" />
                </font></ToggleButton>
-                <ToggleButton fx:id="eHeart4" onAction="#onHeartClicked" text="♡">
+                <ToggleButton fx:id="eHeart4" styleClass="heart-toggle" onAction="#onHeartClicked" text="♡">
                <font>
                   <Font size="16.0" />
                </font></ToggleButton>
-                <ToggleButton fx:id="eHeart5" onAction="#onHeartClicked" text="♡">
+                <ToggleButton fx:id="eHeart5" styleClass="heart-toggle" onAction="#onHeartClicked" text="♡">
                <font>
                   <Font size="16.0" />
                </font></ToggleButton>
