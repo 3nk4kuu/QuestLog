@@ -123,4 +123,29 @@ public final class ScreenNavigator {
             e.printStackTrace();
         }
     }
+
+    public static void showEntryView(GameEntry entry) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    ScreenNavigator.class.getResource("/view/entry/entry_view.fxml")
+            );
+            Parent root = loader.load();
+
+            EntryViewController controller = loader.getController();
+            controller.setEntry(entry);
+
+            if (primaryStage.getScene() == null) {
+                Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
+                primaryStage.setScene(scene);
+                applyTheme(scene);
+            } else {
+                primaryStage.getScene().setRoot(root);
+                applyTheme(primaryStage.getScene());
+            }
+
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

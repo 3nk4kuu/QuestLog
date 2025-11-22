@@ -46,7 +46,7 @@ public class GameCardController {
         updateHearts(entry.getRating());
 
         // clicking the card opens the editor
-        root.setOnMouseClicked(e -> ScreenNavigator.showEntryEditor(this.entry));
+        root.setOnMouseClicked(e -> ScreenNavigator.showEntryView(this.entry));
     }
 
     private void updateHearts(int rating) {
