@@ -25,6 +25,11 @@ public class StatsController {
     @FXML
     private void initialize() {
         updateStats();
+        yAxis.setTickUnit(1);
+        yAxis.setMinorTickCount(0);
+        yAxis.setForceZeroInRange(true);
+        statusChart.setCategoryGap(200);
+        statusChart.setBarGap(-20);
     }
 
     private void updateStats() {
@@ -52,12 +57,20 @@ public class StatsController {
 
         xAxis.getCategories().setAll("Completed", "Playing", "Backlog");
 
-        XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.getData().add(new XYChart.Data<>("Completed", completed));
-        series.getData().add(new XYChart.Data<>("Playing", playing));
-        series.getData().add(new XYChart.Data<>("Backlog", backlog));
-
         statusChart.getData().clear();
-        statusChart.getData().add(series);
+
+        XYChart.Series<String, Number> completedSeries = new XYChart.Series<>();
+        completedSeries.setName("Completed");
+        completedSeries.getData().add(new XYChart.Data<>("Completed", completed));
+
+        XYChart.Series<String, Number> playingSeries = new XYChart.Series<>();
+        playingSeries.setName("Playing");
+        playingSeries.getData().add(new XYChart.Data<>("Playing", playing));
+
+        XYChart.Series<String, Number> backlogSeries = new XYChart.Series<>();
+        backlogSeries.setName("Backlog");
+        backlogSeries.getData().add(new XYChart.Data<>("Backlog", backlog));
+
+        statusChart.getData().addAll(completedSeries, playingSeries, backlogSeries);
     }
 }

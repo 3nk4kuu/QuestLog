@@ -49,3 +49,28 @@
 .flow-pane {
     -fx-background-color: transparent;
 }
+
+/* Bar Chart */
+.chart {
+    -fx-background-color: transparent;
+}
+
+.chart-plot-background {
+    -fx-background-color: #F8F9FB;
+    -fx-background-radius: 8;
+}
+
+.chart-horizontal-grid-lines,
+.chart-vertical-grid-lines {
+    -fx-stroke: #D7D7D7;
+}
+
+.axis {
+    -fx-tick-label-fill: #1A1A1A;
+    -fx-text-fill: #1A1A1A;
+}
+
+.axis-label {
+    -fx-text-fill: #1A1A1A;
+}
+
