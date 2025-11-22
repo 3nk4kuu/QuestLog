@@ -21,6 +21,7 @@ public class EntryEditorController {
     @FXML private ComboBox<Status> statusCombo;
     @FXML private DatePicker startDatePicker;
     @FXML private DatePicker completionDatePicker;
+    @FXML private DatePicker releaseDatePicker;
     @FXML private TextArea notesArea;
     @FXML private Label errorLabel;
 
@@ -73,6 +74,7 @@ public class EntryEditorController {
             statusCombo.setValue(entry.getStatus());
             startDatePicker.setValue(entry.getStartDate());
             completionDatePicker.setValue(entry.getCompletionDate());
+            releaseDatePicker.setValue(entry.getReleaseDate());
             notesArea.setText(entry.getNotes());
 
             currentRating = entry.getRating();
@@ -107,7 +109,7 @@ public class EntryEditorController {
 
     @FXML
     private void onBackClicked() {
-        ScreenNavigator.showDashboard();
+        ScreenNavigator.showEntryView(editingEntry);
     }
 
     @FXML
@@ -142,6 +144,7 @@ public class EntryEditorController {
         Status status = statusCombo.getValue();
         LocalDate start = startDatePicker.getValue();
         LocalDate end = completionDatePicker.getValue();
+        LocalDate release = releaseDatePicker.getValue();
         String notes = notesArea.getText();
 
         if (title == null || title.isBlank()) {
@@ -156,6 +159,7 @@ public class EntryEditorController {
             newEntry.setStatus(status);
             newEntry.setStartDate(start);
             newEntry.setCompletionDate(end);
+            newEntry.setReleaseDate(release);
             newEntry.setNotes(notes);
             newEntry.setRating(currentRating);
             newEntry.setCoverImagePath(selectedCoverPath);
@@ -168,6 +172,7 @@ public class EntryEditorController {
             editingEntry.setStatus(status);
             editingEntry.setStartDate(start);
             editingEntry.setCompletionDate(end);
+            editingEntry.setReleaseDate(release);
             editingEntry.setNotes(notes);
             editingEntry.setRating(currentRating);
             editingEntry.setCoverImagePath(selectedCoverPath);

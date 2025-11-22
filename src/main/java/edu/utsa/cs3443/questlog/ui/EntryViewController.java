@@ -23,7 +23,11 @@ public class EntryViewController {
     public void setEntry(GameEntry entry) {
         this.entry = entry;
         titleLabel.setText(entry.getTitle());
-        metaLabel.setText(entry.getPlatform().name() + " • " + entry.getReleaseDate());
+
+        Integer year = (entry.getReleaseDate() == null) ? null : entry.getReleaseDate().getYear();
+        String yearText = (year == null) ? "" : String.valueOf(year);
+        metaLabel.setText(yearText);
+
         notesArea.setText(entry.getNotes());
         // TODO: load cover image, rating, etc.
     }
