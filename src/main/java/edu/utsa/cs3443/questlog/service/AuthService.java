@@ -77,19 +77,54 @@ public class AuthService {
                 .anyMatch(u -> u.getUsername().equals(user.getUsername()));
 
         if (exists) {
-            throw new IllegalArgumentException("Username already exists!");
+            throw new IllegalArgumentException("Username already in use.");
         }
 
         boolean emailExists = users.stream()
                 .anyMatch(u -> u.getEmail().equalsIgnoreCase(user.getEmail()));
 
         if (emailExists) {
-            throw new IllegalArgumentException("Email already exists!");
+            throw new IllegalArgumentException("Email already in use.");
         }
 
         users.add(user);
         persist();
     }
+
+    public void updateEmail(String newEmail) {
+        if (currentUser == null) {
+            throw new IllegalStateException("No user is logged in.");
+        }
+
+        boolean emailExists = users.stream()
+                .anyMatch(u -> !u.getUsername().equals(currentUser.getUsername())
+                        && u.getEmail().equalsIgnoreCase(newEmail));
+
+        if (emailExists) {
+            throw new IllegalArgumentException("Email already in use.");
+        }
+
+        currentUser.setEmail(newEmail);
+        persist();
+    }
+
+    public void updatePassword(String newPassword) {
+        if (currentUser == null) {
+            throw new IllegalStateException("No user is logged in.");
+        }
+        currentUser.setPassword(newPassword);
+        persist();
+    }
+
+    public void deleteCurrentUser() {
+        if (currentUser == null) {
+            throw new IllegalStateException("No user is logged in.");
+        }
+        users.remove(currentUser);
+        currentUser = null;
+        persist();
+    }
+
 
     private void persist() {
         try {
