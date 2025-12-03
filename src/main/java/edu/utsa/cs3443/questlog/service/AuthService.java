@@ -45,8 +45,14 @@ public class AuthService {
                 .findFirst();
     }
 
+    public Optional<User> findByEmail(String email) {
+        return users.stream()
+                .filter(u -> u.getEmail().equalsIgnoreCase(email))
+                .findFirst();
+    }
 
-     // Try to log in with username + password. If successful, sets currentUser and returns it.
+
+    // Try to log in with username + password. If successful, sets currentUser and returns it.
     public Optional<User> login(String username, String password) {
         Optional<User> match = users.stream()
                 .filter(u -> u.getUsername().equals(username)
@@ -72,6 +78,13 @@ public class AuthService {
 
         if (exists) {
             throw new IllegalArgumentException("Username already exists!");
+        }
+
+        boolean emailExists = users.stream()
+                .anyMatch(u -> u.getEmail().equalsIgnoreCase(user.getEmail()));
+
+        if (emailExists) {
+            throw new IllegalArgumentException("Email already exists!");
         }
 
         users.add(user);
