@@ -6,92 +6,95 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.questlog.ui.StatsController">
+<BorderPane prefHeight="600" prefWidth="1024"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.utsa.cs3443.questlog.ui.StatsController">
 
+    <!-- ========================= TOP: Title ========================= -->
     <top>
-        <HBox spacing="8.0">
+        <VBox spacing="5" alignment="CENTER_LEFT">
             <padding>
-                <Insets bottom="10" left="10" right="10" top="10" />
+                <Insets top="20" right="20" bottom="5" left="20"/>
             </padding>
-            <Label styleClass="screen-title" text="admin's Stats">
-            <font>
-               <Font size="30.0" />
-            </font></Label>
-         <BorderPane.margin>
-            <Insets left="20.0" right="20.0" top="10.0" />
-         </BorderPane.margin>
-        </HBox>
+            <children>
+                <Label fx:id="statsTitleLabel"
+                       text="User's Stats"
+                       style="-fx-font-size: 34px; -fx-font-weight: bold;" />
+            </children>
+        </VBox>
     </top>
 
-    <center>
-        <VBox spacing="10.0">
+    <!-- ========================= LEFT: Summary Card ========================= -->
+    <left>
+        <VBox spacing="12" alignment="TOP_LEFT">
+            <padding>
+                <Insets top="20" left="20" right="10"/>
+            </padding>
 
-            <HBox spacing="8">
-                <Label text="Total Games:">
-               <font>
-                  <Font size="16.0" />
-               </font></Label>
-                <Label fx:id="totalGamesLabel" text="0">
-               <font>
-                  <Font size="16.0" />
-               </font></Label>
-            </HBox>
+            <!-- Summary Card Box -->
+            <VBox spacing="10"
+                  style="
+                      -fx-background-color: #ffffff;
+                      -fx-background-radius: 10;
+                      -fx-padding: 15;
+                      -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);
+                  ">
 
-            <HBox spacing="8">
-                <Label text="Completed:">
-               <font>
-                  <Font size="16.0" />
-               </font></Label>
-                <Label fx:id="completedLabel" text="0">
-               <font>
-                  <Font size="16.0" />
-               </font></Label>
-            </HBox>
+                <Label text="Overview"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold;" />
 
-            <HBox spacing="8">
-                <Label text="Playing:">
-               <font>
-                  <Font size="16.0" />
-               </font></Label>
-                <Label fx:id="playingLabel" text="0">
-               <font>
-                  <Font size="16.0" />
-               </font></Label>
-            </HBox>
+                <Separator/>
 
-            <HBox spacing="8">
-                <Label text="Backlog:">
-               <font>
-                  <Font size="16.0" />
-               </font></Label>
-                <Label fx:id="backlogLabel" text="0">
-               <font>
-                  <Font size="16.0" />
-               </font></Label>
-            </HBox>
-            <BarChart fx:id="statusChart" alternativeRowFillVisible="false" animated="false" barGap="10.0" categoryGap="200.0" horizontalGridLinesVisible="false" legendVisible="false" prefWidth="824.0" verticalGridLinesVisible="false">
+                <GridPane hgap="10" vgap="6">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" minWidth="110"/>
+                        <ColumnConstraints halignment="LEFT"/>
+                    </columnConstraints>
 
-                <xAxis>
-                    <CategoryAxis side="BOTTOM" fx:id="xAxis" />
-                </xAxis>
+                    <children>
+                        <Label text="Total Games:"                       GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <Label fx:id="totalGamesLabel" text="0"          GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
-                <yAxis>
-                    <NumberAxis fx:id="yAxis" side="LEFT" />
-                </yAxis>
+                        <Label text="Completed:"                         GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <Label fx:id="completedLabel" text="0"           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 
-                <VBox.margin>
-                    <Insets left="50.0" right="50.0" />
-                </VBox.margin>
-            </BarChart>
-         <BorderPane.margin>
-            <Insets left="50.0" right="50.0" />
-         </BorderPane.margin>
+                        <Label text="Playing:"                            GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <Label fx:id="playingLabel" text="0"             GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
+                        <Label text="Backlog:"                            GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <Label fx:id="backlogLabel" text="0"             GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    </children>
+                </GridPane>
+
+            </VBox>
         </VBox>
+    </left>
+
+    <!-- ========================= CENTER: Bar Chart ========================= -->
+    <center>
+        <StackPane>
+            <padding>
+                <Insets top="10" right="20" bottom="10" left="10"/>
+            </padding>
+
+            <children>
+                <BarChart fx:id="statusChart" prefHeight="420" prefWidth="650">
+                    <!-- FIX: Properly wired axes -->
+                    <xAxis>
+                        <CategoryAxis fx:id="xAxis" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis fx:id="yAxis" />
+                    </yAxis>
+                </BarChart>
+            </children>
+        </StackPane>
     </center>
 
+    <!-- ========================= BOTTOM: Toolbar ========================= -->
     <bottom>
-        <fx:include source="../components/toolbar.fxml" />
+        <fx:include source="../components/toolbar.fxml"/>
     </bottom>
 
 </BorderPane>

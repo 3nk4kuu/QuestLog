@@ -16,11 +16,20 @@ public class StatsController {
     @FXML private Label playingLabel;
     @FXML private Label backlogLabel;
 
+    @FXML private Label statsTitleLabel;   // ADD THIS (matches FXML)
     @FXML private BarChart<String, Number> statusChart;
     @FXML private CategoryAxis xAxis;
     @FXML private NumberAxis yAxis;
 
     private final EntryService entryService = EntryService.getInstance();
+
+    // ADD THIS — username passed in from ScreenNavigator
+    private String username;
+
+    public void setUsername(String username) {
+        this.username = username;
+        statsTitleLabel.setText(username + "'s Stats");  // update UI title
+    }
 
     @FXML
     private void initialize() {
