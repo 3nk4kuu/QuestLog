@@ -31,14 +31,15 @@ public class DashboardController {
 
     private final EntryService entryService = EntryService.getInstance();
 
-    // Example username; replace with actual logged-in username dynamically
-    private String username = "admin";
-
     // ---------------- Initialization ----------------
     @FXML
     private void initialize() {
         // Set welcome message with green username
-        updateWelcomeMessage(username);
+        String loggedInUser = AuthService.getInstance()
+                .getCurrentUser()
+                .getUsername();
+
+        updateWelcomeMessage(loggedInUser);
 
         // --- SORT OPTIONS ---
         sortCombo.getItems().addAll(
