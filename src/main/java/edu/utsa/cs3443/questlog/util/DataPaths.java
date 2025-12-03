@@ -12,6 +12,13 @@ public final class DataPaths {
             "entries.csv"
     );
 
+    // C:\Users\<name>\.questlog\users.csv
+    public static final Path USERS_PATH = Paths.get(
+            System.getProperty("user.home"),
+            ".questlog",
+            "users.csv"
+    );
+
     private DataPaths() {
         // Prevent instantiation
     }
