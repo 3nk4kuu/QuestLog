@@ -28,7 +28,7 @@ public class GameCardController {
         this.entry = entry;
 
         titleLabel.setText(entry.getTitle());
-        platformLabel.setText(shortenPlatform(entry.getPlatform() != null ? entry.getPlatform().name() : ""));
+        platformLabel.setText(entry.getPlatform() != null ? entry.getPlatform().getShortCode() : "");
         statusLabel.setText(entry.getStatus() != null ? entry.getStatus().name() : "");
 
         String path = entry.getCoverImagePath();
@@ -56,12 +56,4 @@ public class GameCardController {
         }
     }
 
-    private String shortenPlatform(String platform) {
-        return switch (platform.toUpperCase()) {
-            case "PLAYSTATION" -> "PS";
-            case "SWITCH" -> "NS";
-            case "XBOX" -> "XB";
-            default -> platform;
-        };
-    }
 }
