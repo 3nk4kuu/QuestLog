@@ -3,6 +3,7 @@ package edu.utsa.cs3443.questlog.ui;
 import edu.utsa.cs3443.questlog.model.GameEntry;
 import edu.utsa.cs3443.questlog.model.Platform;
 import edu.utsa.cs3443.questlog.model.Status;
+import edu.utsa.cs3443.questlog.service.AuthService;
 import edu.utsa.cs3443.questlog.service.EntryService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -136,6 +137,7 @@ public class DashboardController {
 
     @FXML
     private void onLogoutClicked() {
+        AuthService.getInstance().logout();
         ScreenNavigator.showLogin();
     }
 }
