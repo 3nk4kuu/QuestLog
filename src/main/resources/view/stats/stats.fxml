@@ -13,7 +13,7 @@
             <padding>
                 <Insets bottom="10" left="10" right="10" top="10" />
             </padding>
-            <Label styleClass="screen-title" text="admin's Stats">
+            <Label fx:id="statsTitleLabel" styleClass="screen-title" text="Stats">
             <font>
                <Font size="30.0" />
             </font></Label>

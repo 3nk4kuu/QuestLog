@@ -3,6 +3,8 @@ package edu.utsa.cs3443.questlog.ui;
 import edu.utsa.cs3443.questlog.model.GameEntry;
 import edu.utsa.cs3443.questlog.model.Status;
 import edu.utsa.cs3443.questlog.service.EntryService;
+import edu.utsa.cs3443.questlog.service.AuthService;
+
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.Label;
@@ -11,6 +13,7 @@ import java.util.List;
 
 public class StatsController {
 
+    @FXML private Label statsTitleLabel;
     @FXML private Label totalGamesLabel;
     @FXML private Label completedLabel;
     @FXML private Label playingLabel;
@@ -21,9 +24,12 @@ public class StatsController {
     @FXML private NumberAxis yAxis;
 
     private final EntryService entryService = EntryService.getInstance();
+    private final AuthService authService = AuthService.getInstance();
 
     @FXML
     private void initialize() {
+        String username = authService.getCurrentUser().getUsername();
+        statsTitleLabel.setText(username + "'s Stats");
         updateStats();
         yAxis.setTickUnit(1);
         yAxis.setMinorTickCount(0);
