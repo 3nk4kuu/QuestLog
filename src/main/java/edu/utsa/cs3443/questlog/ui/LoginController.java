@@ -1,5 +1,8 @@
 package edu.utsa.cs3443.questlog.ui;
 
+import edu.utsa.cs3443.questlog.model.User;
+import edu.utsa.cs3443.questlog.service.AuthService;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -14,6 +17,8 @@ public class LoginController {
     @FXML private Label errorLabel;
     @FXML private Label loginTitle; // added
     @FXML private ImageView loginLogo;
+
+    private final AuthService authService = AuthService.getInstance();
 
     @FXML
     private void initialize() {
@@ -30,7 +35,7 @@ public class LoginController {
         // Set vibrant green title programmatically
         if (loginTitle != null) {
             loginTitle.setStyle(
-                    "-fx-text-fill: #008000; " +
+                    "-fx-text-fill: #55EB55; " +
                             "-fx-font-size: 80px; " +
                             "-fx-font-weight: bold;"
             );
@@ -39,8 +44,32 @@ public class LoginController {
 
     @FXML
     private void onLoginClicked() {
-        // TODO: real auth later; for now go to dashboard
+        String username = usernameField.getText().trim();
+        String password = passwordField.getText().trim();
+
+        // hides error label after failed login attempt
+        if (errorLabel != null) {
+            errorLabel.setVisible(false);
+            errorLabel.setText("");
+        }
+
+        if (username.isEmpty() || password.isEmpty()) {
+            showError("Please enter a username and password.");
+            return;
+        }
+
+        authService.login(username, password).ifPresentOrElse(this::onLoginSuccess, () -> showError("Invalid username or password."));
+    }
+
+    private void onLoginSuccess(User user) {
         ScreenNavigator.showDashboard();
+    }
+
+    private void showError(String message) {
+        if (errorLabel != null) {
+            errorLabel.setText(message);
+            errorLabel.setVisible(true);
+        }
     }
 
     @FXML
