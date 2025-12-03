@@ -8,22 +8,22 @@ QuestLog helps gamers centralize their progress across all the titles they play.
 
 🎮 Key Features
 
-🎯 Track Game Progress
+● Track Game Progress
 Log completion percentage, playtime, platform, personal rating, and notes.
 
-📚 Game Library Overview
+● Game Library Overview
 A clean home screen that organizes all your games and highlights your current progress at a glance.
 
-🌍 Cross-Platform Friendly
+● Cross-Platform Friendly
 Designed to track progress for games on PC, PlayStation, Xbox, Nintendo, and more.
 
-✨ Simple & User-Friendly UI
+● Simple & User-Friendly UI
 The prototype emphasizes clarity and efficiency so gamers can update their logs quickly.
 
 📸 Prototype Preview
 
 Figma Prototype:
-https://www.figma.com/proto/XqB7ZB5jjKe1xrMfxGBqmN/QuestLog-Prototype?node-id=29-83&t=FrmhZznmCoD1kBhn-1
+https://www.figma.com/proto/XqB7ZB5ijKe1xrMfxGBqmN/QuestLog-Prototype?node-id=5-3&starting-point-node-id=5%3A3
 
 🎥 Project Demo
 
