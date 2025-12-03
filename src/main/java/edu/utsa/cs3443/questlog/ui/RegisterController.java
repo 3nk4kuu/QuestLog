@@ -61,7 +61,10 @@ public class RegisterController {
         try {
             User user = new User(username, email, password);
             authService.register(user);
-            ScreenNavigator.showLogin();
+
+            // auto-login and show dashboard after registering
+            authService.login(username, password);
+            ScreenNavigator.showDashboard();
 
         } catch (IllegalArgumentException ex) {
             showError(ex.getMessage());
