@@ -22,9 +22,11 @@
             <HBox alignment="CENTER_LEFT" spacing="10">
                 <!-- TextFlow allows styling part of the text -->
                 <TextFlow fx:id="welcomeFlow">
+                    <padding>
+                        <Insets top="20" bottom="5" />
+                    </padding>
                     <!-- Text nodes inserted in controller -->
                 </TextFlow>
-
                 <!-- Flexible spacer pushes logout button to far right -->
                 <Region HBox.hgrow="ALWAYS" />
 
