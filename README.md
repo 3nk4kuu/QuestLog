@@ -7,18 +7,18 @@ QuestLog is a platform built for gamers to track, organize, and share their prog
 
 QuestLog helps gamers centralize their progress across all the titles they play. Instead of scattering notes or relying on platform-specific trackers, QuestLog provides a clean and intuitive interface that works for any game on any system.
 
-# 🎮 Key Features
+## 🎮 Key Features
 
-● Track Game 
-Log completion, platform, personal rating, and notes.
+• **Track Game Log**  
+Log completion percentage, playtime, platform, personal rating, and notes.
 
-● Game Library Overview
-A clean home screen that organizes all your games
+• **Game Library Overview**  
+A clean home screen that organizes all your games.
 
-● Cross-Platform Friendly
+• **Cross-Platform Friendly**  
 Designed to track games on PC, PlayStation, Xbox, Nintendo, and more.
 
-● Simple & User-Friendly UI
+• **Simple & User-Friendly UI**  
 The prototype emphasizes clarity and efficiency so gamers can update their logs quickly.
 
 # 📸 Prototype Preview
