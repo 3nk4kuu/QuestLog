@@ -6,6 +6,10 @@ import edu.utsa.cs3443.questlog.service.EntryService;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 import java.util.List;
 
@@ -16,29 +20,61 @@ public class StatsController {
     @FXML private Label playingLabel;
     @FXML private Label backlogLabel;
 
-    @FXML private Label statsTitleLabel;   // ADD THIS (matches FXML)
+    @FXML private Label statsTitleLabel;
     @FXML private BarChart<String, Number> statusChart;
     @FXML private CategoryAxis xAxis;
     @FXML private NumberAxis yAxis;
+    @FXML private VBox summaryCard;
+    @FXML private TextFlow statsTitleFlow;
 
     private final EntryService entryService = EntryService.getInstance();
 
     // ADD THIS — username passed in from ScreenNavigator
-    private String username;
+    private String username = "admin";
 
     public void setUsername(String username) {
         this.username = username;
-        statsTitleLabel.setText(username + "'s Stats");  // update UI title
+        updateStatsTitle(username);
     }
 
     @FXML
     private void initialize() {
+        if (username != null) {
+            updateStatsTitle(username);
+        }
         updateStats();
+
+        // chart setup
         yAxis.setTickUnit(1);
         yAxis.setMinorTickCount(0);
         yAxis.setForceZeroInRange(true);
         statusChart.setCategoryGap(200);
         statusChart.setBarGap(-20);
+        Region legend = (Region) statusChart.lookup(".chart-legend");
+        if (legend != null) {
+            legend.setStyle("-fx-background-color: transparent;");
+        }
+
+        // i couldn't get it to work in the css so i just did this
+        if (ScreenNavigator.isDarkMode()) {
+            summaryCard.setStyle("-fx-background-color: #2A2C31; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 2);");
+        } else {
+            summaryCard.setStyle("-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);");
+        }
+    }
+
+    private void updateStatsTitle(String username) {
+        statsTitleFlow.getChildren().clear();
+
+        Text t1 = new Text(username);
+        t1.setStyle("-fx-fill: #00FF00; -fx-font-weight: bold; -fx-font-size: 34px;");
+
+        Text t2 = new Text("'s Stats");
+        t2.setStyle(ScreenNavigator.isDarkMode()
+                ? "-fx-fill: #EEEEEE; -fx-font-size: 34px;"
+                : "-fx-fill: #1A1A1A; -fx-font-size: 34px;");
+
+        statsTitleFlow.getChildren().addAll(t1, t2);
     }
 
     private void updateStats() {

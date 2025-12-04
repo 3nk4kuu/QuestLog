@@ -72,7 +72,11 @@ public class DashboardController {
         welcomeFlow.getChildren().clear();
 
         Text t1 = new Text("Welcome back, ");
-        t1.setStyle("-fx-font-size: 30px;");
+        if (ScreenNavigator.isDarkMode()) {
+            t1.setStyle("-fx-fill: #EEEEEE; -fx-font-size: 30px;");
+        } else {
+            t1.setStyle("-fx-fill: #1A1A1A; -fx-font-size: 30px;");
+        }
 
         Text t2 = new Text(username);
         t2.setStyle("-fx-fill: #00FF00; -fx-font-weight: bold; -fx-font-size: 30px;");

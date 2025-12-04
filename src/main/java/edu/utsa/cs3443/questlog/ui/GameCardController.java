@@ -6,6 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.image.Image;
+import javafx.scene.shape.Rectangle;
+
 import java.io.File;
 
 public class GameCardController {
@@ -23,6 +25,15 @@ public class GameCardController {
     @FXML private Label heart5;
 
     private GameEntry entry;
+
+    @FXML
+    public void initialize() {
+        // Clip the cover image to match rounded card corners
+        Rectangle clip = new Rectangle(coverImageView.getFitWidth(), coverImageView.getFitHeight());
+        clip.setArcWidth(12);
+        clip.setArcHeight(12);
+        coverImageView.setClip(clip);
+    }
 
     public void setEntry(GameEntry entry) {
         this.entry = entry;

@@ -1,6 +1,6 @@
 .root {
-    -fx-font-family: "JetBrains Mono";
-    -fx-font-size: 16px;
+    -fx-font-family: "Jersey 10";
+    -fx-font-size: 20px;
 }
 
 /* Title labels (screen headers) */
@@ -19,7 +19,7 @@
 
 /* Year Label (entry view) */
 .year-Label {
-    -fx-font-size: 18px;
+    -fx-font-size: 25px;
     -fx-font-weight: 700;
     -fx-opacity: 0.5;
 }
@@ -34,18 +34,23 @@
     -fx-font-weight: 600;
 }
 
+.title-label {
+    -fx-font-size: 40px;
+    -fx-font-weight: 600;
+}
+
 /* Standard buttons */
 .button {
     -fx-padding: 8 18;
     -fx-background-radius: 8;
-    -fx-font-size: 16px;
+    -fx-font-size: 20px;
     -fx-font-weight: 600;
 }
 
 .toggle-button {
     -fx-padding: 8 18;
     -fx-background-radius: 8;
-    -fx-font-size: 16px;
+    -fx-font-size: 20px;
     -fx-font-weight: 600;
 }
 
@@ -54,9 +59,22 @@
 .text-area,
 .combo-box,
 .date-picker {
+    -fx-font-family: "Jersey 10";
     -fx-background-radius: 8;
     -fx-padding: 6;
-    -fx-font-size: 16px;
+    -fx-font-size: 20px;
+}
+
+.combo-box-popup .list-cell:selected {
+    -fx-background-color: #108E10;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #108E10;
+}
+
+.date-cell:selected {
+    -fx-background-color: #108E10;
 }
 
 /* Hearts (rating) */
@@ -76,6 +94,13 @@
     -fx-background-color: transparent;
 }
 
+.scroll-bar:vertical,
+.scroll-bar:horizontal {
+    -fx-opacity: 0;
+    -fx-max-width: 0;
+    -fx-pref-width: 0;
+}
+
 /* Bar Chart */
 .chart {
     -fx-background-color: transparent;
@@ -88,3 +113,37 @@
 .default-color0.chart-bar { -fx-bar-fill: #108E10; }
 .default-color1.chart-bar { -fx-bar-fill: #759bff; }
 .default-color2.chart-bar { -fx-bar-fill: #ffaa2b; }
+
+.game-card {
+    -fx-font-family: "Jersey 10";
+    -fx-font-size: 18px;
+    -fx-background-radius: 12;
+    -fx-background-color: transparent;
+}
+
+.header-card {
+    -fx-background-radius: 12;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 2);
+}
+
+.settings-card {
+    -fx-background-radius: 12;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 12, 0.2, 0, 3);
+}
+
+/*
+.summary-card {
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);
+}*/
+
+.hyperlink {
+    -fx-text-fill: #108E10
+}
+
+.hyperlink:pressed {
+        -fx-text-fill: #108E10
+    }

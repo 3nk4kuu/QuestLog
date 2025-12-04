@@ -8,6 +8,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.TextField;
+import javafx.scene.shape.Rectangle;
+
 import java.time.format.DateTimeFormatter;
 
 import java.io.File;
@@ -25,6 +27,14 @@ public class EntryViewController {
     @FXML private RatingHeartsController ratingHeartsController;
 
     private GameEntry entry;
+
+    @FXML
+    public void initialize(){
+            Rectangle clip = new Rectangle(coverImageView.getFitWidth(), coverImageView.getFitHeight());
+            clip.setArcWidth(12);   // radius matches the desired roundness
+            clip.setArcHeight(12);
+            coverImageView.setClip(clip);
+    }
 
     public void setEntry(GameEntry entry) {
         this.entry = entry;
