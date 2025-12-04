@@ -48,12 +48,26 @@ public class StatsController {
         yAxis.setTickUnit(1);
         yAxis.setMinorTickCount(0);
         yAxis.setForceZeroInRange(true);
-        statusChart.setCategoryGap(200);
-        statusChart.setBarGap(-20);
-        Region legend = (Region) statusChart.lookup(".chart-legend");
-        if (legend != null) {
-            legend.setStyle("-fx-background-color: transparent;");
+        statusChart.applyCss();
+        statusChart.layout();
+
+        Region legendBox = (Region) statusChart.lookup(".chart-legend");
+
+        if (legendBox != null) {
+            legendBox.setStyle(
+                    "-fx-background-color: white;" +
+                            "-fx-border-color: #D0D0D0;" +
+                            "-fx-border-radius: 10;" +
+                            "-fx-background-radius: 10;" +
+                            "-fx-padding: 10 20 10 20;" +
+                            "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);"
+            );
+
+            // Fix spacing between legend items
+            legendBox.lookupAll(".chart-legend-item")
+                    .forEach(node -> node.setStyle("-fx-padding: 0 30 0 30;"));
         }
+
 
         // i couldn't get it to work in the css so i just did this
         if (ScreenNavigator.isDarkMode()) {

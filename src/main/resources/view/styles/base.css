@@ -114,6 +114,12 @@
 .default-color1.chart-bar { -fx-bar-fill: #759bff; }
 .default-color2.chart-bar { -fx-bar-fill: #ffaa2b; }
 
+.chart-legend-item {
+     -fx-padding: 0 10 0 10;  /* spacing */
+     -fx-min-width: 180;      /* equal width for all three */
+     -fx-alignment: center;
+     }
+
 .game-card {
     -fx-font-family: "Jersey 10";
     -fx-font-size: 18px;
