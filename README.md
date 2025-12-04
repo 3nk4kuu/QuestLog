@@ -27,5 +27,5 @@ https://www.figma.com/proto/XqB7ZB5ijKe1xrMfxGBqmN/QuestLog-Prototype?node-id=5-
 
 🎥 Project Demo
 
-YouTube Demo:
+(WILL MAKE NEW DEMO WHEN WE FINISH THE APP) YouTube Demo:
 https://www.youtube.com/watch?v=gKg3f5Zac0o&feature=youtu.be
