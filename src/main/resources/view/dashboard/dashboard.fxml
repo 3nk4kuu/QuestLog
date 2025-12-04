@@ -8,73 +8,83 @@
 <BorderPane prefHeight="600" prefWidth="1024"
             xmlns="http://javafx.com/javafx/17.0.12"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="edu.utsa.cs3443.questlog.ui.DashboardController">
+            fx:controller="edu.utsa.cs3443.questlog.ui.DashboardController"
+            style="-fx-background-color: linear-gradient(to bottom, #f5f5f5, #ededed);">
 
-    <!-- ================= TOP: greeting + sort/filter + add + logout ================= -->
+    <!-- ================= TOP ================= -->
     <top>
-        <VBox spacing="8">
+        <VBox spacing="18" alignment="CENTER">
+
+            <!-- Clean top spacing -->
             <padding>
-                <!-- increased bottom padding to prevent Add Entry from touching divider -->
-                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                <Insets top="25" bottom="10" left="25" right="25"/>
             </padding>
 
-            <!-- greeting + logout -->
-            <HBox alignment="CENTER_LEFT" spacing="10">
-                <!-- TextFlow allows styling part of the text -->
-                <TextFlow fx:id="welcomeFlow">
-                    <padding>
-                        <Insets top="20" bottom="5" />
-                    </padding>
-                    <!-- Text nodes inserted in controller -->
-                </TextFlow>
-                <!-- Flexible spacer pushes logout button to far right -->
-                <Region HBox.hgrow="ALWAYS" />
+            <!-- ===== HEADER CARD ===== -->
+            <VBox spacing="12"
+                  style="-fx-background-color: white;
+                         -fx-background-radius: 12;
+                         -fx-padding: 20;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 2);"
+                  maxWidth="900">
 
-                <Button alignment="TOP_RIGHT" onAction="#onLogoutClicked" styleClass="login-button" text="Logout">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Button>
-            </HBox>
+                <!-- Welcome row -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <TextFlow fx:id="welcomeFlow">
+                        <padding>
+                            <Insets top="5" bottom="5"/>
+                        </padding>
+                    </TextFlow>
 
-            <!-- filter + sort + Add Entry button -->
-            <HBox alignment="CENTER_LEFT" spacing="12">
-                <Label text="Sort:"><font><Font size="16" /></font></Label>
-                <ComboBox fx:id="sortCombo" prefWidth="150" />
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button alignment="CENTER" onAction="#onLogoutClicked"
+                            styleClass="login-button" text="Logout">
+                        <font><Font size="14"/></font>
+                    </Button>
+                </HBox>
 
-                <Label text="Platform:"><font><Font size="16" /></font></Label>
-                <ComboBox fx:id="platformFilterCombo" prefWidth="150" />
+                <!-- Filters row -->
+                <HBox alignment="CENTER_LEFT" spacing="15">
 
-                <Label text="Status:"><font><Font size="16" /></font></Label>
-                <ComboBox fx:id="statusFilterCombo" prefWidth="150" />
+                    <Label text="Sort:"><font><Font size="16"/></font></Label>
+                    <ComboBox fx:id="sortCombo" prefWidth="140"/>
 
-                <Region HBox.hgrow="ALWAYS" />
+                    <Label text="Platform:"><font><Font size="16"/></font></Label>
+                    <ComboBox fx:id="platformFilterCombo" prefWidth="150"/>
 
-                <Button alignment="CENTER" onAction="#onAddEntryClicked" prefHeight="25.0" text="Add Entry">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Button>
-            </HBox>
+                    <Label text="Status:"><font><Font size="16"/></font></Label>
+                    <ComboBox fx:id="statusFilterCombo" prefWidth="150"/>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button alignment="CENTER" onAction="#onAddEntryClicked"
+                            prefHeight="27" text="Add Entry">
+                        <font><Font size="14"/></font>
+                    </Button>
+
+                </HBox>
+
+            </VBox>
         </VBox>
     </top>
 
     <!-- ================= CENTER: game cards ================= -->
     <center>
-        <ScrollPane fitToWidth="true">
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER">
             <content>
-                <FlowPane fx:id="gamesFlowPane" hgap="10" vgap="10">
+                <FlowPane fx:id="gamesFlowPane" hgap="20" vgap="20"
+                          alignment="TOP_LEFT"
+                          maxWidth="900">
                     <padding>
-                        <Insets bottom="10" left="10" right="10" top="10" />
+                        <Insets top="20" bottom="20" left="20" right="20"/>
                     </padding>
                 </FlowPane>
             </content>
         </ScrollPane>
     </center>
 
-    <!-- ================= BOTTOM: toolbar ================= -->
+    <!-- ================= BOTTOM ================= -->
     <bottom>
-        <fx:include source="../components/toolbar.fxml" />
+        <fx:include source="../components/toolbar.fxml"/>
     </bottom>
 
 </BorderPane>
