@@ -110,11 +110,10 @@ public class DashboardController {
                         GameEntry::getTitle, String.CASE_INSENSITIVE_ORDER).reversed());
                 case "Rating (High→Low)" -> entries.sort(Comparator.comparingInt(GameEntry::getRating).reversed());
                 case "Rating (Low→High)" -> entries.sort(Comparator.comparingInt(GameEntry::getRating));
-                case "Platform" -> entries.sort(Comparator.comparing(
-                        e -> e.getPlatform() != null ? e.getPlatform().name() : ""));
+                case "Platform" -> entries.sort(Comparator.comparingInt(
+                        e -> PLATFORM_ORDER.getOrDefault(e.getPlatform(), Integer.MAX_VALUE)));
                 case "Status" -> entries.sort(Comparator.comparingInt(
-                        e -> STATUS_ORDER.getOrDefault(e.getStatus(), Integer.MAX_VALUE)
-                ));
+                        e -> STATUS_ORDER.getOrDefault(e.getStatus(), Integer.MAX_VALUE)));
             }
         }
 
@@ -152,5 +151,13 @@ public class DashboardController {
             Status.BACKLOG,   3,
             Status.COMPLETED, 4,
             Status.DROPPED,   5
+    );
+
+    private static final Map<Platform, Integer> PLATFORM_ORDER = Map.of(
+            Platform.PC, 1,
+            Platform.PLAYSTATION, 2,
+            Platform.XBOX, 3,
+            Platform.SWITCH, 4,
+            Platform.OTHER, 5
     );
 }
