@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class GameEntry {
 
+    private String userId;
     private String id;
     private String title;
     private Platform platform;
@@ -20,6 +21,8 @@ public class GameEntry {
     }
 
     // --- Getters ---
+    public String getUserId() { return userId; }
+
     public String getId() {
         return id;
     }
@@ -60,7 +63,9 @@ public class GameEntry {
     }
 
     // --- Setters ---\\
-     public void setId(String id) {
+    public void setUserId(String userId) { this.userId = userId; }
+
+    public void setId(String id) {
         this.id = id; 
     }
 

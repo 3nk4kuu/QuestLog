@@ -25,7 +25,7 @@ public class CsvUserRepository implements UserRepository{
             // create parent dirs + empty file with header
             Files.createDirectories(file.getParent());
             try (BufferedWriter w = Files.newBufferedWriter(file, StandardCharsets.UTF_8)) {
-                w.write("username,email,password");
+                w.write("userId,username,email,password");
                 w.newLine();
             }
             return users;
@@ -35,13 +35,14 @@ public class CsvUserRepository implements UserRepository{
             String line = reader.readLine(); // header
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",", -1); // keep empty fields
-                if (parts.length < 3) continue;
+                if (parts.length < 4) continue;
 
-                String username = unescape(parts[0]);
-                String email    = unescape(parts[1]);
-                String password = unescape(parts[2]);
+                String userId   = unescape(parts[0]);
+                String username = unescape(parts[1]);
+                String email    = unescape(parts[2]);
+                String password = unescape(parts[3]);
 
-                users.add(new User(username, email, password));
+                users.add(new User(userId, username, email, password));
             }
         }
 
@@ -52,10 +53,11 @@ public class CsvUserRepository implements UserRepository{
     public void saveAll(List<User> users) throws IOException {
         Files.createDirectories(file.getParent());
         try (BufferedWriter w = Files.newBufferedWriter(file, StandardCharsets.UTF_8)) {
-            w.write("username,email,password");
+            w.write("userId,username,email,password");
             w.newLine();
             for (User u : users) {
                 w.write(String.join(",",
+                        escape(u.getUserId()),
                         escape(u.getUsername()),
                         escape(u.getEmail()),
                         escape(u.getPassword())

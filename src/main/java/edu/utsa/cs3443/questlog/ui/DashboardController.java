@@ -95,7 +95,8 @@ public class DashboardController {
     private void refreshLibrary() {
         gamesFlowPane.getChildren().clear();
 
-        List<GameEntry> entries = entryService.getAllEntries();
+        String userId = AuthService.getInstance().getCurrentUser().getUserId();
+        List<GameEntry> entries = entryService.getEntriesForUser(userId);
 
         // --- FILTERING ---
         Platform pFilter = platformFilterCombo.getValue();

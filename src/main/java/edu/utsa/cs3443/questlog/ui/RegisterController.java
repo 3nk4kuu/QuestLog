@@ -59,7 +59,7 @@ public class RegisterController {
         }
 
         try {
-            User user = new User(username, email, password);
+            User user = new User(null, username, email, password);
             authService.register(user);
 
             // auto-login and show dashboard after registering

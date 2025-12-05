@@ -20,12 +20,21 @@ public class AuthService {
     private final ObservableList<User> users = FXCollections.observableArrayList();
 
     private User currentUser;
+    private int nextUserIndex = 1;
 
     private AuthService(UserRepository repository) {
         this.repository = repository;
         try {
             List<User> loaded = repository.loadAll();
             users.addAll(loaded);
+
+            // Initialize nextUserIndex from existing users
+            nextUserIndex = loaded.stream()
+                    .map(User::getUserId)
+                    .map(id -> id.replaceAll("\\D", "")) // remove letters
+                    .mapToInt(Integer::parseInt)
+                    .max()
+                    .orElse(0) + 1;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -87,6 +96,10 @@ public class AuthService {
             throw new IllegalArgumentException("Email already in use.");
         }
 
+        if (user.getUserId() == null || user.getUserId().isEmpty()) {
+            user.setUserId(generateUserId());
+        }
+
         users.add(user);
         persist();
     }
@@ -125,6 +138,9 @@ public class AuthService {
         persist();
     }
 
+    private String generateUserId() {
+        return String.format("u%03d", nextUserIndex++);
+    }
 
     private void persist() {
         try {

@@ -99,7 +99,8 @@ public class StatsController {
     }
 
     private void updateStats() {
-        List<GameEntry> entries = entryService.getAllEntries();
+        String userId = AuthService.getInstance().getCurrentUser().getUserId();
+        List<GameEntry> entries = entryService.getEntriesForUser(userId);
 
         int total = entries.size();
         int completed = 0;

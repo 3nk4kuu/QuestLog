@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class EntryService {
 
@@ -49,6 +50,14 @@ public class EntryService {
             entry.setId(UUID.randomUUID().toString());
             entries.add(entry);
         }
+
+        if (entry.getUserId() == null || entry.getUserId().isEmpty()) {
+            entry.setUserId(AuthService.getInstance().getCurrentUser().getUserId());
+        }
+
+        if (!entries.contains(entry)) {
+            entries.add(entry);
+        }
         persist();
     }
 
@@ -64,5 +73,11 @@ public class EntryService {
             e.printStackTrace();
             // optionally show an error dialog
         }
+    }
+
+    public List<GameEntry> getEntriesForUser(String userId) {
+        return entries.stream()
+                .filter(e -> e.getUserId() != null && e.getUserId().equals(userId))
+                .collect(Collectors.toList());
     }
 }

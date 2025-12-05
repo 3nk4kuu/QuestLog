@@ -1,5 +1,6 @@
 package edu.utsa.cs3443.questlog.ui;
 
+import edu.utsa.cs3443.questlog.service.AuthService;
 import edu.utsa.cs3443.questlog.model.GameEntry;
 import edu.utsa.cs3443.questlog.model.Platform;
 import edu.utsa.cs3443.questlog.model.Status;
@@ -163,6 +164,7 @@ public class EntryEditorController {
 
         if (editingEntry == null) {
             GameEntry newEntry = new GameEntry(null);
+            newEntry.setUserId(AuthService.getInstance().getCurrentUser().getUserId());
             newEntry.setTitle(title);
             newEntry.setPlatform(platform);
             newEntry.setStatus(status);

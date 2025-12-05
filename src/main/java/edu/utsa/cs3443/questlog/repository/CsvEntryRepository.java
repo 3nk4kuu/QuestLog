@@ -31,7 +31,7 @@ public class CsvEntryRepository implements EntryRepository {
             // create parent dirs + empty file with header
             Files.createDirectories(file.getParent());
             try (BufferedWriter w = Files.newBufferedWriter(file, StandardCharsets.UTF_8)) {
-                w.write("id,title,platform,status,releaseDate,startDate,completionDate,notes,rating,coverImage");
+                w.write("id,userId,title,platform,status,releaseDate,startDate,completionDate,notes,rating,coverImage");
                 w.newLine();
             }
             return entries;
@@ -41,22 +41,22 @@ public class CsvEntryRepository implements EntryRepository {
             String line = reader.readLine(); // header
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",", -1); // keep empty fields
-                if (parts.length < 7) continue;
+                if (parts.length < 8) continue;
 
                 GameEntry e = new GameEntry(parts[0]);
-                e.setTitle(unescape(parts[1]));
-                e.setPlatform(parsePlatform(parts[2]));
-                e.setStatus(parseStatus(parts[3]));
-                e.setReleaseDate(parseDate(parts[4]));
-                e.setStartDate(parseDate(parts[5]));
-                e.setCompletionDate(parseDate(parts[6]));
-                e.setNotes(unescape(parts[7]));
+                e.setUserId(parts[1]);
+                e.setTitle(unescape(parts[2]));
+                e.setPlatform(parsePlatform(parts[3]));
+                e.setStatus(parseStatus(parts[4]));
+                e.setReleaseDate(parseDate(parts[5]));
+                e.setStartDate(parseDate(parts[6]));
+                e.setCompletionDate(parseDate(parts[7]));
 
                 // rating is optional (for backward compatibility)
                 int rating = 0;
-                if (parts.length >= 9 && !parts[8].isBlank()) {
+                if (parts.length >= 10 && !parts[9].isBlank()) {
                     try {
-                        rating = Integer.parseInt(parts[8].trim());
+                        rating = Integer.parseInt(parts[9].trim());
                     } catch (NumberFormatException ex) {
                         rating = 0;
                     }
@@ -64,8 +64,8 @@ public class CsvEntryRepository implements EntryRepository {
                 e.setRating(rating);
                 
                 String coverImagePath = null;
-                    if (parts.length >= 10) {
-                        coverImagePath = unescape(parts[9]);
+                    if (parts.length >= 11) {
+                        coverImagePath = unescape(parts[10]);
                     }
                     e.setCoverImagePath(coverImagePath);
 
@@ -80,11 +80,11 @@ public class CsvEntryRepository implements EntryRepository {
     public void saveAll(List<GameEntry> entries) throws IOException {
         Files.createDirectories(file.getParent());
         try (BufferedWriter w = Files.newBufferedWriter(file, StandardCharsets.UTF_8)) {
-            w.write("id,title,platform,status,releaseDate,startDate,completionDate,notes,rating,coverImage");
-            w.newLine();
+            w.write("id,userId,title,platform,status,releaseDate,startDate,completionDate,notes,rating,coverImage");            w.newLine();
             for (GameEntry e : entries) {
                 w.write(String.join(",",
                         safe(e.getId()),
+                        safe(e.getUserId()),
                         escape(e.getTitle()),
                         e.getPlatform() != null ? e.getPlatform().name() : "",
                         e.getStatus() != null ? e.getStatus().name() : "",
