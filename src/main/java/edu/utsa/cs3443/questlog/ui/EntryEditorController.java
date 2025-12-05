@@ -13,6 +13,8 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.Map;
 
 public class EntryEditorController {
 
@@ -58,7 +60,13 @@ public class EntryEditorController {
         }
 
         platformCombo.getItems().setAll(Platform.values());
-        statusCombo.getItems().setAll(Status.values());
+        statusCombo.getItems().addAll(
+                Status.PLAYING,
+                Status.ON_HOLD,
+                Status.BACKLOG,
+                Status.COMPLETED,
+                Status.DROPPED
+        );
         updateEditorHearts();
 
         if (deleteButton != null) {
@@ -240,4 +248,12 @@ public class EntryEditorController {
             coverImageView.setImage(null);
         }
     }
+
+    private static final Map<Status, Integer> STATUS_ORDER = Map.of(
+            Status.PLAYING,   1,
+            Status.ON_HOLD,   2,
+            Status.BACKLOG,   3,
+            Status.COMPLETED, 4,
+            Status.DROPPED,   5
+    );
 }
