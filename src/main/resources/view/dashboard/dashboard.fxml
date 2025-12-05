@@ -74,7 +74,7 @@
         <fx:include source="../components/toolbar.fxml" />
     </bottom>
    <padding>
-      <Insets bottom="5.0" />
+      <Insets bottom="0.0" />
    </padding>
 
 </BorderPane>

@@ -90,10 +90,10 @@ public class StatsController {
         statsTitleFlow.getChildren().clear();
 
         Text t1 = new Text(username);
-        t1.setStyle("-fx-fill: #00FF00; -fx-font-weight: bold; -fx-font-size: 30px;");
+        t1.setStyle("-fx-fill: #00FF00; -fx-font-weight: bold; -fx-font-size: 35px;");
 
         Text t2 = new Text("'s Stats");
-        t2.setStyle(ScreenNavigator.isDarkMode() ? "-fx-fill: #EEEEEE; -fx-font-size: 30px;" : "-fx-fill: #1A1A1A; -fx-font-size: 30px;");
+        t2.setStyle(ScreenNavigator.isDarkMode() ? "-fx-fill: #EEEEEE; -fx-font-size: 35px;" : "-fx-fill: #1A1A1A; -fx-font-size: 35px;");
 
         statsTitleFlow.getChildren().addAll(t1, t2);
     }

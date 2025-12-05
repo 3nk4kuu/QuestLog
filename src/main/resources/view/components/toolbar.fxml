@@ -8,7 +8,7 @@
 <HBox alignment="CENTER" prefHeight="50" spacing="20" styleClass="bottom-toolbar" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.questlog.ui.ToolbarController">
 
     <padding>
-        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        <Insets bottom="20.0" left="5.0" right="5.0" top="10.0" />
     </padding>
 
     <ToggleButton fx:id="libraryButton" onAction="#onLibraryClicked" text="Library">
