@@ -73,8 +73,21 @@
     -fx-background-color: #108E10;
 }
 
-.date-cell:selected {
+.date-picker-popup {
+    -fx-background-radius: 8;
+}
+
+.date-cell:hover {
     -fx-background-color: #108E10;
+}
+
+.date-picker-popup .day-cell:selected,
+.date-picker-popup .day-cell:focused {
+    -fx-background-color: #108E10;
+}
+
+.date-picker .arrow-button {
+    -fx-background-radius: 8px;
 }
 
 /* Hearts (rating) */
