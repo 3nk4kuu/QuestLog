@@ -8,29 +8,31 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="600" prefWidth="1024"
-            xmlns="http://javafx.com/javafx/24.0.1"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="edu.utsa.cs3443.questlog.ui.SettingsMenuController">
+<BorderPane prefHeight="600" prefWidth="1024" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.questlog.ui.SettingsMenuController">
 
     <!-- ================= TOP ================= -->
     <top>
         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
-            <padding><Insets top="20" bottom="20" /></padding>
 
             <Label alignment="CENTER" styleClass="screen-title" text="Settings">
                 <font><Font size="32" /></font>
             </Label>
 
-            <Separator prefWidth="600"/>
+            <Separator prefWidth="600">
+            <VBox.margin>
+               <Insets left="10.0" right="10.0" top="5.0" />
+            </VBox.margin></Separator>
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </BorderPane.margin>
         </VBox>
     </top>
 
     <!-- ================= CENTER CONTENT ================= -->
     <center>
-        <VBox alignment="TOP_CENTER" spacing="18" BorderPane.alignment="CENTER" styleClass="settings-card" maxWidth="600">
+        <VBox alignment="TOP_CENTER" spacing="15.0" styleClass="settings-card" BorderPane.alignment="CENTER">
             <padding>
-                <Insets top="25" bottom="25" left="20" right="20"/>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
             </padding>
 
             <Button maxWidth="Infinity" onAction="#onAccountClicked" text="Account">
@@ -44,6 +46,9 @@
             <Button maxWidth="Infinity" onAction="#onCreditsClicked" text="Credits">
                 <font><Font size="15" /></font>
             </Button>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="75.0" right="75.0" />
+         </BorderPane.margin>
         </VBox>
     </center>
 

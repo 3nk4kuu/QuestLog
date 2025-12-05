@@ -28,9 +28,8 @@
 
     <Separator />
 
-    <Label text="Change Email">
+    <Label styleClass="subtitle-label" text="Change Email">
       <font>
-         <Font size="20.0" />
       </font>
       <VBox.margin>
          <Insets left="20.0" right="20.0" />
@@ -55,9 +54,8 @@
       </VBox.margin>
    </HBox>
 
-    <Label text="Change Password">
+    <Label styleClass="subtitle-label" text="Change Password">
       <font>
-         <Font size="20.0" />
       </font>
       <VBox.margin>
          <Insets left="20.0" right="20.0" />
