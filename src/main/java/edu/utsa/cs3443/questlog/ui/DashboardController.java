@@ -60,7 +60,13 @@ public class DashboardController {
 
         // --- STATUS FILTER ---
         statusFilterCombo.getItems().add(null);
-        statusFilterCombo.getItems().addAll(Status.values());
+        statusFilterCombo.getItems().addAll(
+                Status.PLAYING,
+                Status.ON_HOLD,
+                Status.BACKLOG,
+                Status.COMPLETED,
+                Status.DROPPED
+        );
         statusFilterCombo.setPromptText("All Statuses");
         statusFilterCombo.valueProperty().addListener((obs, ov, nv) -> refreshLibrary());
 
