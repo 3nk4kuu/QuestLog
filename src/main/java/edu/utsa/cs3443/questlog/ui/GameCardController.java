@@ -40,7 +40,7 @@ public class GameCardController {
 
         titleLabel.setText(entry.getTitle());
         platformLabel.setText(entry.getPlatform() != null ? entry.getPlatform().getShortCode() : "");
-        statusLabel.setText(entry.getStatus() != null ? entry.getStatus().name() : "");
+        statusLabel.setText(entry.getStatus() != null ? entry.getStatus().toString() : "");
 
         String path = entry.getCoverImagePath();
         if (path != null && !path.isBlank()) {
