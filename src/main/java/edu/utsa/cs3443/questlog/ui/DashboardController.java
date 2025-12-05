@@ -35,9 +35,7 @@ public class DashboardController {
     @FXML
     private void initialize() {
         // Set welcome message with green username
-        String loggedInUser = AuthService.getInstance()
-                .getCurrentUser()
-                .getUsername();
+        String loggedInUser = AuthService.getInstance().getCurrentUser().getUsername();
 
         updateWelcomeMessage(loggedInUser);
 

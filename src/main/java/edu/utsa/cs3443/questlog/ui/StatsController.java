@@ -2,6 +2,7 @@ package edu.utsa.cs3443.questlog.ui;
 
 import edu.utsa.cs3443.questlog.model.GameEntry;
 import edu.utsa.cs3443.questlog.model.Status;
+import edu.utsa.cs3443.questlog.service.AuthService;
 import edu.utsa.cs3443.questlog.service.EntryService;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
@@ -30,19 +31,26 @@ public class StatsController {
     private final EntryService entryService = EntryService.getInstance();
 
     // ADD THIS — username passed in from ScreenNavigator
-    private String username = "admin";
+    private String username;
 
     public void setUsername(String username) {
         this.username = username;
         updateStatsTitle(username);
+        updateStats();
     }
 
     @FXML
     private void initialize() {
-        if (username != null) {
-            updateStatsTitle(username);
+        if (this.username == null) {
+            if (AuthService.getInstance().getCurrentUser() != null) {
+                this.username = AuthService.getInstance().getCurrentUser().getUsername();
+            } else {
+                this.username = "User";
+            }
         }
+        updateStatsTitle(this.username);
         updateStats();
+
 
         // chart setup
         yAxis.setTickUnit(1);
@@ -56,7 +64,6 @@ public class StatsController {
         if (legendBox != null) {
             legendBox.setStyle(
                     "-fx-background-color: white;" +
-                            "-fx-border-color: #D0D0D0;" +
                             "-fx-border-radius: 10;" +
                             "-fx-background-radius: 10;" +
                             "-fx-padding: 10 20 10 20;" +
@@ -78,15 +85,15 @@ public class StatsController {
     }
 
     private void updateStatsTitle(String username) {
+        if (statsTitleFlow == null) return;
+
         statsTitleFlow.getChildren().clear();
 
         Text t1 = new Text(username);
-        t1.setStyle("-fx-fill: #00FF00; -fx-font-weight: bold; -fx-font-size: 34px;");
+        t1.setStyle("-fx-fill: #00FF00; -fx-font-weight: bold; -fx-font-size: 30px;");
 
         Text t2 = new Text("'s Stats");
-        t2.setStyle(ScreenNavigator.isDarkMode()
-                ? "-fx-fill: #EEEEEE; -fx-font-size: 34px;"
-                : "-fx-fill: #1A1A1A; -fx-font-size: 34px;");
+        t2.setStyle(ScreenNavigator.isDarkMode() ? "-fx-fill: #EEEEEE; -fx-font-size: 30px;" : "-fx-fill: #1A1A1A; -fx-font-size: 30px;");
 
         statsTitleFlow.getChildren().addAll(t1, t2);
     }
