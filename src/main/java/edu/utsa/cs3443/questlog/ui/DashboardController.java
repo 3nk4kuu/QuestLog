@@ -18,6 +18,7 @@ import javafx.scene.text.TextFlow;
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class DashboardController {
@@ -111,8 +112,9 @@ public class DashboardController {
                 case "Rating (Low→High)" -> entries.sort(Comparator.comparingInt(GameEntry::getRating));
                 case "Platform" -> entries.sort(Comparator.comparing(
                         e -> e.getPlatform() != null ? e.getPlatform().name() : ""));
-                case "Status" -> entries.sort(Comparator.comparing(
-                        e -> e.getStatus() != null ? e.getStatus().name() : ""));
+                case "Status" -> entries.sort(Comparator.comparingInt(
+                        e -> STATUS_ORDER.getOrDefault(e.getStatus(), Integer.MAX_VALUE)
+                ));
             }
         }
 
@@ -143,4 +145,11 @@ public class DashboardController {
         AuthService.getInstance().logout();
         ScreenNavigator.showLogin();
     }
+
+    private static final Map<Status, Integer> STATUS_ORDER = Map.of(
+            Status.PLAYING,   1,
+            Status.ON_HOLD,   2,
+            Status.BACKLOG,   3,
+            Status.COMPLETED, 4
+    );
 }
