@@ -54,7 +54,7 @@
 
             <HBox alignment="BASELINE_LEFT" spacing="10.0">
                 <Label fx:id="titleLabel" styleClass="title-label" text="Game Title">
-                    <font><Font size="40.0" /></font>
+                    <font><Font name="Jersey 10" size="40.0" /></font>
                 </Label>
                 <Label fx:id="metaLabel" alignment="CENTER" styleClass="year-Label" text="Release Date" textFill="#808080">
                     <font><Font size="25.0" /></font>
@@ -62,12 +62,12 @@
             </HBox>
 
             <!-- FIRST ROW -->
-            <HBox alignment="CENTER_LEFT" prefWidth="1200" spacing="20.0">
+            <HBox alignment="CENTER_LEFT" styleClass="root" prefWidth="1200" spacing="20.0">
                 <VBox spacing="5.0">
-                    <Label text="Status">
+                    <Label styleClass="input-label" text="Status">
                         <font><Font size="16.0" /></font>
                     </Label>
-                    <TextField fx:id="statusField" editable="false" HBox.hgrow="ALWAYS">
+                    <TextField fx:id="statusField" styleClass="input-field" editable="false" HBox.hgrow="ALWAYS">
                   <VBox.margin>
                      <Insets right="50.0" />
                   </VBox.margin>
@@ -77,10 +77,10 @@
                 </VBox>
 
                 <VBox spacing="5.0">
-                    <Label fx:id="platform" text="Platform">
+                    <Label fx:id="platform" styleClass="input-label" text="Platform">
                         <font><Font size="16.0" /></font>
                     </Label>
-                    <TextField fx:id="platformField" editable="false" HBox.hgrow="ALWAYS">
+                    <TextField fx:id="platformField" styleClass="input-field" editable="false" HBox.hgrow="ALWAYS">
                   <VBox.margin>
                      <Insets right="50.0" />
                   </VBox.margin>
@@ -93,10 +93,10 @@
             <!-- SECOND ROW -->
             <HBox alignment="CENTER_LEFT" prefWidth="1200" spacing="20.0">
                 <VBox spacing="5.0">
-                    <Label text="Started">
+                    <Label styleClass="input-label" text="Started">
                         <font><Font size="16.0" /></font>
                     </Label>
-                    <TextField fx:id="startField" editable="false" HBox.hgrow="ALWAYS">
+                    <TextField fx:id="startField" styleClass="input-field" editable="false" HBox.hgrow="ALWAYS">
                   <VBox.margin>
                      <Insets right="50.0" />
                   </VBox.margin>
@@ -106,10 +106,10 @@
                 </VBox>
 
                 <VBox spacing="5.0">
-                    <Label text="Completed">
+                    <Label styleClass="input-label" text="Completed">
                         <font><Font size="16.0" /></font>
                     </Label>
-                    <TextField fx:id="completedField" editable="false" HBox.hgrow="ALWAYS">
+                    <TextField fx:id="completedField" styleClass="input-field" editable="false" HBox.hgrow="ALWAYS">
                   <VBox.margin>
                      <Insets right="50.0" />
                   </VBox.margin>

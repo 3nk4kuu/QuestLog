@@ -34,6 +34,10 @@ public final class ScreenNavigator {
             FXMLLoader loader = new FXMLLoader(ScreenNavigator.class.getResource(fxmlPath));
             Parent root = loader.load();
 
+            if (!root.getStyleClass().contains("root")) {
+                root.getStyleClass().add("root");
+            }
+
             if (primaryStage.getScene() == null) {
                 Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
                 primaryStage.setScene(scene);
@@ -109,6 +113,10 @@ public final class ScreenNavigator {
             EntryEditorController controller = loader.getController();
             controller.setEditingEntry(entry);
 
+            if (!root.getStyleClass().contains("root")) {
+                root.getStyleClass().add("root");
+            }
+
             if (primaryStage.getScene() == null) {
                 Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
                 primaryStage.setScene(scene);
@@ -133,6 +141,10 @@ public final class ScreenNavigator {
 
             EntryViewController controller = loader.getController();
             controller.setEntry(entry);
+
+            if (!root.getStyleClass().contains("root")) {
+                root.getStyleClass().add("root");
+            }
 
             if (primaryStage.getScene() == null) {
                 Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);

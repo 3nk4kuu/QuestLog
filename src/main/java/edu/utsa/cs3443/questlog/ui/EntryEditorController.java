@@ -7,6 +7,7 @@ import edu.utsa.cs3443.questlog.service.EntryService;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -41,6 +42,10 @@ public class EntryEditorController {
 
     @FXML
     private void initialize() {
+        Rectangle clip = new Rectangle(coverImageView.getFitWidth(), coverImageView.getFitHeight());
+        clip.setArcWidth(12);
+        clip.setArcHeight(12);
+        coverImageView.setClip(clip);
 
         if (errorLabel != null) {
             errorLabel.setVisible(false);

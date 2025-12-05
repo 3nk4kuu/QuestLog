@@ -89,3 +89,14 @@
     -fx-text-fill: #1A1A1A;
 }
 
+.header-card {
+    -fx-background-color: white;
+}
+
+.settings-card {
+    -fx-background-color: white;
+}
+
+/*.summary-card {
+    -fx-background-color: #white;
+}*/

@@ -27,7 +27,7 @@
 /* Combo Box */
 .combo-box .list-cell {
     -fx-text-fill: #EEEEEE;
-    -fx-font-family: "JetBrains Mono";
+    -fx-font-family: "Jersey 10";
 }
 
 .combo-box .cell {
@@ -49,16 +49,11 @@
 .combo-box-popup .list-cell {
     -fx-background-color: transparent;
     -fx-text-fill: #EEEEEE;
-    -fx-font-family: "JetBrains Mono";
-    -fx-font-size: 14px;
-}
-
-.combo-box-popup .list-cell:hover {
-    -fx-background-color: #35373D;
+    -fx-font-family: "Jersey 10";
+    -fx-font-size: 20px;
 }
 
 .combo-box-popup .list-cell:selected {
-    -fx-background-color: #108E10;
     -fx-text-fill: #FFFFFF;
 }
 
@@ -87,7 +82,7 @@
     -fx-text-fill: #FFFFFF;
     -fx-padding: 8 18;
     -fx-background-radius: 8;
-    -fx-font-size: 16px;
+    -fx-font-size: 20px;
     -fx-font-weight: 600;
 }
 
@@ -165,7 +160,6 @@
 }
 
 .date-cell:selected {
-    -fx-background-color: #108E10;
     -fx-text-fill: #FFFFFF;
 }
 
@@ -187,3 +181,16 @@
 .axis-label {
     -fx-text-fill: #EEEEEE;
 }
+
+.header-card {
+    -fx-background-color: #2A2C31;
+}
+
+.settings-card {
+    -fx-background-color: #2A2C31;
+}
+
+/*
+.summary-card {
+    -fx-background-color: #2A2C31;
+}*/
