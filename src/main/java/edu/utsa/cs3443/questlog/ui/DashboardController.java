@@ -150,6 +150,7 @@ public class DashboardController {
             Status.PLAYING,   1,
             Status.ON_HOLD,   2,
             Status.BACKLOG,   3,
-            Status.COMPLETED, 4
+            Status.COMPLETED, 4,
+            Status.DROPPED,   5
     );
 }
