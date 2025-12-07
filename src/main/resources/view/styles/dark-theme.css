@@ -97,15 +97,22 @@
 }
 
 /* Toggle Buttons (hearts) */
+.toggle-button.heart-toggle,
+.heart-toggle.toggle-button,
 .heart-toggle {
-    -fx-font-size: 20px;
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-text-fill: #ff7597;
+    -fx-font-size: 28px;
+    -fx-padding: 0 4;
 }
-.heart-toggle:selected {
-    -fx-background-color: transparent;
-    -fx-text-fill: #ff4d79;
+
+.toggle-button.heart-toggle:selected,
+.heart-toggle:selected,
+.heart-toggle.toggle-button:selected {
+    -fx-text-fill: #ff7597;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
 }
 
 /* ScrollPane */

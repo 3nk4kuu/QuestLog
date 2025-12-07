@@ -8,23 +8,23 @@
 
     <ToggleButton fx:id="heart1" styleClass="heart-toggle" onAction="#onHeartClicked" text="♥">
       <font>
-         <Font size="16.0" />
+         <Font size="28.0" />
       </font></ToggleButton>
     <ToggleButton fx:id="heart2" styleClass="heart-toggle" onAction="#onHeartClicked" text="♥">
       <font>
-         <Font size="16.0" />
+         <Font size="28.0" />
       </font></ToggleButton>
     <ToggleButton fx:id="heart3" styleClass="heart-toggle" onAction="#onHeartClicked" text="♥">
       <font>
-         <Font size="16.0" />
+         <Font size="28.0" />
       </font></ToggleButton>
     <ToggleButton fx:id="heart4" styleClass="heart-toggle" onAction="#onHeartClicked" text="♥">
       <font>
-         <Font size="16.0" />
+         <Font size="28.0" />
       </font></ToggleButton>
     <ToggleButton fx:id="heart5" styleClass="heart-toggle" onAction="#onHeartClicked" text="♥">
       <font>
-         <Font size="16.0" />
+         <Font size="28.0" />
       </font></ToggleButton>
 
 </HBox>
