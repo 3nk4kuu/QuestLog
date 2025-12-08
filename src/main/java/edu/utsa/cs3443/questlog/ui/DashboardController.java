@@ -147,9 +147,11 @@ public class DashboardController {
     }
 
     @FXML
-    private void onLogoutClicked() {
-        AuthService.getInstance().logout();
-        ScreenNavigator.showLogin();
+    private void onClearClicked() {
+        sortCombo.setValue(null);
+
+        platformFilterCombo.setValue(null);
+        statusFilterCombo.setValue(null);
     }
 
     private static final Map<Status, Integer> STATUS_ORDER = Map.of(

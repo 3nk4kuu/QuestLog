@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -13,13 +15,35 @@
     <!-- ================= TOP ================= -->
     <top>
         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
-
-            <Label alignment="CENTER" styleClass="screen-title" text="Settings">
-                <font><Font size="32" /></font>
+         <HBox alignment="CENTER">
+            <children>
+               <Button fx:id="thisisjustheretotakeupsapce" alignment="CENTER" disable="true" layoutX="952.0" layoutY="19.0" styleClass="login-button" text="Logout" visible="false">
+                  <font>
+                     <Font size="14" />
+                  </font>
+               </Button>
+               <Region HBox.hgrow="ALWAYS">
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+               </Region>
+      
+                  <Label alignment="CENTER" styleClass="screen-title" text="Settings">
+                      <font>
+                     <Font size="32" />
+                  </font>
+                  </Label>
+               <Region HBox.hgrow="ALWAYS" />
+               <Button fx:id="logoutButton" alignment="CENTER" onAction="#onLogoutClicked" styleClass="login-button" text="Logout">
+                  <font>
+                     <Font size="14" />
+                  </font>
+               </Button>
+            </children>
             <VBox.margin>
-               <Insets bottom="7.0" />
+               <Insets left="10.0" right="10.0" />
             </VBox.margin>
-            </Label>
+         </HBox>
 
             <Separator prefWidth="600">
             <VBox.margin>

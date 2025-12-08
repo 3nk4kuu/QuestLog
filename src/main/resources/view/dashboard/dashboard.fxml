@@ -28,7 +28,7 @@
                     </TextFlow>
 
                     <Region HBox.hgrow="ALWAYS" />
-                    <Button alignment="CENTER" onAction="#onLogoutClicked" styleClass="login-button" text="Logout">
+                    <Button alignment="CENTER" onAction="#onAddEntryClicked" prefHeight="27" text="Add Entry">
                         <font><Font size="14" /></font>
                     </Button>
                 </HBox>
@@ -46,7 +46,7 @@
                     <ComboBox fx:id="statusFilterCombo" prefWidth="150" />
 
                     <Region HBox.hgrow="ALWAYS" />
-                    <Button alignment="CENTER" onAction="#onAddEntryClicked" prefHeight="27" text="Add Entry">
+                    <Button fx:id="clearFiltersButton" alignment="CENTER" onAction="#onClearClicked" styleClass="login-button" text="Reset ⟲">
                         <font><Font size="14" /></font>
                     </Button>
 
