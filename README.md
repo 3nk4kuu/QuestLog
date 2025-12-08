@@ -1,5 +1,4 @@
-# QuestLog
-
+<br><br><img width="1536" alt="logo banner" src="https://github.com/user-attachments/assets/a8c8743f-b21e-4334-8c2f-bf190da2079d" /><br><br>
 
 QuestLog is a platform built for gamers to track, organize, and share their progress across multiple video games. Designed with simplicity and efficiency in mind, it allows players to maintain a personal gaming journal that includes detailed statistics, personalized notes, individual ratings, and other meaningful insights. QuestLog creates a centralized and intuitive space where players can reflect on their achievements, monitor their overall journey, and stay connected to the games they love.
 
