@@ -80,4 +80,12 @@ public class EntryService {
                 .filter(e -> e.getUserId() != null && e.getUserId().equals(userId))
                 .collect(Collectors.toList());
     }
+
+    public void deleteEntriesForUser(String userId) {
+        boolean changed = entries.removeIf(entry -> entry.getUserId() != null && entry.getUserId().equals(userId));
+
+        if (changed) {
+            persist();
+        }
+    }
 }

@@ -13,12 +13,12 @@ import java.util.Optional;
 
 public class AuthService {
 
-    private static final AuthService INSTANCE =
-            new AuthService(new CsvUserRepository(DataPaths.USERS_PATH));
+    private static final AuthService INSTANCE = new AuthService(new CsvUserRepository(DataPaths.USERS_PATH));
 
     private final UserRepository repository;
     private final ObservableList<User> users = FXCollections.observableArrayList();
 
+    private final EntryService entryService = EntryService.getInstance();
     private User currentUser;
     private int nextUserIndex = 1;
 
@@ -129,10 +129,13 @@ public class AuthService {
         persist();
     }
 
+
     public void deleteCurrentUser() {
         if (currentUser == null) {
             throw new IllegalStateException("No user is logged in.");
         }
+        String userIdToDelete = currentUser.getUserId();
+        entryService.deleteEntriesForUser(userIdToDelete);
         users.remove(currentUser);
         currentUser = null;
         persist();
