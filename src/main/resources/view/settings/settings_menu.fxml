@@ -16,6 +16,9 @@
 
             <Label alignment="CENTER" styleClass="screen-title" text="Settings">
                 <font><Font size="32" /></font>
+            <VBox.margin>
+               <Insets bottom="7.0" />
+            </VBox.margin>
             </Label>
 
             <Separator prefWidth="600">

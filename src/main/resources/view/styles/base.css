@@ -17,7 +17,7 @@
 /* Optional: smaller subtitle labels */
 .subtitle-label {
     -fx-text-fill: #55EB55;
-    -fx-font-size: 20px;
+    -fx-font-size: 40px;
     -fx-font-weight: 600;
 }
 
@@ -34,7 +34,7 @@
 
 /* Input label (e.g., Title:, Platform:, Status:) */
 .input-label {
-    -fx-font-size: 20px;
+    -fx-font-size: 26px;
     -fx-font-weight: 600;
 }
 

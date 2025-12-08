@@ -62,12 +62,12 @@
             </HBox>
 
             <!-- FIRST ROW -->
-            <HBox alignment="CENTER_LEFT" styleClass="root" prefWidth="1200" spacing="20.0">
+            <HBox alignment="CENTER_LEFT" prefWidth="1200" spacing="20.0" styleClass="root">
                 <VBox spacing="5.0">
                     <Label styleClass="input-label" text="Status">
                         <font><Font size="16.0" /></font>
                     </Label>
-                    <TextField fx:id="statusField" styleClass="input-field" editable="false" HBox.hgrow="ALWAYS">
+                    <TextField fx:id="statusField" editable="false" styleClass="input-field" HBox.hgrow="ALWAYS">
                   <VBox.margin>
                      <Insets right="50.0" />
                   </VBox.margin>
@@ -80,7 +80,7 @@
                     <Label fx:id="platform" styleClass="input-label" text="Platform">
                         <font><Font size="16.0" /></font>
                     </Label>
-                    <TextField fx:id="platformField" styleClass="input-field" editable="false" HBox.hgrow="ALWAYS">
+                    <TextField fx:id="platformField" editable="false" styleClass="input-field" HBox.hgrow="ALWAYS">
                   <VBox.margin>
                      <Insets right="50.0" />
                   </VBox.margin>
@@ -96,7 +96,7 @@
                     <Label styleClass="input-label" text="Started">
                         <font><Font size="16.0" /></font>
                     </Label>
-                    <TextField fx:id="startField" styleClass="input-field" editable="false" HBox.hgrow="ALWAYS">
+                    <TextField fx:id="startField" editable="false" styleClass="input-field" HBox.hgrow="ALWAYS">
                   <VBox.margin>
                      <Insets right="50.0" />
                   </VBox.margin>
@@ -109,7 +109,7 @@
                     <Label styleClass="input-label" text="Completed">
                         <font><Font size="16.0" /></font>
                     </Label>
-                    <TextField fx:id="completedField" styleClass="input-field" editable="false" HBox.hgrow="ALWAYS">
+                    <TextField fx:id="completedField" editable="false" styleClass="input-field" HBox.hgrow="ALWAYS">
                   <VBox.margin>
                      <Insets right="50.0" />
                   </VBox.margin>
