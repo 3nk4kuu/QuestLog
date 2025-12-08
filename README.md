@@ -4,7 +4,7 @@ QuestLog is a platform built for gamers to track, organize, and share their prog
 
 ## 🚀 About the Project
 
-QuestLog helps gamers centralize their progress across all the titles they play. Instead of scattering notes or relying on platform-specific trackers, QuestLog provides a clean and intuitive interface that works for any game on any system. This project was created by Syntax Squad for CS 3443 Fall 2025 at UTSA.
+QuestLog helps gamers centralize their progress across all the titles they play. Instead of scattering notes or relying on platform-specific trackers, QuestLog provides a clean and intuitive interface that works for any game on any system.
 
 ## 🎮 Key Features
 
