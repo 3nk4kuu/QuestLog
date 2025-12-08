@@ -50,6 +50,9 @@
          <padding>
             <Insets bottom="20.0" top="20.0" />
          </padding>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
 
         </VBox>
     </left>
@@ -143,7 +146,7 @@
             </VBox.margin>
             </VBox>
          <BorderPane.margin>
-            <Insets right="50.0" />
+            <Insets right="50.0" top="20.0" />
          </BorderPane.margin>
 
         </VBox>
