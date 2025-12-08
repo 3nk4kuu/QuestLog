@@ -7,6 +7,7 @@ import edu.utsa.cs3443.questlog.service.EntryService;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -27,6 +28,7 @@ public class StatsController {
     @FXML private NumberAxis yAxis;
     @FXML private VBox summaryCard;
     @FXML private TextFlow statsTitleFlow;
+    @FXML private HBox customLegend;
 
     private final EntryService entryService = EntryService.getInstance();
 
@@ -37,6 +39,7 @@ public class StatsController {
         this.username = username;
         updateStatsTitle(username);
         updateStats();
+        buildCustomLegend();
     }
 
     @FXML
@@ -53,8 +56,10 @@ public class StatsController {
 
 
         // chart setup
-        yAxis.setTickUnit(1);
-        yAxis.setMinorTickCount(0);
+        xAxis.setTickLabelsVisible(false);
+        yAxis.setTickLabelsVisible(false);
+        xAxis.setTickMarkVisible(false);
+        yAxis.setTickMarkVisible(false);
         yAxis.setForceZeroInRange(true);
         statusChart.applyCss();
         statusChart.layout();
@@ -63,14 +68,13 @@ public class StatsController {
 
         if (legendBox != null) {
             legendBox.setStyle(
-                    "-fx-background-color: white;" +
+                    "-fx-background-color: transparent;" +
                             "-fx-border-radius: 10;" +
                             "-fx-background-radius: 10;" +
                             "-fx-padding: 10 20 10 20;" +
                             "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);"
             );
 
-            // Fix spacing between legend items
             legendBox.lookupAll(".chart-legend-item")
                     .forEach(node -> node.setStyle("-fx-padding: 0 30 0 30;"));
         }
@@ -82,6 +86,9 @@ public class StatsController {
         } else {
             summaryCard.setStyle("-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);");
         }
+
+        statusChart.setLegendVisible(false);
+        buildCustomLegend();
     }
 
     private void updateStatsTitle(String username) {
@@ -126,18 +133,44 @@ public class StatsController {
 
         statusChart.getData().clear();
 
-        XYChart.Series<String, Number> completedSeries = new XYChart.Series<>();
-        completedSeries.setName("Completed");
-        completedSeries.getData().add(new XYChart.Data<>("Completed", completed));
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.getData().add(new XYChart.Data<>("Completed", completed));
+        series.getData().add(new XYChart.Data<>("Playing", playing));
+        series.getData().add(new XYChart.Data<>("Backlog", backlog));
 
-        XYChart.Series<String, Number> playingSeries = new XYChart.Series<>();
-        playingSeries.setName("Playing");
-        playingSeries.getData().add(new XYChart.Data<>("Playing", playing));
-
-        XYChart.Series<String, Number> backlogSeries = new XYChart.Series<>();
-        backlogSeries.setName("Backlog");
-        backlogSeries.getData().add(new XYChart.Data<>("Backlog", backlog));
-
-        statusChart.getData().addAll(completedSeries, playingSeries, backlogSeries);
+        statusChart.getData().add(series);
     }
+
+    private void buildCustomLegend() {
+        customLegend.getChildren().clear();
+        customLegend.setSpacing(25);
+        String textColor = ScreenNavigator.isDarkMode() ? "#E0E0E0" : "#1A1A1A";
+        customLegend.setStyle("-fx-background-color: transparent");
+        customLegend.setFillHeight(false);
+        customLegend.setMaxWidth(Region.USE_PREF_SIZE);
+
+        customLegend.getChildren().addAll(
+                createLegendItem("#108E10", "Completed", textColor),
+                createLegendItem("#759bff", "Playing", textColor),
+                createLegendItem("#ffaa2b", "Backlog", textColor)
+        );
+    }
+
+    private HBox createLegendItem(String color, String label, String textColor) {
+        Region box = new Region();
+        box.setPrefSize(16, 16);
+        box.setStyle(
+                "-fx-background-color: " + color + ";" +
+                        "-fx-background-radius: 4;"
+        );
+
+        Label lbl = new Label(label);
+        lbl.setStyle("-fx-text-fill: " + textColor + "; -fx-font-size: 20px;");
+
+        HBox item = new HBox(8, box, lbl);
+        item.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+
+        return item;
+    }
+
 }

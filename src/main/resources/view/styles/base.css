@@ -127,15 +127,25 @@
 /* Bar Chart */
 .chart {
     -fx-background-color: transparent;
+    -fx-bar-gap: 40px;        /* space between bars inside a category */
+    -fx-category-gap: 90px;
 }
 
 .chart-plot-background {
     -fx-background-radius: 8;
 }
 
-.default-color0.chart-bar { -fx-bar-fill: #108E10; }
-.default-color1.chart-bar { -fx-bar-fill: #759bff; }
-.default-color2.chart-bar { -fx-bar-fill: #ffaa2b; }
+.data0.chart-bar {
+    -fx-bar-fill: #108E10; /* Completed */
+}
+
+.data1.chart-bar {
+    -fx-bar-fill: #759bff; /* Playing */
+}
+
+.data2.chart-bar {
+    -fx-bar-fill: #ffaa2b; /* Backlog */
+}
 
 .chart-legend-item {
      -fx-padding: 0 10 0 10;  /* spacing */

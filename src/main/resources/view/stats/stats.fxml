@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.TextFlow?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="600" prefWidth="1024" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.questlog.ui.StatsController">
+<BorderPane prefHeight="600" prefWidth="1024" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.questlog.ui.StatsController">
 
     <!-- ========================= LEFT: Summary Card ========================= -->
     <left>
@@ -67,21 +58,28 @@
         <StackPane>
 
             <children>
-                <BarChart fx:id="statusChart" animated="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" prefHeight="420" prefWidth="650" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
-                    <!-- FIX: Properly wired axes -->
-                    <xAxis>
-                        <CategoryAxis fx:id="xAxis" />
-                    </xAxis>
-                    <yAxis>
-                        <NumberAxis fx:id="yAxis" />
-                    </yAxis>
-                </BarChart>
+            <VBox>
+               <children>
+                      <BarChart fx:id="statusChart" animated="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" prefHeight="525.0" prefWidth="847.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                          <!-- FIX: Properly wired axes -->
+                          <xAxis>
+                              <CategoryAxis fx:id="xAxis" />
+                          </xAxis>
+                          <yAxis>
+                              <NumberAxis fx:id="yAxis" />
+                          </yAxis>
+                      </BarChart>
+                   <StackPane fx:id="legendWrapper" alignment="CENTER">
+                       <HBox fx:id="customLegend" />
+                   </StackPane>
+               </children>
+            </VBox>
             </children>
          <BorderPane.margin>
             <Insets right="20.0" />
          </BorderPane.margin>
          <padding>
-            <Insets bottom="10.0" top="10.0" />
+            <Insets top="10.0" />
          </padding>
         </StackPane>
     </center>
