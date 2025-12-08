@@ -142,6 +142,44 @@
     -fx-background-radius: 8;
 }
 
+.date-picker-popup .calendar-view {
+    -fx-background-color: #2A2C31;
+    -fx-border-radius: 8px;
+}
+
+.date-picker-popup .month-view {
+    -fx-background-color: #2A2C31;
+}
+
+.date-picker-popup .calendar {
+    -fx-background-color: #2A2C31;
+}
+
+.date-picker-popup .calendar-grid {
+    -fx-background-color: #2A2C31;
+    -fx-opacity: 0.9;
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: #2A2C31;
+}
+
+.date-picker-popup .day-name-cell {
+    -fx-background-color: #2A2C31;
+    -fx-text-fill: #EEEEEE;
+}
+
+.date-picker-popup .date-cell.previous-month,
+.date-picker-popup .date-cell.next-month {
+    -fx-background-color: #2A2C31;
+    -fx-text-fill: #888888;
+}
+
+.date-picker-popup .date-cell.today {
+    -fx-background-color: #35373D;
+    -fx-text-fill: #FFFFFF;
+}
+
 .date-picker .arrow-button {
     -fx-background-color: #2A2C31;
     -fx-background-radius: 0 8 8 0;
@@ -159,6 +197,7 @@
 .date-picker-popup {
     -fx-background-color: #2A2C31;
     -fx-border-color: #3A3C41;
+    -fx-border-radius: 8px;
 }
 
 .date-cell {
