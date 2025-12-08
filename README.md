@@ -46,3 +46,14 @@ https://www.youtube.com/watch?v=gKg3f5Zac0o&feature=youtu.be
 # 💻 How to Run
 
 Once opening the project, go to MainApp located in _src/main/java/edu/utsa/cs3443/questlog/MainApp.java_ then press Run.
+
+# First-Time Use
+
+On first launch, the application starts with no game entries.
+
+To test functionality:
+1. Register a new user account
+2. Log in
+3. Add new game entries using the provided UI
+
+All data is stored automatically in a user-specific data file.
