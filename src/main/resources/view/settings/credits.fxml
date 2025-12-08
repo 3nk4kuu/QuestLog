@@ -33,7 +33,7 @@
 
     <!-- ===== BIG CENTER CONTENT CARD ===== -->
     <HBox alignment="CENTER">
-        <VBox alignment="TOP_CENTER" spacing="20.0" style="-fx-background-color: white;                      -fx-background-radius: 20;                      -fx-padding: 50 60 50 60;                      -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 14, 0, 0, 3);">
+        <VBox alignment="TOP_CENTER" spacing="20.0" styleClass="settings-card">
 
             <Label style="-fx-font-size: 26; -fx-font-weight: bold;" text="Developers: Keziah Muyna, Jacklyn Nguyen, Aaron Ling, Ethan Tran" />
 

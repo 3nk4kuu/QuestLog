@@ -1,5 +1,6 @@
 package edu.utsa.cs3443.questlog.ui;
 
+import edu.utsa.cs3443.questlog.model.User;
 import edu.utsa.cs3443.questlog.service.AuthService;
 
 import javafx.fxml.FXML;
@@ -19,6 +20,8 @@ public class ManageAccountController {
     @FXML private PasswordField passwordField;
     @FXML private PasswordField confirmPasswordField;
     @FXML private Label messageLabel;
+    @FXML private Label currentUsernameLabel;
+    @FXML private Label currentEmailLabel;
 
 
     private final AuthService authService = AuthService.getInstance();
@@ -27,6 +30,16 @@ public class ManageAccountController {
     private void initialize() {
         messageLabel.setText("");
         emailField.clear();
+
+        User currentUser = authService.getCurrentUser();
+        if (currentUser != null) {
+            currentUsernameLabel.setText(currentUser.getUsername());
+            currentEmailLabel.setText(currentUser.getEmail());
+        } else {
+            currentUsernameLabel.setText("N/A");
+            currentEmailLabel.setText("N/A");
+            messageLabel.setText("Error: No user is currently logged in.");
+        }
     }
 
     @FXML
