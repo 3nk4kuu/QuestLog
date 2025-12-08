@@ -5,7 +5,7 @@ QuestLog is a platform built for gamers to track, organize, and share their prog
 
 ## 🚀 About the Project
 
-QuestLog helps gamers centralize their progress across all the titles they play. Instead of scattering notes or relying on platform-specific trackers, QuestLog provides a clean and intuitive interface that works for any game on any system.
+QuestLog helps gamers centralize their progress across all the titles they play. Instead of scattering notes or relying on platform-specific trackers, QuestLog provides a clean and intuitive interface that works for any game on any system. This project was created by Syntax Squad for CS 3443 Fall 2025 at UTSA.
 
 ## 🎮 Key Features
 
@@ -30,4 +30,8 @@ https://www.figma.com/proto/XqB7ZB5ijKe1xrMfxGBqmN/QuestLog-Prototype?node-id=5-
 
 **YouTube Demos:**  
 &emsp;&emsp;**• First Demo:** https://www.youtube.com/watch?v=gKg3f5Zac0o&feature=youtu.be  
-&emsp;&emsp;**• Final Demo:** 
+&emsp;&emsp;**• Final Demo:**  
+
+## ℹ️ How to Run
+
+Once opening the project, go to MainApp located in src/main/java/edu/utsa/cs3443/questlog/MainApp.java then press Run.
