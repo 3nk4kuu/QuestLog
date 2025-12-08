@@ -9,7 +9,7 @@ QuestLog helps gamers centralize their progress across all the titles they play.
 ## 🎮 Key Features
 
 **Track Game Log**  
-&emsp;&emsp;Log start/completion dates, platform, personal rating, and notes.  
+&emsp;&emsp;Log play status, start/completion dates, platform, personal rating, and notes.  
 &emsp;&emsp;<img width="500px" alt="Game Entry view" src="https://github.com/user-attachments/assets/40e1ac49-23cb-49bb-97d3-35dd769412ce" style="border-radius: 20px;"/>
 
 
