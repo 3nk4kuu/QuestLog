@@ -98,6 +98,11 @@
     -fx-padding: 0 4;
 }
 
+.heart-icon {
+    -fx-font-family: "DotGothic16";
+    -fx-font-size: 14px;
+}
+
 /* ScrollPane */
 .scroll-pane {
     -fx-background-color: transparent;
