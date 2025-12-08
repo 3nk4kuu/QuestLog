@@ -26,20 +26,6 @@ public class LoginController {
         if (errorLabel != null) {
             errorLabel.setVisible(false);
         }
-        if (loginLogo != null) {
-            loginLogo.setImage(
-                    new Image(getClass().getResource("/data/images/logo.png").toString())
-            );
-        }
-
-        // Set vibrant green title programmatically
-        if (loginTitle != null) {
-            loginTitle.setStyle(
-                    "-fx-text-fill: #55EB55; " +
-                            "-fx-font-size: 80px; " +
-                            "-fx-font-weight: bold;"
-            );
-        }
     }
 
     @FXML

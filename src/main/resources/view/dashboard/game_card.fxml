@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
 <StackPane fx:id="root" styleClass="game-card" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.questlog.ui.GameCardController">
 
-    <VBox alignment="TOP_CENTER" spacing="6">
+    <VBox alignment="TOP_CENTER">
         <ImageView fx:id="coverImageView" fitHeight="200.0" fitWidth="150.0" />
       <VBox alignment="CENTER" prefHeight="66.0" prefWidth="150.0">
          <children>
@@ -32,6 +32,9 @@
                </children>
             </HBox>
          </children>
+         <VBox.margin>
+            <Insets bottom="4.0" top="4.0" />
+         </VBox.margin>
       </VBox>
     </VBox>
 

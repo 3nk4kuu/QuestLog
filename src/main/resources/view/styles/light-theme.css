@@ -8,6 +8,10 @@
     -fx-text-fill: #1A1A1A;
 }
 
+.login-title {
+    -fx-text-fill: #55EB55;
+}
+
 /* Error message label */
 .label.error-label {
     -fx-text-fill: #e60073;
@@ -97,6 +101,6 @@
     -fx-background-color: white;
 }
 
-/*.summary-card {
-    -fx-background-color: #white;
-}*/
+.game-card {
+    -fx-background-color: rgba(255, 255, 255, 0.7);
+}
