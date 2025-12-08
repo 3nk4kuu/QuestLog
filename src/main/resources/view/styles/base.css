@@ -176,6 +176,9 @@
     -fx-text-fill: #108E10
 }
 
-.hyperlink:pressed {
-        -fx-text-fill: #108E10
+.hyperlink:focused {
+        -fx-faint-focus-color: transparent;
+        -fx-focus-color: transparent;
+        -fx-background-color: transparent;
+        -fx-background-insets: 0;
     }
