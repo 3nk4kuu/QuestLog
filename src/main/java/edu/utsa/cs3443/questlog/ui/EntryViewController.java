@@ -54,6 +54,13 @@ public class EntryViewController {
 
         notesArea.setText(entry.getNotes());
 
+        String notes = entry.getNotes();
+        if (notes == null || notes.trim().isEmpty()) {
+            notesArea.setText("Nothing here...");
+        } else {
+            notesArea.setText(notes);
+        }
+
         if (ratingHeartsController != null) {
             ratingHeartsController.setRating(entry.getRating());
             ratingHeartsController.setInteractive(false);

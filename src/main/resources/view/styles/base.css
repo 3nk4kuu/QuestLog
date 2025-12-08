@@ -69,6 +69,19 @@
     -fx-font-size: 20px;
 }
 
+.text-area {
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.text-area .content {
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-background-color: transparent;
+}
+
+
 .combo-box-popup .list-cell:selected {
     -fx-background-color: #108E10;
 }
