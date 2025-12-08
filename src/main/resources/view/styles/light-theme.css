@@ -10,8 +10,7 @@
 
 .login-title {
     -fx-text-fill: #55EB55;
-    -fx-effect: innershadow(three-pass-box, #108E1033, 0, 1.2, 0, -5);
-}
+    -fx-effect: innershadow(three-pass-box, #108E104D, 0, 1.2, 0, -5);}
 
 /* Error message label */
 .label.error-label {
