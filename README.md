@@ -10,28 +10,25 @@ QuestLog helps gamers centralize their progress across all the titles they play.
 
 **Track Game Log**  
 &emsp;&emsp;Log play status, start/completion dates, platform, personal rating, and notes.  
-&emsp;&emsp;<img width="500px" alt="Game Entry view" src="https://github.com/user-attachments/assets/40e1ac49-23cb-49bb-97d3-35dd769412ce" style="border-radius: 20px;"/>
-
+&emsp;&emsp;<img width="500px" alt="Game Entry view" src="https://github.com/user-attachments/assets/627434d4-75f9-4b14-ba84-4df89fffdcc2" />  
 
 **Game Library Overview**  
 &emsp;&emsp;A clean home screen that organizes all your games.  
-&emsp;&emsp;<img width="500px" alt="Library view" src="https://github.com/user-attachments/assets/1f2b98e8-ce2e-43ab-b13c-035c0ee68fc2" />
+&emsp;&emsp;<img width="500px" alt="Library view" src="https://github.com/user-attachments/assets/561a4a86-f1f7-4c19-a76d-b6a374d24b1d" />  
 
 
 **Cross-Platform Friendly**  
 &emsp;&emsp;Designed to track games on PC, PlayStation, Xbox, Nintendo, and more.  
-&emsp;&emsp;<img width="500px" alt="Game entries" src="https://github.com/user-attachments/assets/d7c11672-280b-41f5-977d-ac6611ea0229" />
+&emsp;&emsp;<img width="500px" alt="Game entries" src="https://github.com/user-attachments/assets/c40b05f6-fd9d-4e6c-a517-a2904c01abb8" />  
 
 
 **Simple & User-Friendly UI**  
 &emsp;&emsp;The app emphasizes clarity and efficiency so gamers can update their logs quickly.  
-&emsp;&emsp;<img width="500px" alt="Create Entry view" src="https://github.com/user-attachments/assets/1acbfe7e-a19c-48f3-94db-9ee8e7a0890b" /><br><br>
+&emsp;&emsp;<img width="470px" alt="Create Entry view" src="https://github.com/user-attachments/assets/9e40e7fa-ee0c-4a00-91f6-bc28308530c0" /> &emsp;<img width="472px" alt="Create Entry view 2" src="https://github.com/user-attachments/assets/4f7c1218-96cb-4d57-bc0b-34fd4473ce73" />
+
 &emsp;&emsp;A dark mode is also available to use! It can be found in Settings ↴  
-&emsp;&emsp;<img width="500px" alt="Appearance view" src="https://github.com/user-attachments/assets/c7914343-cba7-4083-b7b4-ecd4bd6875ae" /><br><br>
-&emsp;&emsp;<img width="500px" alt="Dark Library view" src="https://github.com/user-attachments/assets/ce7f32a9-bd12-4bd0-a5f0-9ef4971f73f4" />  
-&emsp;&emsp;<img width="500px" alt="Dark Entry View" src="https://github.com/user-attachments/assets/aef4460d-38e7-449c-acd6-26dc85181905" />
-
-
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img width="500px" alt="Appearance view" src="https://github.com/user-attachments/assets/e4e83072-507b-4d07-bb3e-28167bccb517" /><br><br>
+&emsp;&emsp;<img width="470px" alt="Dark Library view" src="https://github.com/user-attachments/assets/70303187-30e7-420b-a41e-75c653fb74c1" />&emsp;<img width="475px" alt="Dark Entry View" src="https://github.com/user-attachments/assets/96f4ff84-3e90-4526-b8d7-280a62eadfdc" />  
 
 
 
