@@ -25,6 +25,8 @@ public class CsvEntryRepository implements EntryRepository {
 
     @Override
     public List<GameEntry> loadAll() throws IOException {
+        System.out.println("CsvEntryRepository reading from: " + file.toAbsolutePath());
+
         List<GameEntry> entries = new ArrayList<>();
 
         if (!Files.exists(file)) {
@@ -120,8 +122,14 @@ public class CsvEntryRepository implements EntryRepository {
 
     private LocalDate parseDate(String s) {
         if (s == null || s.isBlank()) return null;
-        return LocalDate.parse(s, fmt);
+        try {
+            return LocalDate.parse(s, fmt);
+        } catch (java.time.format.DateTimeParseException ex) {
+            System.err.println("Invalid date in CSV: '" + s + "', treating as null");
+            return null;
+        }
     }
+
 
     private String formatDate(LocalDate d) {
         return d == null ? "" : fmt.format(d);
