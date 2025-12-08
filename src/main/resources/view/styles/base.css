@@ -92,8 +92,9 @@
 
 /* Hearts (rating) */
 .heart-toggle {
+    -fx-font-family: "DotGothic16";
     -fx-background-color: transparent;
-    -fx-font-size: 28px;
+    -fx-font-size: 25px;
     -fx-padding: 0 4;
 }
 

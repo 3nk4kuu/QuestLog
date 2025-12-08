@@ -1,5 +1,6 @@
 package edu.utsa.cs3443.questlog;
 
+import edu.utsa.cs3443.questlog.service.FontLoader;
 import edu.utsa.cs3443.questlog.ui.ScreenNavigator;
 import javafx.application.Application;
 import javafx.scene.text.Font;
@@ -11,12 +12,7 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        try (InputStream is = getClass().getResourceAsStream("/data/fonts/Jersey10-Regular.ttf")) {
-            Font f = Font.loadFont(is, 16);
-            System.out.println("Loaded font: " + (f == null ? "NULL" : f.getName() + " / " + f.getFamily()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        FontLoader.loadAllFonts();
 
         ScreenNavigator.init(primaryStage);
         ScreenNavigator.showLogin();
