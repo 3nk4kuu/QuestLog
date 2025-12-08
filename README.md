@@ -26,7 +26,14 @@ QuestLog helps gamers centralize their progress across all the titles they play.
 
 **Simple & User-Friendly UI**  
 &emsp;&emsp;The app emphasizes clarity and efficiency so gamers can update their logs quickly.  
-&emsp;&emsp;<img width="500px" alt="Create Entry view" src="https://github.com/user-attachments/assets/1acbfe7e-a19c-48f3-94db-9ee8e7a0890b" />
+&emsp;&emsp;<img width="500px" alt="Create Entry view" src="https://github.com/user-attachments/assets/1acbfe7e-a19c-48f3-94db-9ee8e7a0890b" /><br><br>
+&emsp;&emsp;A dark mode is also available to use! It can be found in Settings ↴  
+&emsp;&emsp;<img width="500px" alt="Appearance view" src="https://github.com/user-attachments/assets/c7914343-cba7-4083-b7b4-ecd4bd6875ae" /><br><br>
+&emsp;&emsp;<img width="500px" alt="Dark Library view" src="https://github.com/user-attachments/assets/ce7f32a9-bd12-4bd0-a5f0-9ef4971f73f4" />  
+&emsp;&emsp;<img width="500px" alt="Dark Entry View" src="https://github.com/user-attachments/assets/aef4460d-38e7-449c-acd6-26dc85181905" />
+
+
+
 
 
 ## 📸 Prototype Preview
