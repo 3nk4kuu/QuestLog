@@ -46,8 +46,8 @@ public class EntryEditorController {
     @FXML
     private void initialize() {
         Rectangle clip = new Rectangle(coverImageView.getFitWidth(), coverImageView.getFitHeight());
-        clip.setArcWidth(12);
-        clip.setArcHeight(12);
+        clip.setArcWidth(50);
+        clip.setArcHeight(50);
         coverImageView.setClip(clip);
 
         if (errorLabel != null) {

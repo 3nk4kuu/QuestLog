@@ -30,8 +30,8 @@ public class GameCardController {
     public void initialize() {
         // Clip the cover image to match rounded card corners
         Rectangle clip = new Rectangle(coverImageView.getFitWidth(), coverImageView.getFitHeight());
-        clip.setArcWidth(12);
-        clip.setArcHeight(12);
+        clip.setArcWidth(30);
+        clip.setArcHeight(30);
         coverImageView.setClip(clip);
     }
 
