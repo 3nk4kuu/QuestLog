@@ -35,7 +35,7 @@ QuestLog helps gamers centralize their progress across all the titles they play.
 **Track Game Log**<br>
 &emsp; Log play status, start/completion dates, platform, personal rating, and notes.
 <p align="center">
-  <img width="500px" alt="Game Entry view" src="https://github.com/user-attachments/assets/144b2568-7def-47fd-b11f-be5f38f5b4dc" />
+  <img width="500px" alt="Game Entry view" src="https://github.com/user-attachments/assets/006ab0b0-f90c-4677-b0ab-c336609123b0" />
 </p>
 
 <br>
@@ -43,9 +43,9 @@ QuestLog helps gamers centralize their progress across all the titles they play.
 **Simple & User-Friendly UI**<br>
 &emsp; The app emphasizes clarity and efficiency so gamers can update their logs quickly.
 <p align="center">
-  <img width="400px" alt="Create Entry view" src="https://github.com/user-attachments/assets/f85d033f-451e-4240-8753-d4432a25147b" />
+  <img width="400px" alt="Create Entry view" src="https://github.com/user-attachments/assets/301c1299-c0b4-4625-8f08-c1efe3f143e3" />
   &emsp;
-  <img width="402px" alt="Create Entry view 2" src="https://github.com/user-attachments/assets/212ffef5-379c-491e-90cd-1cfa29e84977" />
+  <img width="402px" alt="Create Entry view 2" src="https://github.com/user-attachments/assets/e2b82a38-15b4-4f55-b397-204c43b58c37" />
 </p>
 
 <br>
@@ -56,7 +56,7 @@ QuestLog helps gamers centralize their progress across all the titles they play.
   <br><br>
   <img width="400px" alt="Dark Library view" src="https://github.com/user-attachments/assets/135ac88a-4c56-4aa0-a09e-b2cce273686f" />
   &emsp;
-  <img width="405px" alt="Dark Entry View" src="https://github.com/user-attachments/assets/d3c12408-dfda-404d-82e0-e83ae30cc67f" />
+  <img width="405px" alt="Dark Entry View" src="https://github.com/user-attachments/assets/3111286d-0636-4a0c-8690-cda84b7f42f4" />
 </p>
 
 <br>
