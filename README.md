@@ -16,14 +16,6 @@ QuestLog helps gamers centralize their progress across all the titles they play.
 
 ## 🎮 Key Features
 
-**Track Game Log**<br>
-&emsp; Log play status, start/completion dates, platform, personal rating, and notes.
-<p align="center">
-  <img width="500px" alt="Game Entry view" src="https://github.com/user-attachments/assets/144b2568-7def-47fd-b11f-be5f38f5b4dc" />
-</p>
-
-<br>
-
 **Game Library Overview**<br>
 &emsp; A clean home screen that organizes all your games.
 <p align="center">
@@ -36,6 +28,14 @@ QuestLog helps gamers centralize their progress across all the titles they play.
 &emsp; Designed to track games on PC, PlayStation, Xbox, Nintendo Switch, and more.
 <p align="center">
   <img width="500px" alt="Game entries" src="https://github.com/user-attachments/assets/7e11e9f0-a3d4-4bf2-927d-1149d204e9d7" />
+</p>
+
+<br>
+
+**Track Game Log**<br>
+&emsp; Log play status, start/completion dates, platform, personal rating, and notes.
+<p align="center">
+  <img width="500px" alt="Game Entry view" src="https://github.com/user-attachments/assets/144b2568-7def-47fd-b11f-be5f38f5b4dc" />
 </p>
 
 <br>
