@@ -18,7 +18,7 @@ QuestLog helps gamers centralize their progress across all the titles they play.
 
 
 **Cross-Platform Friendly**  
-&emsp;&emsp;Designed to track games on PC, PlayStation, Xbox, Nintendo, and more.  
+&emsp;&emsp;Designed to track games on PC, PlayStation, Xbox, Nintendo Switch, and more.  
 &emsp;&emsp;<img width="500px" alt="Game entries" src="https://github.com/user-attachments/assets/c40b05f6-fd9d-4e6c-a517-a2904c01abb8" />  
 
 
