@@ -41,9 +41,9 @@ QuestLog helps gamers centralize their progress across all the titles they play.
 **Simple & User-Friendly UI**<br>
 &emsp; The app emphasizes clarity and efficiency so gamers can update their logs quickly.
 <p align="center">
-  <img width="470px" alt="Create Entry view" src="https://github.com/user-attachments/assets/9e40e7fa-ee0c-4a00-91f6-bc28308530c0" />
+  <img width="400px" alt="Create Entry view" src="https://github.com/user-attachments/assets/9e40e7fa-ee0c-4a00-91f6-bc28308530c0" />
   &emsp;
-  <img width="472px" alt="Create Entry view 2" src="https://github.com/user-attachments/assets/4f7c1218-96cb-4d57-bc0b-34fd4473ce73" />
+  <img width="402px" alt="Create Entry view 2" src="https://github.com/user-attachments/assets/4f7c1218-96cb-4d57-bc0b-34fd4473ce73" />
 </p>
 
 <br>
@@ -52,9 +52,9 @@ QuestLog helps gamers centralize their progress across all the titles they play.
 <p align="center">
   <img width="500px" alt="Appearance view" src="https://github.com/user-attachments/assets/e4e83072-507b-4d07-bb3e-28167bccb517" />
   <br><br>
-  <img width="470px" alt="Dark Library view" src="https://github.com/user-attachments/assets/70303187-30e7-420b-a41e-75c653fb74c1" />
+  <img width="400px" alt="Dark Library view" src="https://github.com/user-attachments/assets/70303187-30e7-420b-a41e-75c653fb74c1" />
   &emsp;
-  <img width="475px" alt="Dark Entry View" src="https://github.com/user-attachments/assets/96f4ff84-3e90-4526-b8d7-280a62eadfdc" />
+  <img width="405px" alt="Dark Entry View" src="https://github.com/user-attachments/assets/96f4ff84-3e90-4526-b8d7-280a62eadfdc" />
 </p>
 
 <br>
