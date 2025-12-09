@@ -43,11 +43,11 @@ https://www.figma.com/proto/XqB7ZB5ijKe1xrMfxGBqmN/QuestLog-Prototype?node-id=5-
 https://www.youtube.com/watch?v=gKg3f5Zac0o&feature=youtu.be  
 &emsp;&emsp;❗Please note that this is an older version of our app.
 
-# 💻 How to Run
+#  💻 How to Run
 
 Once opening the project, go to MainApp located in _src/main/java/edu/utsa/cs3443/questlog/MainApp.java_ then press Run.
 
-# First-Time Use
+## 🔰 First-Time Use
 
 On first launch, the application starts with no game entries.
 
