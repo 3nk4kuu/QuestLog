@@ -2,7 +2,7 @@ package edu.utsa.cs3443.questlog.model;
 
 public enum Platform {
     PC("PC", "PC"),
-    PLAYSTATION("Play Station", "PS"),
+    PLAYSTATION("PlayStation", "PS"),
     XBOX("Xbox", "XB"),
     SWITCH("Nintendo Switch", "NS"),
     OTHER("Other", "Other");
