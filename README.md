@@ -17,7 +17,7 @@ QuestLog helps gamers centralize their progress across all the titles they play.
 **Track Game Log**<br>
 &emsp; Log play status, start/completion dates, platform, personal rating, and notes.
 <p align="center">
-  <img width="500px" alt="Game Entry view" src="https://github.com/user-attachments/assets/627434d4-75f9-4b14-ba84-4df89fffdcc2" />
+  <img width="500px" alt="Game Entry view" src="https://github.com/user-attachments/assets/144b2568-7def-47fd-b11f-be5f38f5b4dc" />
 </p>
 
 <br>
@@ -25,7 +25,7 @@ QuestLog helps gamers centralize their progress across all the titles they play.
 **Game Library Overview**<br>
 &emsp; A clean home screen that organizes all your games.
 <p align="center">
-  <img width="500px" alt="Library view" src="https://github.com/user-attachments/assets/561a4a86-f1f7-4c19-a76d-b6a374d24b1d" />
+  <img width="500px" alt="Library view" src="https://github.com/user-attachments/assets/e1e9d916-453a-40ef-8995-4d98e4c476df" />
 </p>
 
 <br>
@@ -33,7 +33,7 @@ QuestLog helps gamers centralize their progress across all the titles they play.
 **Cross-Platform Friendly**<br>
 &emsp; Designed to track games on PC, PlayStation, Xbox, Nintendo Switch, and more.
 <p align="center">
-  <img width="500px" alt="Game entries" src="https://github.com/user-attachments/assets/c40b05f6-fd9d-4e6c-a517-a2904c01abb8" />
+  <img width="500px" alt="Game entries" src="https://github.com/user-attachments/assets/7e11e9f0-a3d4-4bf2-927d-1149d204e9d7" />
 </p>
 
 <br>
@@ -41,20 +41,20 @@ QuestLog helps gamers centralize their progress across all the titles they play.
 **Simple & User-Friendly UI**<br>
 &emsp; The app emphasizes clarity and efficiency so gamers can update their logs quickly.
 <p align="center">
-  <img width="400px" alt="Create Entry view" src="https://github.com/user-attachments/assets/9e40e7fa-ee0c-4a00-91f6-bc28308530c0" />
+  <img width="400px" alt="Create Entry view" src="https://github.com/user-attachments/assets/f85d033f-451e-4240-8753-d4432a25147b" />
   &emsp;
-  <img width="402px" alt="Create Entry view 2" src="https://github.com/user-attachments/assets/4f7c1218-96cb-4d57-bc0b-34fd4473ce73" />
+  <img width="402px" alt="Create Entry view 2" src="https://github.com/user-attachments/assets/212ffef5-379c-491e-90cd-1cfa29e84977" />
 </p>
 
 <br>
 
 &emsp; A dark mode is also available to use! It can be found in Settings ↴
 <p align="center">
-  <img width="500px" alt="Appearance view" src="https://github.com/user-attachments/assets/e4e83072-507b-4d07-bb3e-28167bccb517" />
+  <img width="500px" alt="Appearance view" src="https://github.com/user-attachments/assets/1e0db0d9-d916-4f7a-a822-339eb5a866cc" />
   <br><br>
-  <img width="400px" alt="Dark Library view" src="https://github.com/user-attachments/assets/70303187-30e7-420b-a41e-75c653fb74c1" />
+  <img width="400px" alt="Dark Library view" src="https://github.com/user-attachments/assets/135ac88a-4c56-4aa0-a09e-b2cce273686f" />
   &emsp;
-  <img width="405px" alt="Dark Entry View" src="https://github.com/user-attachments/assets/96f4ff84-3e90-4526-b8d7-280a62eadfdc" />
+  <img width="405px" alt="Dark Entry View" src="https://github.com/user-attachments/assets/d3c12408-dfda-404d-82e0-e83ae30cc67f" />
 </p>
 
 <br>
